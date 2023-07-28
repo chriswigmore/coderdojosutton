@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=4" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 16 &mdash; Asteroid defence IV: Turret</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Aiming</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Precision</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Missiles</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Exploding asteroids</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>
+                            In this module we will create a turret to shoot down the asteroids.
+                        </p>
+                        <div class="img-wrapper">
+                            <img src="../img/016/animation.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Aiming <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aiming 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Aiming</h2>
+                        <p>
+                            Load up the project you saved at the end of the last module.
+                        </p>
+                        <p>
+                            Paint a new sprite named 'Turret'.
+                        </p>
+                        <p>
+                            In the drawing area, draw whatever you think your turret &mdash; your missile-firing, floating-in-space platform &mdash; should look like.
+                            Just make sure that it's about 20 &times; 20 pixels, and snapped to the centre. I drew a circle with spokes and a long barrel:
+                        </p>
+                        <img src="../img/016/draw-turret.png"/>
+                        <p>
+                            Make a duplicate of that costume named 'range'. We'll use this costume to detect when an asteroid is in range of the turret, by switching to this
+                            costume and seeing if an asteroid is touching the sprite.
+                        </p>
+                        <p>
+                            In the range costume, add a circle with a radial gradient from transparent to blue, snapped to the centre, and sent to the back.
+                            This circle determines the range of your turret, so it should be nice and big &mdash; about 200 &times; 200 pixels:
+                        </p>
+                        <img src="../img/016/range.png"/>
+                        <p>
+                            If your costume is exactly 200 pixels &times; 200 pixels, what's the furthest it can shoot?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">200 pixels</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>100 pixels</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            Right &mdash; the costume size is from one edge to the other; the distance from the turret (at the centre) to the edge is half that.
+                        </p>
+                        <p>
+                            Duplicate the range costume, naming it 'aim'. We'll use this costume to aim at the in-range asteroid.
+                        </p>
+                        <p>
+                            Draw a bright blue line, thickness 2, pointing to the right, starting at the centre of the drawing area and ending a few pixels past the edge of the blue circle.
+                            The line must point <em>exactly</em> to the right, so hold down the shift key while making it. (It's also <strong>important</strong> that it starts at
+                            the centre and ends just past the edge of the blue circle.) Now delete the blue circle and the turret, leaving only the blue line:
+                        </p>
+                        <img src="../img/016/direction.png"/>
+                        <p>
+                            We will aim the turret by turning the aim costume until it touches an asteroid. But here's the question &mdash; should we turn clockwise,
+                            or anti-clockwise?
+                        </p>
+                        <p>
+                            That's a tricky question, because there are a couple of things that we want:
+                            <ul>
+                                <li>the turret should keep firing at the same asteroid until it's destroyed</li>
+                                <li>given two asteroids, the turret should aim at the one nearer to Earth</li>
+                            </ul>
+                            So here's our plan: we'll turn a tiny bit clockwise, then a tiny bit anti-clockwise, then a bit more clockwise, then a bit more anti-clockwise,
+                            and so on, constantly checking if we're touching an asteroid.
+                        </p>
+                        <p>
+                            Given several asteroids, which one will this plan leave us aiming at?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">None of them</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>The one closest to the direction we were already pointing in</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Correct. Let's see this in action.</p>
+                        <p>Switch to the Code tab. Add a <span class="looks">switch costume to <span>aim</span></span>.</p>
+                        <p>
+                            Create a variable called <span class="variable rounded">angle</span> (for this sprite only). Set it to 5 at the start of a
+                            <span class="control">repeat <var>36</var></span> loop, and increase it by 5 within the loop:
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/angle-loop.png"/>
+                        <p>
+                            Inside the loop, turn clockwise by <span class="variable rounded">angle</span>, then anti-clockwise by twice <span class="variable rounded">angle</span>.
+                            Finally, turn clockwise by <span class="variable rounded">angle</span> once more, so that we end up pointing straight forwards, ready for the next time
+                            round the loop. Add a <span class="control">wait <var>0</var> seconds</span> after the first two turns, so that the screen refreshes and shows us what's happening:
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/angle-loop-2.png"/>
+                        <p>
+                            Click the script to run it. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="#01-02" data-correct>
+                                The blue line flickers as it explores the space in range of the turret, starting close to the starting direction, and sweeping backwards
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            Good. Now that you've seen how this works, replace those <span class="control">wait <var>0</var> seconds</span> blocks with blocks that will
+                            stop the script if the costume is touching an asteroid:
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/angle-loop-3.png"/>
+                        <p>
+                            Make the asteroid sprite visible and drag it in range of the turret but off to one side. Run the script &mdash; what happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03" data-correct>The blue line turns to touch the asteroid</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            The script runs pretty slowly. Use a Block, named <span class="my-blocks">Point towards asteroid</span>, to run it without screen refresh.
+                        </p>
+                        <p>
+                            There's a bug in this script &mdash; can you spot it?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04" data-correct>If we're already pointing at the asteroid, we'll turn away from it</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04">If the asteroid is behind us, we'll never turn enough to point towards it</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            Add some code at the start of the script to stop the rest of the script if we're already touching an asteroid:
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/angle-loop-4.png"/>
+                        <p>
+                            Let's have the turret constantly point at an in-range asteroid. Add code so that, when the green flag is clicked, a forever loop starts.
+                            Inside the loop, switch to the <em>range</em> costume and see if an asteroid is touching. If so, point towards it:
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/point-turret-1.png"/>
+                        <p>
+                            Position the turret within range of the Path and click the green flag. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-05">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-05" data-correct>The blue line turns to point at asteroids as they come in range and fly past!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            Good. However, if you look closely, you'll notice that the turret doesn't generally point at the <em>centre</em> of any asteroid.
+                            It points at the first part of the asteroid that the blue line touches, which is often the <em>side</em> of the asteroid. Let's make the aim
+                            more precise.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Precision <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Precision 02 -->
+                    <div class="question" data-hash="#02">
+                        <h2>Precision</h2>
+                        <p>
+                            When the <span class="my-blocks">Point towards asteroid</span> Block stops, the <em>aim</em> costume is touching an asteroid.
+                            To ensure that it's touching the <em>centre</em> of that asteroid, we just need to:
+                            <ul>
+                                <li>turn clockwise until we <em>stop</em> touching the asteroid... we'll call this the 'max angle'</li>
+                                <li>turn <em>anti</em>-clockwise until we stop touching the asteroid... we'll call this the 'min angle'</li>
+                                <li>turn to halfway between the min angle and the max angle</li>
+                            </ul>
+                        </p>
+                        <p>
+                            Create a new Block named <span class="my-blocks">Point towards asteroid centre</span> (run without screen refresh). Call this Block
+                            just before stopping the <span class="my-blocks">Point towards asteroid</span> script (all three times):
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/point-towards-centre.png"/>
+                        <p>
+                            Create two new variables, <span class="variable rounded">max angle</span> and <span class="variable rounded">min angle</span> (for this sprite only).
+                            At the start of the <span class="my-blocks">Point towards asteroid centre</span> definition, set both variables to 0. Also store the current direction
+                            in <span class="variable rounded">angle</span>:
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/point-towards-centre-2.png"/>
+                        <p>
+                            Add some code to turn clockwise, one degree at a time, incrementing <span class="variable rounded">max angle</span> as it goes, until we've turned
+                            too far and are no longer touching the asteroid.
+                        </p>
+                        <p>
+                            Does your code look like this?
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/point-towards-centre-3.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Good. What does the max angle variable hold?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>The number of degrees that you can turn clockwise before you stop pointing at the asteroid</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">The number of degrees you need to turn to point at the asteroid's centre</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Right. Add some code to find out how far you can turn anti-clockwise, remembering to point the turret in the original direction (which you
+                            captured in the <span class="variable rounded">angle</span> variable) before you start.
+                        </p>
+                        <p>
+                            Does your code look like this?
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/point-towards-centre-4.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Now, point the turret in the original direction, and then add the clever part &mdash; turn halfway between
+                            <span class="variable rounded">max angle</span> and <span class="variable rounded">min angle</span>:
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/point-towards-centre-5.png"/>
+                        <p>
+                            Click the green flag. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03" data-correct>The blue line points at the centre of the asteroids!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Now that we know we're aiming well, we don't want to see the blue line any more. Switch to costume1 just at the end of the forever-loop:
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/point-turret.png"/>
+                        <p>
+                            Click the green flag. Does the turret still aim at the centre of the asteroids as they fly past?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Good. Time to launch some missiles.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Missiles <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Missiles 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Missiles</h2>
+                        <p>
+                            Paint a new sprite named 'Missile'. Zoom in, select the Line tool, a grey Outline colour, thickness 2, and draw a short horizontal line,
+                            a couple of chequered squares right of centre:
+                        </p>
+                        <img src="../img/016/missile-1.png"/>
+                        <p>
+                            Select the Circle tool, a transparent Outline colour, and set the Fill colour to a horizontal gradient, transparent to pale yellow.
+                            Draw an ellipse between the centre of the drawing area and the tail of the missile, and send it to the back.
+                            (You can use the Reshape tool to make it taper to a point if you want to.)
+                        </p>
+                        <img src="../img/016/missile-2.png"/>
+                        <p>
+                            Switch to the Code tab of the Turret sprite. Make a new Block named <span class="my-blocks">Fire</span> (without screen refresh), and in its
+                            definition create a clone of Missile:
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/fire-1.png"/>
+                        <p>
+                            What must we do to make each missile clone fly from turret to asteroid?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">We must calculate the distance from the turret to the asteroid</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="#03-00" data-correct>
+                                We must set each clone's <span class="motion rounded">x position</span>, <span class="motion rounded">y position</span> and <span class="motion rounded">direction</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Right. We'll call these three things the 'missile info' &mdash; they will be used to setup each missile clone with the correct starting position
+                            and direction.
+                        </p>
+                        <p>
+                            At the moment there is only one turret, but in a later module there will be many turrets. Therefore, create a list named
+                            <span class="list rounded">MISSILE INFO</span> (for all sprites). Any turret that fires a missile will add its info to this list and,
+                            whenever a missile clone is created, it will set itself up by reading from this list.
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/fire-2.png"/>
+                        <p>
+                            Add a call to <span class="my-blocks">Fire</span> right after we've aimed the turret. Also, clear out the <span class="list rounded">MISSILE INFO</span>
+                            when the green flag is clicked:
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/fire-3.png"/>
+                        <p>
+                            Switch to the Missile sprite. Add the usual hide-template-show-clone blocks, then set the clone's x, y and direction appropriately
+                            (remembering to delete items from the list after reading them):
+                        </p>
+                        <img src="../img/016/missile.png" class="pull-right"/>
+                        <img src="../img/016/missile-3.png"/>
+                        <p>
+                            Click the green flag. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>Missiles pile up on top of the turret</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            We forgot to make the missiles fly! Add some code for that:
+                        </p>
+                        <img src="../img/016/missile.png" class="pull-right"/>
+                        <img src="../img/016/missile-4.png"/>
+                        <p>
+                            Click the green flag. What happens now?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02" data-correct>A long stream of missiles flies across the screen</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">Nothing happens</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Things will look more realistic if we add a cooldown. Switch to the Turret sprite and make a new variable named
+                            <span class="variable rounded">time when cool</span> (for this sprite only). Set it to 0 when the green flag is clicked:
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/cooldown-1.png"/>
+                        <p>
+                            Do you remember what <span class="variable rounded">T</span> does?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03">It stores the number of asteroids</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03" data-correct>It stores the number of ticks of a very fast clock</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Add some code to the <span class="my-blocks">Fire</span> Block to 'bail out early' if the number of ticks hasn't yet reached the
+                            <span class="variable rounded">time when cool</span>. And then, after we fire a missile, set the <span class="variable rounded">time when cool</span>
+                            to <span class="operators rounded"><var><span class="variable rounded">T</span></var> + <var>15</var></span>, so that it takes 15 ticks until we
+                            fire again.
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/fire-4.png"/>
+                        <p>
+                            Click the green flag. Are the missiles more spread out now?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Good. Let's make those asteroids explode when a missile hits them.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Exploding asteroids <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exploding asteroids 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Exploding asteroids</h2>
+                        <p>
+                            Switch to the Missile sprite. In its repeat-loop, if it's touching an asteroid, broadcast a new message 'Asteroid hit':
+                        </p>
+                        <img src="../img/016/missile.png" class="pull-right"/>
+                        <img src="../img/016/asteroid-hit.png"/>
+                        <p>How many asteroids will receive this message?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>All of them</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">The one touching the missile</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Switch to the Asteroid sprite and add a <span class="events">when I receive <span>Asteroid hit</span></span>.
+                            Since <em>all</em> asteroids will receive this message, and we only want <em>the one touching the missile</em> to explode, add some code
+                            to bail out early if not touching a missile:
+                        </p>
+                        <img src="../img/016/asteroid.png" class="pull-right"/>
+                        <img src="../img/016/asteroid-hit-2.png"/>
+                        <p>
+                            In previous modules we made asteroids explode by clicking them, so we had lots of code blocks wired up to the
+                            <span class="events">when this sprite clicked</span> event. To make them explode when a missile hits them, all we need to do is pull those blocks
+                            off the sprite-clicked event, snap them onto the asteroid-hit event, and then delete the <span class="events">when this sprite clicked</span> block:
+                        </p>
+                        <img src="../img/016/asteroid.png" class="pull-right"/>
+                        <img src="../img/016/move-script.png"/>
+                        <p>
+                            Click the green flag. Do the missiles make the asteroids explode when they hit them?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Do you spot any bugs?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02">No</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>Yes, the missiles aren't destroyed in the explosions</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Switch back to the Missile sprite. After we broadcast <em>Asteroid hit</em>, we don't delete the missile clone. If we were to delete it,
+                            would that cause any problems?
+                        </p>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="#04-03" data-correct>
+                                Yes, if the missile clone is deleted before the <span class="events">when I receive <span>Asteroid hit</span></span> script runs,
+                                then it won't be there to let the asteroids know which one it's touching
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-03">No, that should be fine</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Do you remember that <span class="control">wait <var>0</var> seconds</span> causes a screen refresh? If we wait &mdash; even zero seconds &mdash; before deleting
+                            the missile clone, it will let the <span class="events">when I receive <span>Asteroid hit</span></span> script run successfully first.
+                            This should fix our bug:
+                        </p>
+                        <img src="../img/016/missile.png" class="pull-right"/>
+                        <img src="../img/016/missile-5.png"/>
+                        <p>
+                            Click the green flag. Are the missiles now destroyed in the explosions?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-04" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-04">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Great. One last tweak &mdash; in the Turret sprite, stop other scripts upon receiving the <em>Game over</em> event:
+                        </p>
+                        <img src="../img/016/turret.png" class="pull-right"/>
+                        <img src="../img/016/stop-other.png"/>
+                        <p>
+                            Now, click the full screen button, click the green flag, and watch your turret destroy asteroids.
+                        </p>
+                        <p>
+                            Note: if your turret is far away from the Path you might find that, with the faster asteroids, the missiles sail past just behind target.
+                            In the next module, positioning will become very important, as we create a shop to buy new turrets that you can place anywhere. For now,
+                            feel free to drag your turret to a better location.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Next steps</h2>
+                        <p>Save your project.</p>
+                        <p>In the next few modules we will:</p>
+                        <ul>
+                            <li>create a shop for buying extra turrets</li>
+                        </ul>
+                        <p>Feel free to try out any of those ideas beforehand, or to try a different idea of your own instead.</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules2.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '016';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

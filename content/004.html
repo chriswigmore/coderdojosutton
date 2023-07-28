@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=3" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 4 &mdash; Natural selection</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Energy</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Feeding</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Spawning</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Genes</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Mutation</a></li>
+                    <li><a href="#06-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>Create a world full of life forms. Then watch them evolve.</p>
+                        <div class="img-wrapper">
+                            <img src="../img/004/evolution.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Energy <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Energy 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Energy</h2>
+                        <p>Start from an empty Scratch project (<a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a> &mdash; remember to delete the cat sprite).</p>
+                        <p>Create a new sprite, clicking 'Paint', rather than 'Choose a Sprite'.</p>
+                        <img src="../img/002/paint-sprite.png"/>
+                        <p>Zoom in until the chequered background becomes large, then select the Circle tool, change the Fill colour to a bright green, and place the mouse pointer 3 chequered squares up and left from the centre.</p>
+                        <img src="../img/004/start-circle.png"/>
+                        <p>Click and drag the mouse to the point that's 3 chequered squares down and right from the centre.</p>
+                        <p>Note: it's <strong>important</strong> that your circle is the correct size and correctly centred!</p>
+                        <img src="../img/004/end-circle.png"/>
+                        <p>Click on the Code tab, and add some code that</p>
+                        <ul>
+                            <li>hides the sprite when the green flag is clicked, then</li>
+                            <li>creates a clone of itself, and</li>
+                            <li>shows the clone once it's been created.</li>
+                        </ul>
+                        <p>Does your code look like this?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct><img src="../img/004/flag-hide-clone-show.png"/></label>
+                        </div>
+                        <br />
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00"><img src="../img/004/flag-show-clone-hide.png"/></label>
+                        </div>
+                    </div>
+
+
+                    <div class="question" data-hash="#01">
+                        <p>Create a variable named 'energy' being sure to select 'For this sprite only'.</p>
+                        <img src="../img/004/energy-variable.png"/>
+                        <p>If a variable is 'For all sprites' then every sprite can read its value, and every sprite can change its value &mdash; there's only the one value. We're about to fill a world with lots of life forms, and each life form will have its own separate store of energy, so each needs its own energy variable.</p>
+                        <p>Life forms are born with some energy, they gain energy when they feed, but they lose energy all the time, and they die if they don't have enough to eat.</p>
+                        <p>Let's start by setting a life form's energy to 100 (for now) when it's born, and then let it repeatedly lose 1 energy. Once it runs out of energy, it should die. Does your code look like this?</p>
+                        <img src="../img/004/energy-100-decrement-delete.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Click the green flag a few times. Do you see a green circle flash briefly on the screen then disappear?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>In each brief flash, a life form is being born, losing energy 100 times, then dying. It all happens much too fast, because computers count <em>super</em> fast... could you count backwards from 100 to 0 in less than a second?</p>
+                        <p>However, we can slow it down <em>and also</em> watch the energy decrease with just one change. Set the sprite's brightness inside the repeat loop:</p>
+                        <img src="../img/004/set-brightness-energy-100.png"/>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> Why set the brightness to <span class="operators rounded"><var><span class="variable rounded">energy</span></var> - <var>100</var></span>? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>We want the sprite to be black when the energy is zero, but we get black by setting the brightness effect to -100.</p>
+                            </div>
+                        </div>
+                        <p>If you click the green flag now, what happens?</p>
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03">A green circle flashes briefly on the screen again</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03" data-correct>A green circle appears, gradually fades to black, then disappears</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Our life form died because we didn't feed it &mdash; let's feed it now.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Feeding <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feeding 02 -->
+
+                    <div class="question" data-hash="#02">
+                        <h2>Feeding</h2>
+                        <p>Grab a <span class="operators rounded">pick random <var>1</var> to <var>10</var></span> and click it a few times. You should see something pop up, after each click, showing a random number between 1 and 10.</p>
+                        <p>In some games where you roll dice, special things happen if you roll a 6, like you get to roll again. In our world, if the 'pick random' block gives us a 10, our life form will feed. Think of it like a drop of rain randomly falling on a plant.</p>
+                        <p>So, set the energy to 100 if the random number is 10:</p>
+                        <img src="../img/004/pick-random-set-energy.png"/>
+                        <p>What happens if you click the green flag now?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">The life form spawns a child</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>The life form doesn't die, though sometimes it gets darker if it goes a long time without feeding</label>
+                        </div>
+                        <small>There's actually a very small chance that your life form will die, almost a one in a million chance. If that happens, just click the green flag again.</small>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>It's time for our life form to spawn some children.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Spawning <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Spawning 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Spawning</h2>
+                        <p>In our world, our life forms will reproduce by randomly spawning clones of themselves.</p>
+                        <p>Once we let our life forms spawn children, those children will also be able to spawn children, and so will those children, and so on. Since computers are crazy fast, you could very quickly end up with so many life forms that your browser crashes. Do you promise not to press the green flag until you're instructed to?<p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">No</label>
+                        </div>
+                    </div>
+                    
+                    <div class="question" data-hash="#03">
+                        <p>Right-click on the 'if-then' block, click 'Duplicate', and click to drop the duplicated script inside the repeat-loop.</p>
+                        <p>But this time, if the 'pick random' block gives us a 10, we don't want to set the energy to 100, so delete the <span class="variable">set <span>energy</span> to <var>100</var></span> and nest a <span class="control">create clone of <span>myself</span></span> inside the if-then instead:</p>
+                        <img src="../img/004/pick-random-clone-myself.png"/>
+                        <p>With our code like this, where will children be spawned?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">Next to their parent</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>Behind their parent, because clones are created with the same position as their template</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>We want children to be spawned <em>next</em> to their parents, not <em>behind</em> them. To spawn next to its parent, a child must move 30 steps as soon as it's born. Also, to avoid always spawning to the right of the parent, we should point it in a random direction first:</p>
+                        <img src="../img/004/point-random-move.png"/>
+                        <p>We've just stopped parents and children from overlapping, but not grandparents and granchildren! We need to delete newly created sprites if they overlap another sprite. Grab a <span class="sensing hex">touching <span>mouse-pointer</span></span> &mdash; can it be changed to <span class="sensing">touching <span>Sprite1</span></span>?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02" data-correct>No &mdash; the only options are 'mouse-pointer' and 'edge'</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>It doesn't make sense to ask if a sprite is touching itself (it always is, or always isn't, depending how you think about it) so the Scratch website doesn't put that option in the dropdown. But we have <em>clones</em> of a sprite, and it does make sense to ask if clones are touching each other.</p>
+                        <p>Fortunately there's a trick to get round this problem.</p>
+                        <ul>
+                            <li>Create a new sprite (it doesn't matter what it looks like, we'll delete it in just a moment)</li>
+                            <li>Grab a <span class="sensing hex">touching <span>mouse-pointer</span></span> and change it to <span class="sensing hex">touching <span>Sprite1</span></span></li> (note: we have that option now, because we're in a new sprite)
+                            <li>Use Ctrl + C to copy this code block, click back to Sprite1, and use Ctrl + V to paste it into Sprite1's code area</li>
+                            <li>Delete the new sprite you just created</li>
+                        </ul>
+                        <p>Now that you have the <span class="sensing hex">touching <span>Sprite1</span></span> block that you need, add some code to delete a newly created sprite if it overlaps another:</p>
+                        <img src="../img/004/if-touching-sprite1-delete.png"/>
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03">Nothing</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03" data-correct>Life forms have taken over the stage!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Good. But we're actually cheating &mdash; parents are not sharing their energy with their children, they're just creating energy from nowhere. Let's fix that.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Genes <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Genes 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Genes</h2>
+                        <p>Create a variable named <span class="variable rounded">starting energy</span> being sure to select 'For this sprite only'.</p>
+                        <p>Set starting energy to 10 when the green flag is clicked.</p>
+                        <p>When a new life form is born, stop setting its energy to 100, set its energy to <span class="variable rounded">starting energy</span> instead.</p>
+                        <p>After a life form has spawned a child, decrease its energy by starting energy, i.e. change it by <span class="operators rounded"><var>0</var> - <var><span class="variable rounded">starting energy</span></var></span>.</p>
+                        <p>Does your code look like this:</p>
+                        <img src="../img/004/use-starting-energy.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Click the green flag. You probaby see lots of black circles &mdash; hungry life forms &mdash; being born and then dying. This is because they are now being born with only 10 energy, and they often run out of energy before they have a chance to feed.</p>
+                        <p>Change <span class="variable">set <span>starting energy</span> to <var>10</var></span> to <span class="variable">set <span>starting energy</span> to <var>70</var></span>.</p>
+                        <p>Click the green flag again. Now you probaby see lots of <em>parents</em> turning black, maybe even dying. Why?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">Because now the children are eating their parents</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>Because now the parents are giving 70 of their energy to their children, leaving them hungry, and making some of them die during childbirth.</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>You can think of the starting energy like a 'gene', controlling how much energy a parent shares with its child. And you can think of what we just did as creating two different species: one that spawned hungry children, one that spawned energetic children but left the parent hungry.</p>
+                        <p>Now it's time to let those genes mutate.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Mutation <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mutation 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Mutation</h2>
+
+                        <p>Duplicate the last if-then block and snap it just before the repeat-loop. Throw away the blocks inside it, and add a <span class="variable">change <span>starting energy</span> by <var>1</var></span> instead:</p>
+                        <img src="../img/004/pick-random-change.png"/>
+                        <p>We want the starting energy to be able to increase <em>or decrease</em>, so change <span class="variable">change <span>starting energy</span> by <var>1</var></span> to <span class="variable">change <span>starting energy</span> by <var><span class="operators rounded">pick random <var>-10</var> to <var>10</var></span></var></span>.</p>
+                        <p>What will this new bit of script do?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00" data-correct>It will randomly change the starting energy. It could decrease it by 10, increase it by 10, or anything in between.</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00">It will randomly delete newly spawned life forms</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>This is like a 'mutation' in a real life form.</p>
+                        <p>We want to be able to see our life forms mutating. Set the color effect to the starting energy just before the repeat-loop:</p>
+                        <img src="../img/004/set-color-starting-energy.png"/>
+                        <p>Can you guess what colour the first life forms will be?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01">Green</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01" data-correct>Blue</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>Remember that the first life form will have starting energy 70, so the color effect of 70 will 'spin' the green around the colour wheel until it ends up blue.</p>
+                        <p>Click the full screen button, click the green flag and watch your life forms for about five minutes. Look out for species with different colours appearing.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How do I hide the energy and starting energy readouts? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Uncheck the variables' checkboxes:</p>
+                                <img src="../img/004/hide-readouts.png"/>
+                            </div>
+                        </div>
+                        <p>I don't know exactly what you'll see, because so much here is random. If you're lucky you might see some purple life forms appear &mdash; those spawn very energetic children. However, they find it hard to survive when passing so much energy to their children, so they tend to die out.</p>
+                        <p>You're more likely to see turquoise life forms appear, and then green ones finally taking over. This is natural selection &mdash; the better a creature is at surviving, the more likely it will survive and pass its genes on.</p>
+                        <p>Remember that the more green a life form looks, the less energy is being passed to its children. We see this in nature &mdash; it's very common to find creatures which spawn hundreds of children, most of which die, because only a few need to survive to spawn the next generation.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#04-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#06-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 06 -->
+
+                    <div class="question" data-hash="#06">
+                        <h2>Next steps</h2>
+                        <p>Exit full screen, and save your game.</p>
+                        <p>See if you can make it better.</p>
+                        <p>Could you create a 'gene' for size, let it mutate, and see if bigger or smaller life forms are more successful?</p>
+                        <p>These life forms are a bit like plants &mdash; could you create some 'herbivores' that move around and eat them?</p>
+                        <p>Could you create some carnviores to eat the herbivores?</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '004';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

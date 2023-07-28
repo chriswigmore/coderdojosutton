@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=3" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 7 &mdash; Animation</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Four frames</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Backdrop</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Background</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Foreground</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>Learn how to animate a four-frame run cycle.</p>
+                        <div class="img-wrapper">
+                            <img src="../img/007/animation.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Four frames <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Four frames 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Four frames</h2>
+                        <p>Start from an empty Scratch project (<a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a> &mdash; remember to delete the cat sprite).</p>
+                        <p>Paint a new sprite, naming it Runner. This sprite will have four costumes, each costume acting as a frame in our animation.</p>
+                        <p>Zoom in a little bit, select the Rectangle tool and draw a thin rectangle just under the centre (<img src="../img/007/centre.png"/>) &mdash; we'll delete this later but for now it will act as the ground and let us know where our runner's feet should be:</p>
+                        <img src="../img/007/ground.png"/>
+                        <p>Select the Line tool and draw a stick figure in the first frame of the run cycle:</p>
+                        <img src="../img/007/push.png"/>
+                        <p>Use one line for both legs, one line for both arms, one line for the body, and a circle for the head (filled with black). Try to get the lengths and angles of the lines close to the image above.</p>
+                        <p>Does your costume look similar to the image above?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">No</label>
+                        </div>
+                    </div>
+
+
+                    <div class="question" data-hash="#01">
+                        <p>Duplicate that first costume. Select the Reshape tool and click on the legs. Since the back leg was straight in the first costume, there is no knee &mdash; add a knee by clicking halfway up the back leg and then clicking 'Pointed':</p>
+                        <img src="../img/007/pointed.png"/>
+                        <p>Select the Select tool, select every part of the stick figure (the easiest way is to drag a box around him, being careful not to include the rectangle) and press the up arrow key four times to move the figure up.</p>
+                        <p>Now drag the knees and the feet until the legs are angled like the below image (the previous costume is included, greyed out, to help you see how things have moved). Adjust the elbows and hands slightly too. Try to keep the length of the lines the same &mdash; remember, the angle between two bones can change at a joint, but the bones don't get longer or shorter!</p>
+                        <img src="../img/007/up.png"/>
+                        <p>Does your second costume look similar to the image above?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Duplicate that second costume. Select every part of the stick figure and press the down arrow key four times to return him to normal height above the ground.</p>
+                        <p>Select the Reshape tool and click on the front leg. Since this leg will be straight, select the knee point and click 'Delete'.</p>
+                        <p>Drag the legs and arms until they look like the image below.</p>
+                        <img src="../img/007/contact.png"/>
+                        <p>Does your new costume look similar to the image above?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Duplicate that third costume. Select every part of the stick figure and press the down arrow key two times so that he's lower to the ground in this frame.</p>
+                        <p>Use the Reshape tool and/or the Line tool to make the final frame:</p>
+                        <img src="../img/007/passing.png"/>
+                        <p>Does your new costume look similar to the image above?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Click the Code tab and add some script to cycle through the costumes forever:</p>
+                        <img src="../img/007/forever-next-costume.png"/>
+                        <p>Click the green flag. Does your stick figure appear to be running on the spot?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Good. Let's make a beautiful scene for him to run through.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Backdrop <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backdrop 02 -->
+
+                    <div class="question" data-hash="#02">
+                        <h2>Backdrop</h2>
+                        <p>First, delete the rectangles from those four frames &mdash; we don't need them anymore.</p>
+                        <p>Then, paint a backdrop. Draw a rectangle for the sky filled with a light sandy color (no outline) letting it fill about two thirds of the stage:</p>
+                        <img src="../img/007/sky.png"/>
+                        <p>Next, draw a rectangle for the ground in the bottom third of the stage. Fill this one with a vertical gradient from a dark sandy colour to medium sandy.</p>
+                        <img src="../img/007/backdrop.png"/>
+                        <p>Does your backdrop look similar to the above image?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Now we will make our runner appear to move forward, by drawing some background that moves backwards.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Background <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Background 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Background</h2>
+                        <p>Paint a new sprite, naming it Background.</p>
+                        <p>Draw a circle, filled with a sandy color, then select it with the Reshape tool:</p>
+                        <img src="../img/007/rock1.png"/>
+                        <p>Drag the little blue circle at the bottom up slightly to make a rock shape:<p>
+                        <img src="../img/007/rock2.png"/>
+                        <p>Give the sandy fill colour a slight vertical gradient so that it's darker at the bottom (where it's in shade):<p>
+                        <img src="../img/007/rock3.png"/>
+                        <p>Zoom in and use the Reshape tool to make the shape look more natural (less symmetric):<p>
+                        <img src="../img/007/rock4.png"/>
+                        <p>
+                            Make a few of these rocks and let some of them overlap. Note: it's important that they all sit around the same height on the stage. If any rocks are too high they will appear to be floating in the sky.
+                            If any are too low it will spoil something called 'perspective'.
+                        <p>
+                        <img src="../img/007/rocks.png"/>
+                        <p>Does your background look similar to the above?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Since this sprite is the background, we want the runner to appear in front of whatever you drew. Therefore, when the green flag is clicked, it should go to the back layer. Add some code for that.</p>
+                        <img src="../img/007/when-flag-go-back.png"/>
+                        <p>We want the background to move left, until it's as far left as it can go... then we want it to start again from the right. Let's find out how far left it can go.</p>
+                        <p>Type -999 into the sprite's x position:</p>
+                        <img src="../img/007/x-999.png"/>
+                        <p>Press enter. What number is in the x position now?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">-999</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>Not -999</label>
+                        </div>
+                    </div>
+                    
+                    <div class="question" data-hash="#03">
+                        <p>The Scratch website, wanting to be helpful, stops you moving sprites off screen, so it 'clips' the x position. The number shown there is the <em>furthest left</em> your background sprite can be moved:</p>
+                        <img src="../img/007/x-437.png"/>
+                        <p>The number will be different depending on what you drew. For me, it's -437... whatever it is for you, <strong>remember it.</strong></p> 
+                        <p>Add a <span class="control">forever</span> under <span class="looks">go to <span>back</span> layer</span>.</p>
+                        <p>
+                            Inside the forever loop, we want to change x by -5 to move the background to the left, but only if the x position is greater than the 'furthest left' that you just found out... otherwise we want to set the x position to a large value so that it starts again from the right.
+                            Since my furthest left is -437, I add the code below &mdash; <strong>you will need to adjust this for your own 'furthest left' value</strong>:
+                        </p>
+                        <img src="../img/007/forever-if-x-greater-change-else-set.png"/>
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02" data-correct>The runner runs while the background moves behind him!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Next we will create the feeling of depth by adding some foreground.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Foreground <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Foreground 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Foreground</h2>
+                        <p>Paint a new sprite, naming it Foreground.</p>
+                        <p>Draw some more rocks, again seating them around the same height on the stage as each other, but:</p>
+                        <ul>
+                            <li>make them a little larger than the background rocks (because closer things appear larger),</li>
+                            <li>position them all lower on the stage than the runner's feet (because closer things on the ground appear lower) and</li>
+                            <li>make them a little darker than the background rocks (because colours tend to fade as they get further away).</li>
+                        </ul>
+                        <img src="../img/007/foreground.png"/>
+                        <p>Does your foreground look similar to the above?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Copy and paste the script from the Background into the Foreground. We just need to make a few tweaks.</p>
+                        <p>Should this sprite go to the back layer?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>No, it should go to the front layer</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>It's the foreground so, yes, it should go to the front layer &mdash; make that tweak.</p>
+                        <p>Should this sprite decrease its x position if its x position is greater than -437?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>It depends what this sprite's 'furthest left' is</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Type -999 in this sprite's x position, hit enter, and plug that number into the 'if x position greater than' slot.</p>
+                        <p>Do closer objects appear to move faster than further away objects?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-03" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-03">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Look out of your side window next time you're riding in a car and you'll see that closer objects do indeed appear to move faster.</p>
+                        <p>So, change x by -10 rather than -5.</p>
+                        <p>Does your code look like this (except for the -576, which will probably be different)?</p>
+                        <img src="../img/007/when-flag-front.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-04" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-04">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Click the full screen button and click the green flag.</p>
+                        <p>Watch your runner run.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Next steps</h2>
+                        <p>Exit full screen, and save your game.</p>
+                        <p>See if you can make it better.</p>
+                        <p>If you browse to <a href="https://google.com/" target="_blank">google.com</a> and search for 'animal run cycle' you might find images to help you animate animals running, e.g. cats, foxes, etc &mdash; just remember to check whether you're allowed to use other people's artwork and, if so, give them credit.</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '007';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

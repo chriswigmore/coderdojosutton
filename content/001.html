@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=4" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 1 &mdash; Shark attack</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Motion</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Events</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Sensing and Control</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Better motion</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Collision detection</a></li>
+                    <li><a href="#06-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>Learn how to make a 'chase the food' game.</p>
+                        <p>We'll start by looking at an easy way to move our shark, then we'll discover a better way.</p>
+                        <div class="img-wrapper">
+                            <img src="../img/001/shark-fish.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Motion <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Motion 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Motion</h2>
+                        <p>Create a new Scratch project by visiting <a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a>, then switch back to this tab to read the next instructions.</p>
+                        <p>The cat 'sprite' that you see is the Scratch mascot. We want to start from an <em>empty</em> Scratch project, so delete the cat by clicking on the X in the top right corner.</p>
+                        <img src="../img/001/delete-annotated.png"/>
+                        <p>If you have a Scratch account, sign in now so your project saves as you go; if you don't, don't worry, you can save later.</p>
+                        <p>Add a shark sprite and an underwater backdrop.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Click on 'Choose a sprite' to open up a list of all the Scratch sprites.</p>
+                                <img src="../img/001/sprite-library.png"/>
+                                <p>Scroll down until you see a shark sprite, and click to add it.</p>
+                                <p>Next, click on 'Choose a backdrop' to open up a list of all the Scratch backdrops. Scroll down until you see an underwater backdrop, and click to add it.</p>
+                            </div>
+                        </div>
+                        <p>The shark is a bit too big. Change its size to 60.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Enter '60' in the size box.</p>
+                                <img src="../img/001/size.png"/>
+                            </div>
+                        </div>
+                        <p>Click on the shark sprite and drag a <span class="motion">change x by <var>10</var></span> block into the code area on the right. Click it. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">Nothing</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>The shark moves right</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>How could you make the shark move left?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">Use a <span class="motion">change x by <var>0.01</var></span> block</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>Use a <span class="motion">change x by <var>-10</var></span> block</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">Use a <span class="motion">change x by <var>100</var></span> block</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Drag a <span class="motion">change y by <var>10</var></span> block into the code area on the right and click it. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">The shark moves right</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02" data-correct>The shark moves up</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">The shark moves down</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>How could you make the shark move down?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03">Use a <span class="motion">change y by <var>e</var></span> block</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03" data-correct>Use a <span class="motion">change y by <var>-10</var></span> block</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Well done. Next, we're going to use Events to make these blocks run, rather than clicking on them.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Events <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Events 02 -->
+
+                    <div class="question" data-hash="#02">
+                        <h2>Events</h2>
+                        <p>Here's an easy way to make a sprite move around. Drag a <span class="events">when <span>space</span> key pressed</span> block (from the 'Events' section) into the code area, and snap it onto the top of a <span class="motion">change x by <var>10</var></span> block. (Connected blocks, or 'scripts', will run in order from top to bottom.)</p>
+                        <p>Change it to <span class="events">when <span>right arrow</span> key pressed</span>.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How do I change it? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Click on the <span class="events"><span>space</span></span> part of the block, and select 'right arrow' from the menu.</p>
+                            </div>
+                        </div>
+                        <p>Now when you press the right arrow key, what happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">Nothing</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>The shark moves right</label>  
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Add code blocks to make the shark move right, left, up and down when you press the appropriate arrow keys.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> I need some help... <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>You will need the following blocks:</p>
+                                <img src="../img/001/easy-motion.png" />
+                            </div>
+                        </div>
+                        <p>This is an easy way to make a sprite move around. However, there are some problems. (When writing computer code, problems are often called 'bugs'.) Watch closely what happens if you press and hold the up arrow key. What do you see?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">The shark moves smoothly upwards</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>The shark moves up a bit, then pauses, then moves smoothly upwards</label>  
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>That's not great &mdash; we want our shark to move when we tell it to move, not start moving, then stop, then start again. But there's another bug. What happens if you press and hold <em>both</em> the up arrow key <em>and</em> the right arrow key at the same time?</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> Wait, my shark is stuck at the top of the screen... how do I get it down? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>You can just drag it down.</p>
+                            </div>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">The shark moves smoothly diagonally up and right</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>The shark moves diagonally up and right, then pauses, then moves smoothly upwards</label>  
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>The shark moves diagonally up and right, then pauses, then moves smoothly to the right</label>  
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Note: either 'upwards' or 'to the right' could have been correct answers - the point is that only one of the two keys you pressed and held was 'listened to', the other was ignored. That's not great either.</p>
+                        <p>Like many things in life, the easy way is not the best way.</p>
+                        <p>
+                            Pull the <span class="motion">change x by <var>10</var></span> block away from the <span class="events">when <span>right arrow</span> key pressed</span>.
+                            Throw away the <span class="events">when <span>right arrow</span> key pressed</span>.
+                        </p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How do I throw away code blocks? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Drag and drop them onto the code blocks area on the left.</p>
+                            </div>
+                        </div>
+                        <p>
+                            Do the same for the other three scripts, keeping the blue motion blocks (which we'll reuse later) and throwing away the yellow event blocks (which caused the two bugs).
+                        </p>
+                        <p>Let's see how to fix those bugs, starting with a look at Sensing and Control.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Sensing and Control<span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sensing and Control 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Sensing</h2>
+                        <p>Add a <span class="sensing hex">key <span>space</span> pressed?</span> block (from the 'Sensing' section) to the code area. Change it to <span class="sensing hex">key <span>up arrow</span> pressed?</span>. What happens when you click on it?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">Something pops up saying 'true'</label>  
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>Something pops up saying 'false'</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Press and hold the up arrow key, and click the block again. What happens now?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>Something pops up saying 'true'</label>  
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">Something pops up saying 'false'</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Whenever this block 'runs' (the easiest way to run a block is to click on it) it returns true if the up arrow is pressed, false if it's not. (It <em>senses</em> whether the up arrow is pressed.)</p>
+                        <p>It is an example of a 'Boolean', or 'bool' for short. A bool is a thing which is either true or false. The up arrow key can't be half-pressed; it's either pressed or it's not.</p>
+                        <p>Add an <span class="control">if <span class="slot"></span> then</span> block (from the 'Control' section).</p>
+                        <p>What do you  notice about the shape of the <span class="control">if <span class="slot"></span> then</span> block's slot, and the shape of the <span class="sensing hex">key <span>up arrow</span> pressed?</span> block?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02" data-correct>They're both hexagons</label>  
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">They're completely different</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>You see, <span class="control">if <span class="slot"></span> then</span> blocks decide <em>if</em> they should run the code nested inside them. They will either run it or not; you can't half-run some code. Therefore, they work with bools, so it makes sense that their slot is the same hexagonal shape as the bool blocks.</p>
+                        <p>Drag the <span class="sensing hex">key <span>up arrow</span> pressed?</span> into the <span class="control">if <span class="slot"></span> then</span>'s slot, and nest the <span class="motion">change y by <var>10</var></span> inside, like this:</p>
+                        <img src="../img/001/if-up-y.png" />
+                        <p>What happens if you click it?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03">The shark moves up</label>  
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03" data-correct>Nothing</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Now, press and hold the up arrow and click again. What happens this time?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04" data-correct>The shark moves up!</label>  
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04">Nothing</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Whenever you click the <span class="control">if <span class="slot"><span class="sensing hex">key <span>up arrow</span> pressed?</span></span> then</span> block, it checks to see if the up arrow is pressed. If it is, the <span class="motion">change y by <var>10</var></span> block is run; if it isn't, it's not. This is what we want.</p>
+                        <p>However, we want this block to run over and over, as quickly as possible, forever, so that the shark moves up <em>whenever</em> the up arrow is pressed. That will give us the better way to move that we're after...</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Better motion<span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Better motion 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Better motion</h2>
+                        <p>Add a <span class="control">forever</span> block (from the 'Control' section) to the code area, and nest the <span class="control">if <span class="slot"><span class="sensing hex">key <span>up arrow</span> pressed?</span></span> then</span> inside.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> I need some help. <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Like this:</p>
+                                <img src="../img/001/forever-if-up-y.png" />
+                            </div>
+                        </div>
+                        <p>Click the whole script &mdash; this will start the 'forever loop'. Now, the code inside the loop is always looking to see if the up arrow is pressed and, if it is, it moves the shark up. Test it.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How do I stop the forever loop? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Click the red octagonal 'stop sign'.</p>
+                                <img src="../img/001/stop-sign.png" />
+                            </div>
+                        </div>
+                        <p>There's a convention in Scratch that you click the green flag (<img src="../img/001/green-flag.png"/>) when you start a game. So any code that you want to run when the game starts should be snapped underneath... what? Can you guess?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct><span class="events">when <img src="../img/001/green-flag.png"/> clicked</span></label>  
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00"><span class="events">when this sprite clicked</span></label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Go ahead and snap a <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span> (from the 'Events' section) on top of your <span class="control">forever</span> block. It should look like this:</p>
+                        <img src="../img/001/flag-forever-if-up-y.png" />
+                        <p>Add more code blocks inside the forever loop to run the other <span class="motion">change x/y ...</span> blocks when the other arrow keys are pressed, moving the shark in the correct direction for each.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> I need some help. <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Like this:</p>
+                                <img src="../img/001/flag-forever-if-arrow-x-y.png" />
+                            </div>
+                        </div>
+                        <p>Test it by clicking the green flag and pressing the arrow keys. Can you move the shark up, down, right and left?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>Yes</label>  
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Let's see if we've fixed our two bugs. What happens if you press and hold the up arrow?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>The shark moves smoothly upwards</label>  
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02">The shark moves up, then pauses, then moves smoothly upwards</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Good &mdash; we've solved one of the bugs! What about the other one... what happens if you press and hold both the up arrow key and the right arrow key at the same time?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-03" data-correct>The shark moves smoothly diagonally up and right</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-03">The shark moves diagonally up and right, then pauses, then moves smoothly upwards</label>  
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-03">The shark moves diagonally up and right, then pauses, then moves smoothly to the right</label>  
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Great &mdash; we've solved both bugs!</p>
+                        <p>Finally, we want our shark to eat some fish, which means we need something called 'collision detection'.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Collision detection<span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collision detection 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Collision detection</h2>
+                        <p>Add a fish sprite.</p>
+                        <img src="../img/001/fish.png"/>
+                        <p>It's also a bit too big. Change its size to 60.</p>
+                        <p>Notice how if you click on the shark sprite, the code area contains the blocks we were just working on; if you click on the fish sprite, the code area is empty. Code blocks are specific to each sprite.</p>
+                        <p>Add a <span class="sensing hex">touching <span>mouse-pointer</span></span> block (from the 'Sensing' section) to the fish's code area, and change it to <span class="sensing hex">touching <span>Shark</span></span>. If the shark and fish are touching and you click it, what happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00" data-correct>Something pops up saying 'true'</label>  
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00">Something pops up saying 'false'</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>And if the shark and fish are not touching when you click it, what happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01">Something pops up saying 'true'</label>  
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01" data-correct>Something pops up saying 'false'</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>We need some code to run whenever the shark touches the fish. In other words we need to <em>detect collisions</em>, and run some code when they happen. This will feel familiar, because it's a lot like detecting key presses and running motion blocks when they happen.</p>
+                        <p>We want to run some code <em>if</em> the shark is touching the fish, so add an <span class="control">if <span class="slot"></span> then</span> block and drop the <span class="sensing hex">touching <span>Shark</span></span> into its slot.</p>
+                        <p>We want to detect collisions <em>forever</em>, so nest the previous block inside a <span class="control">forever</span> block.</p>
+                        <p>We want to start detecting collisions as soon as the game starts, so snap a <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span> block on top.</p>
+                        <p>Does the fish's code area look like this:</p>
+                        <img src="../img/001/flag-forever-if-touching.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-02">No</label>  
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>Let's put a <span class="motion">go to <span>random position</span></span> block (from the 'Motion' section) inside the <span class="control">if <span class="slot"><span class="sensing hex">touching <span>Shark</span></span></span> then</span> block.</p>
+                        <p>This will make the fish go to a random position whenever the shark touches it. It will look like the shark has eaten the fish, and a new one has appeared somewhere else.</p>
+                        <p>Click the full screen button (<img src="../img/001/full-screen.png"/>).</p>
+                        <p>Click the green flag and see how quickly you can eat those fish.</p>
+                        <p>How fast were you?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-03" data-correct>Not very fast</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-03" data-correct>Quite fast</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-03" data-correct>Crazy fast</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>Well done, you've just made a game.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#04-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#06-00" class="btn btn-next btn-lg">Next steps<span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 06 -->
+
+                    <div class="question" data-hash="#06">
+                        <h2>Next steps</h2>
+                        <p>Exit full screen, and save your game.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How do I save? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>If you are signed in to your Scratch account, type the title of your project into the project title box at the top of the screen:</p>
+                                <img src="../img/001/name-annotated.png"/>
+                                <p><strong>Tip:</strong> Give your projects helpful names so that you can easily find them when you have lots of projects.</p>
+                                <p>Next, click on File, and then on Save now to save your project.</p>
+                                <p>If you don't have a Scratch account, you can save a copy of your project by clicking on <strong>Save to your computer</strong> instead.</p>
+                                <img src="../img/001/save.png" />
+                            </div>
+                        </div>
+                        <p>See if you can make the game better.</p>
+                        <p>Maybe the fish could swim around to make it harder to eat?</p>
+                        <p>Maybe you could add more fish?</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '001';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

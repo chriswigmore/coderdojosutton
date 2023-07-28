@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=3" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 8 &mdash; Timed Quiz</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Questions and Answers</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Computing</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Randomizing</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Timing</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>See how quickly you can answer the computer's questions.</p>
+                        <div class="img-wrapper">
+                            <img src="../img/008/quiz.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Questions and Answers <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Questions and Answers 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Questions and Answers</h2>
+                        <p>Start from an empty Scratch project (<a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a> &mdash; remember to delete the cat sprite).</p>
+                        <p>Does every project in Scratch need to have a sprite in it?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>This module will be different from all the previous ones, because it won't use any sprites.</p>
+                        <p>Create a list called <span class="list rounded">questions</span> and a list called <span class="list rounded">answers</span>.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How do I make a list? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>In the 'Variables' section, click the 'Make a List' button.</p>
+                            </div>
+                        </div>
+                        <p>In module 6 we added items to lists using code blocks. It's also possible to add them by hand &mdash; click the '+' sign at the bottom left...</p>
+                        <img src="../img/008/questions-list.png"/>
+                        <p>... type '1+2' in the red box that appears. Hit 'Enter' and a new red box will appear &mdash; type '3+4' into this one then click somewhere else on the screen.</p>
+                        <p>Does your <span class="list rounded">questions</span> list look like this?</p>
+                        <img src="../img/008/1add2and3add4.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Now we need to add the correct answers to the <span class="list rounded">answers</span> list, so we can check whether a player gets each question right.</p>
+                        <p>Go ahead and add '3' and '7'. Does your Stage look like this?</p>
+                        <img src="../img/008/q-and-as.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Let's ask the player each question in turn, and compare their answer with the correct answer.</p>
+                        <p>Add an <span class="sensing block">ask <var>What's your name?</var> and wait</span> (from the 'Sensing' section). Click it &mdash; what happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03" data-correct>Something pops up asking for my name</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>In general, should you reveal personal information like your real name when using a website?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04" data-correct>No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>It's good to be safe online. If you accidentally entered your name already, don't worry, this particular time it's harmless, but let's get into good habits.</p>
+                        <p>Type in some random word and hit Enter. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-05" data-correct>The question disappears</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-05">The computer starts calling me the word I just entered</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Add an <span class="sensing rounded">answer</span> block to the code area and click it. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-06">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-06" data-correct>Something pops up saying the word I just entered!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Whatever you type into the <span class="sensing">ask...</span> box ends up in the <span class="sensing rounded">answer</span> block. This lets us test a player's answer to a question.</p>
+                        <p>Add some code to ask the first question:</p>
+                        <img src="../img/008/ask-first.png"/>
+                        <p>Now add some code to compare the player's answer against the correct answer:</p>
+                        <img src="../img/008/ask-if-else.png"/>
+                        <p>
+                            Create a variable named <span class="variabl roundede">correct</span> and another named <span class="variable rounded">incorrect</span> to count the number of correct / incorrect answers.
+                            Add some code to increase <span class="variable rounded">correct</span> if the player answers right, else to increase <span class="variable rounded">incorrect</span>:
+                        </p>
+                        <img src="../img/008/ask-if-else-change.png"/>
+                        <p>Since we have two questions, nest that script inside a <span class="control">repeat <var>2</var></span> loop. Remember to delete the first question and first answer after checking correctness so that, the second time around the loop, the second question gets asked:</p>
+                        <img src="../img/008/repeat-ask-if-else-change-delete.png"/>
+                        <p>Click the script. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-07">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-07" data-correct>I get asked both questions, and the <span class="variable rounded">correct</span> and <span class="variable rounded">incorrect</span> counts get updated!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Good. However, if we want to take that quiz again we will have to manually add the questions and answers back into the lists. Let's make the computer do that for us.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Computing <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Computing 02 -->
+
+                    <div class="question" data-hash="#02">
+                        <h2>Computing</h2>
+                        <p>
+                            Computers are called computers because the first ones were used for <em>computing</em> things, e.g. adding up numbers.
+                            We can let the computer fill up our <span class="list">questions</span> list, have it compute the answers for us, then store those in the <span class="list">answers</span> list.
+                        </p>
+                        <p>Create a variable named <span class="variable rounded">first digit</span> and another named <span class="variable rounded">second digit</span>.</p>
+                        <p>Set <span class="variable rounded">first digit</span> to 1, snap a <span class="control">repeat <var>9</var></span> underneath, and increase <span class="variable rounded">first digit</span> each time round the loop:</p>
+                        <img src="../img/008/set-first-repeat-change.png"/>
+                        <p>What values will be stored in <span class="variable rounded">first digit</span> as the script runs through the loop?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">1, 2, 3, 4, 5, 6, 7, 8, 9</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>1, 2, 3, 4, 5, 6, 7, 8, 9, 10</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Remember, <span class="variable rounded">first digit</span> starts at 1 and is increased 9 times, so it will end up as 10 after the last <span class="variable">change <span>first digit</span> by <var>1</var></span>.</p>
+                        <p>To make every possible (single-digit) sum, we also need a similar loop for <span class="variable rounded">second digit</span>:</p>
+                        <img src="../img/008/loop-first-loop-second.png"/>
+                        <p>To add those two digits into our <span class="list">questions</span> list, we first need to <em>join</em> them. Add a <span class="operators rounded">join <var>apple </var><var>banana</var></span> to your code area. What happens if you click it?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>Something pops up saying 'apple banana'</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            You might want to join simply <span class="variable rounded">first digit</span> with <span class="variable rounded">second digit</span>, but remember that we want a '+' sign between them.
+                            So we actually need to join '+' and <span class="variable rounded">second digit</span>, and then join <span class="variable rounded">first digit</span> to that:
+                        </p>
+                        <img src="../img/008/join-join.png"/>
+                        <p>We want to add the result of all that joining into the <span class="list">questions</span> list:</p>
+                        <img src="../img/008/add-question.png"/>
+                        <p>Go ahead and run that script. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>The <span class="list">questions</span> list is filled with 1+1, 1+2, 1+3, ... etc, all the way up to 9+9!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Now for the clever part &mdash; let's have the computer work out the answers for us.</p>
+                        <p>Grab a <span class="operators rounded"><var></var>+ <var></var></span>&nbsp; block and drop in <span class="variable rounded">first digit</span> and <span class="variable rounded">second digit</span>. Add the result into the <span class="list">answers</span> list:</p>
+                        <img src="../img/008/add-answer.png"/>
+                        <p>Go ahead and run that script. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03" data-correct>The <span class="list">answers</span> list is filled with 2, 3, 4, ... etc</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Notice how the <span class="list">questions</span> list now has 162 items in it (while there are only 81 answers)?</p>
+                        <img src="../img/008/162-qus.png"/>
+                        <p>We forgot to clear out our lists before filling them. Snap a <span class="list">delete all of <span>questions</span></span> and a <span class="list">delete all of <span>answers</span></span> on top of this script.</p>
+                        <p>While we're clearing things, we should snap on top a couple of blocks to zero out the <span class="variable rounded">correct</span> and <span class="variable rounded">incorrect</span> variables too:</p>
+                        <img src="../img/008/zero-and-clear.png"/>
+                        <p>Snap the first script we wrote, the one that <em>asks</em> the questions, underneath the second script, the one that <em>creates</em> the questions. Change it from asking 2 questions to asking 10:</p>
+                        <img src="../img/008/repeat-10.png"/>
+                        <p>Run the script. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04" data-correct>It asks me 10 questions, 1+1, 1+2, 1+3, ... etc, and counts how many I get correct</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>If you run this script again, you will get the same 10 questions. It would be a better quiz if it asked you a different, randomly chosen set of 10 questions each time.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Randomizing <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Randomizing 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Randomizing</h2>
+                        <p>The 'index' of a list is a number which describes which item in the list you're thinking about. The first item in the list has index 1, the second has index 2, and so on.</p>
+                        <p>To choose a question randomly from our list of questions, we just need to pick a random number between 1 and 81 (the length of our lists) and ask the question at that index.</p>
+                        <p>Create a variable named <span class="variable rounded">index</span>. At the start of the question-asking loop, set it to a random number in the appropriate range.</p>
+                        <p>Then, instead of asking the question at index 1, and comparing with the answer at index 1, ask the question at index <span class="variable rounded">index</span>, and compare with the answer at that index too:</p>
+                        <img src="../img/008/random-index.png"/>
+                        <p>
+                            Note: also delete the <span class="list">delete <var>1</var> of <span>questions</span></span> and <span class="list">delete <var>1</var> of <span>answers</span></span> blocks
+                            &mdash; now that we're picking questions randomly we're no longer relying on deletion to give us our next question.
+                        <p>
+                        <p>Snap a <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span> onto the top and click the green flag. What happens?<p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>It asks me 10 random sums!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Good. Now for one last improvement...</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Timing <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timing 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Timing</h2>
+                        <p>Drag a <span class="sensing rounded">timer</span> block (from the 'Sensing' section) onto your code area and click it. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>Something pops up saying a number</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>That number is the number of seconds since your Scratch project started. However, you can reset it... which block do you think resets it?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct><span class="sensing">reset timer</span></label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01"><span class="sensing rounded">days since 2000</span></label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Let's use the timer to measure the average time a player takes to answer our questions.</p>
+                        <p>Create a variable named <span class="variable rounded">average time</span>.</p>
+                        <p>
+                            Reset the timer just before the question-asking loop starts.
+                            Then, right after the answer-checking part of the script, set <span class="variable rounded">average time</span> to the total time taken divided by the number of questions answered so far (i.e. the number of correct answers plus the number of incorrect answers):
+                        </p>
+                        <img src="../img/008/timer.png"/>
+                        <p>
+                            Hide both the lists, and all the variables except:
+                            <ul>
+                                <li><span class="variable rounded">average time</span></li>
+                                <li><span class="variable rounded">correct</span></li>
+                                <li><span class="variable rounded">incorrect</span></li>
+                            </ul>
+                        </p>
+                        <p>Click the green flag, and answer as quickly and correctly as possible. What's your best average time?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>Less than a second</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>Between one and two seconds</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>Between two and four seconds</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>More than four seconds</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Well done!</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Next steps</h2>
+                        <p>Save your game. See if you can make it better.</p>
+                        <p>Maybe there could be some subtraction / multiplication / etc questions thrown in?</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '008';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

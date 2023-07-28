@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=4" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 2 &mdash; Breathing fire</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Motion</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Fireball</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Clones</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Positioning</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Snake</a></li>
+                    <li><a href="#06-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>Learn how to blast fireballs out of a dragon's mouth.</p>
+                        <div class="img-wrapper">
+                            <img src="../img/002/dragon-snake.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Motion <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Motion 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Motion</h2>
+                        <p>Start from an empty Scratch project (<a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a> &mdash; remember to delete the cat sprite).</p>
+                        <p>Add a dragon sprite and a woods backdrop.</p>
+                        <p>The dragon is a bit too big. Change its size to 60. Also, drag it so that it's standing in the foreground.</p>
+                        <img src="../img/002/dragon.png"/>
+                        <p>Before we start making fireballs, let's make our dragon move. We covered this in module 1 and we're going to build on that here.</p>
+                        <p>In module 1, when the shark moved left, it still faced right. Let's fix that. Drag a <span class="motion">point in direction <var>90</var></span> into the code area and click on the '90'. What do you see?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>A circle pops up with an arrow pointing right</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">Nothing happens</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Swing the arrow round to the left. What number is in the <span class="motion">point in direction</span> block now?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">90</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>-90</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Click on <span class="motion">point in direction <var>-90</var></span>. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02" data-correct>The dragon points left but is upside down</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">The dragon breathes fire</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>We don't want our dragon to be upside down. Add a <span class="motion">set rotation style <span>left-right</span></span> and click it. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03">The dragon points to the right</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03" data-correct>The dragon is still pointing left but is the right way up</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Add a <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span> and snap the <span class="motion">set rotation style <span>left-right</span></span> underneath (so that it runs when the game starts).</p>
+                        <p>Snap a <span class="control">forever</span> underneath that, and nest an <span class="control">if <span class="slot"><span class="sensing hex">key <span>right arrow</span> pressed?</span></span> then</span> and an <span class="control">if <span class="slot"><span class="sensing hex">key <span>left arrow</span> pressed?</span></span> then</span> inside. (Our dragon, despite its wings, won't fly, so we'll just move right and left).</p>
+                        <p>Run a <span class="motion">point in direction <var>90</var></span> when the right key is pressed, and a <span class="motion">point in direction <var>-90</var></span> when the left key is pressed.</p>
+                        <p>Snap a <span class="motion">move <var>10</var> steps</span> underneath each <span class="motion">point in direction</span> block &mdash; this will make our dragon move 10 steps <em>in the direction it's pointing</em>.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> I need some help. <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Like this:</p>
+                                <img src="../img/002/dragon-sprite.png" class="pull-right" />
+                                <img src="../img/002/point-move-left-right.png" />
+                            </div>
+                        </div>
+                        <p>Click the green flag. Can you can make the dragon walk left and right using the arrow keys?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Well done. Next, let's work on our fireball.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Fireball <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fireball 02 -->
+
+                    <div class="question" data-hash="#02">
+                        <h2>Fireball</h2>
+                        <p>Click on the Costumes tab.</p>
+                        <img src="../img/002/costumes-tab.png"/>
+                        <p>You should see three different dragon costumes. Click the last one, where the dragon is breathing fire.</p>
+                        <p>Click to select the fireball and use Ctrl + X to cut it to your clipboard.</p>
+                        <p>Now we need to create a new sprite, but don't choose one from the library, instead select 'Paint'.</p>
+                        <img src="../img/002/paint-sprite.png"/>
+                        <p>Use Ctrl + V to paste in the fireball. You will probably see a mess of blue circles and outlines and arrows &mdash; press the <img src="../img/002/zoom-in.png"/> button to zoom in until you see fire.</p>
+                        <p>The fireball is positoned high and over on the right &mdash; drag it until it's in the middle of the drawing area.</p>
+                        <p>It's also angled slightly downwards &mdash; use the curved blue arrows to turn the fireball until it's pointing straight to the right.</p>
+                        <img src="../img/002/fireball.png"/>
+                        <p>Rename this sprite 'Fireball'.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How do I rename a sprite? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Type a new name in the Sprite's name box, and hit Enter.</p>
+                                <img src="../img/002/rename-sprite.png" />
+                            </div>
+                        </div>
+                        <p>Next, we'll let the dragon blast out lots of fireballs using 'clones'.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Clones <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clones 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Clones</h2>
+                        <p>Change from the Costumes tab back to the Code tab. Add to the <em>Dragon</em> sprite a <span class="control">create clone of <span>myself</span></span> (from the 'Control' section) and change it to <span class="control">create clone of <span>Fireball</span></span>. Click it once. What happens?</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> Wait - there's no option to create clone of <em>Fireball</em>? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>You probably added the block to the <em>Fireball</em> sprite &mdash; make sure you add the block to the <em>Dragon</em> sprite!</p>
+                            </div>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>Looks like nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">A fireball blasted out of the dragon's mouth</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Drag the fireball to somewhere else on the screen. What do you see?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">Just the one fireball</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>There was a fireball underneath the fireball!</label>
+                        </div>
+                    </div>
+
+
+                    <div class="question" data-hash="#03">
+                        <p>When you created a clone of the fireball, the clone was identical to the first fireball &mdash; the <em>template</em> fireball as we'll call it. It looked the same, it even had the same position and direction as its template, which is why you couldn't see it until you moved the template out of the way.</p>
+                        <p>Click to create another clone (you'll need to switch back to the Dragon sprite) and drag the template again &mdash; you should now see three fireballs: one template, two clones.</p>
+                        <p>Click the stop sign - what happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02" data-correct>The clones disappear but the template is still there</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>If we want to run some code when a clone is first created, we can snap that code underneath... what? Can you guess?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03" data-correct><span class="control">when I start as a clone</span></label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03"><span class="events">when <img src="../img/001/green-flag.png"/> clicked</span></label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Add to the <em>Fireball</em> sprite a <span class="control">when I start as a clone</span> (from the 'Control' section).</p>
+                        <p>We want to make the clone fly across the screen, so we want to wrap some kind of motion block inside some kind of loop. However, let's get into the good habit of thinking about a clone's <em>lifetime</em>. There is a maximum number of clones you can create, so if we keep creating them and never deleting them, what will happen?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04" data-correct>We will run out of clones we can create</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04">It'll be fine</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Any clones that we no longer need should be deleted, and once a fireball clone has flown across the screen we no longer need it. So, snap on a <span class="control">repeat until<span class="slot"></span></span> (from the 'Control' section), put a <span class="sensing hex">touching <span>edge</span></span> in its slot, nest a <span class="motion">move <var>10</var> steps</span> block inside the loop, and snap a <span class="control">delete this clone</span> underneath.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> I need some help. <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Like this:</p>
+                                <p class="pull-right" style="width:120px">&larr; See the tiny fireball? That means you should add this code to the Fireball sprite.</p>
+                                <img src="../img/002/fireball-sprite.png" class="pull-right" />
+                                <img src="../img/002/when-clone-until-edge-move-delete.png" />
+                            </div>
+                        </div>
+                        <p>When the fireball is created, it will repeatedly move 10 steps until it touches the edge &mdash; then the repeat loop will finish and the delete block will run, cleaning up the unneeded clone. Test by selecting the Dragon sprite and clicking on <span class="control">create clone of <span>Fireball</span></span>. Try clicking it a few times. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-05">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-05" data-correct>With every click, a fireball flies across the screen</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Let's create these fireballs whenever the space bar is pressed. Nest the <span class="control">create clone of <span>Fireball</span></span> inside an <span class="control">if <span class="slot"><span class="sensing hex">key <span>space</span> pressed?</span></span> then</span>.</p>
+                        <p>We could nest this script inside the <span class="control">forever</span> loop that we already have, but let's nest it inside a new <span class="control">forever</span> loop, snapped under a new <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span> &mdash; you'll see why in a moment.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> I need some help. <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Like this:</p>
+                                <img src="../img/002/dragon-sprite.png" class="pull-right" />
+                                <img src="../img/002/when-flag-forever-if-space-clone.png" />
+                            </div>
+                        </div>
+                        <p>Test by clicking the green flag and pressing the space bar. Do you see a stream of fireballs pouring out, all overlapping? If you like how that looks, feel free to leave it as is, but I think it looks better if you separate the fireballs by adding a <span class="control">wait <var>0.25</var> seconds</span> (from the 'Control' section) underneath the <span class="control">create clone of <span>Fireball</span></span>.</p>
+                        <img src="../img/002/dragon-sprite.png" class="pull-right" />
+                        <img src="../img/002/when-flag-forever-if-space-clone-wait.png" />
+                        <p>Which do you prefer?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-06" data-correct>The stream of overlapping fireballs</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-06" data-correct>The separated fireballs</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>(Do you see now why we added the second <span class="control">forever</span> loop? It's so we can slow down the fireballs without slowing down the dragon's walk.)</p>
+                        <p>The fireballs aren't coming out of the dragon's mouth yet. Let's fix that...</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Positioning <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Positioning 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Positioning</h2>
+                        <p>In the fireball's code area, add a <span class="motion">go to <span>random position</span></span>, change it to <span class="motion">go to <span>Dragon</span></span> and click it.</p>
+                        <p>The fireball is probably over the dragon's belly now. Don't drag the sprite itself to position it, we need to add an 'offset' into the costume itself &mdash; here's how:</p>
+                        <p>Click on Costumes, use Ctrl + A to select the fireball, and drag it up and to the right a little bit. Let go and look at the stage &mdash; you should see that the fireball has moved a little closer to the dragon's mouth. Keep dragging it until it's coming out of the dragon's mouth.</p>
+                        <img src="../img/002/dragon-fire.png" />
+                        <p>Drag the <span class="motion">go to <span>Dragon</span></span> in between the <span class="control">when I start as a clone</span> and <span class="control">repeat until<span class="slot"><span class="sensing hex">touching <span>edge</span></span></span></span>, because the dragon can move left and right, so we need to position every fireball correctly at the moment it's created.</p>
+                        <p>Try walking left and right and blasting out fireballs. What do you see?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>The fireballs always fly to the right, even if I'm facing left. Also, the template fireball never moves, it just hovers there looking odd.</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">Nothing happens</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Let's fix the direction bug first. Snap in a <span class="motion">point in direction <var>90</var></span> before the repeat loop. In its slot, add a <span class="sensing rounded"><span>backdrop #</span> of <span>Stage</span></span> block (from the 'Sensing' section) and change it to <span class="sensing rounded"><span>direction</span> of <span>Dragon</span></span>.</p>
+                        <p>This will make the fireball point in the same direction as the dragon, but we need to set its rotation style to left-right, so add a <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span> and snap a <span class="motion">set rotation style <span>left-right</span></span> underneath.</p>
+                        <p>Test the change. What do you see now?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>The fireballs fly in the direction I'm facing, but the template fireball is still there</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>We never need to see the <em>template</em> fireball, only the <em>clones</em> that fly across the screen, so snap a <span class="looks">hide</span> block (from the 'Looks' section) underneath the <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span> script. Test the change. What do you see now?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>Now the fireballs have disappeared too!</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02">Everything is fixed</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Remember that a clone is created identical to its template. We hid the template, so the clones were hidden too. If we want to hide the template but <em>show</em> the clones, we need to add a <span class="looks">show</span> when each clone is created, right before the repeat loop.</p>
+                        <img src="../img/002/fireball-sprite.png" class="pull-right" />
+                        <img src="../img/002/when-clone-dragon-show-until-edge-move-delete.png" />
+                        <p>Test the change, shooting left and right. What do you see now?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-03">Still no fireballs</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-03" data-correct>The fireballs are back</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Good. There's one last bug to fix. If you press and hold both an arrow key and the space bar, it looks like a fireball is glued to the dragon's mouth again. Why do you think that happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-04">Because the Scratch website is broken</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-04" data-correct>Because the dragon and the fireball both move 10 steps at a time. They both have the same speed, so they don't move apart from each other.</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Set the fireball clones to move 5 steps at a time. You'll see the dragon overtake its own fireballs.</p>
+                        <p>If you set them to 11, the fireballs will be <em>slightly</em> faster than the dragon. Setting them to 15 looks good to me &mdash; feel free to set it to a different number if that looks better to you.</p>
+                        <p><strong>Tip:</strong> Fireballs can be <em>too</em> fast!</p>
+                        <p>Remember, the fireball only <em>looks</em> like it's flying smoothly through the air, it's actually jumping from position to position. In a minute we'll add a snake that we need to shoot &mdash; if our fireballs travel too fast they will 'jump over' the snake without hitting it.</p>
+
+                        <div class="row" style="margin-bottom:1px">
+                            <div class="col-md-9" style="text-align: right">
+                                <img src="../img/002/too-fast-1.png" />
+                            </div>
+                            <div class="col-md-3" style="padding-top: 24px">
+                                <small>This slower moving fireball hits the snake</small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9" style="text-align: right">
+                                <img src="../img/002/too-fast-2.png" />
+                            </div>
+                            <div class="col-md-3" style="padding-top: 24px">
+                                <small>This faster moving fireball 'jumps over' the snake</small>
+                            </div>
+                        </div>
+                        <hr/>
+                        <p>Great. Snake time.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Snake <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Snake 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Snake</h2>
+                        <p>Add a snake sprite. Change its size to 60.</p>
+                        <p>Start it off on the right hand side by adding a <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span> with a <span class="motion">go to x: <var>280</var> y: <var>-60</var></span> underneath.</p>
+                        <p>Point the snake to the left (direction -90) and set its rotation style to left-right.</p>
+                        <img src="../img/002/snake-sprite.png" class="pull-right" />
+                        <img src="../img/002/when-go-point-rotation.png" />
+                        <p>We want the snake to move towards the dragon forever, so snap on a <span class="control">forever</span> loop with a <span class="motion">move <var>3</var> steps</span> nested inside (10 steps feels too fast).</p>
+                        <p>If the snake gets hit by a fireball, it should be knocked back to its starting position at the right hand side. Can you work out what blocks to add inside the forever loop?</p>
+                        <img src="../img/002/snake-sprite.png" class="pull-right" />
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00" data-correct><img src="../img/002/if-fireball-go.png"/></label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00"><img src="../img/002/if-dragon-go.png"/></label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>If the snake manages to bite the dragon, it should be game over. Can you work out what blocks to add inside the forever loop?</p>
+                        <img src="../img/002/snake-sprite.png" class="pull-right" />
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01" data-correct><img src="../img/002/if-dragon-stop.png"/></label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01"><img src="../img/002/if-fireball-go.png"/></label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>Does your code look like this?</p>
+                        <img src="../img/002/snake-sprite.png" class="pull-right" />
+                        <img src="../img/002/when-go-point-rotation-forever.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>Click the full screen button and test your game. See how close you can get your dragon to the snake before it bites you. See what it looks like to blast the snake from all the way over on the left of the stage.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#04-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#06-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 06 -->
+
+                    <div class="question" data-hash="#06">
+                        <h2>Next steps</h2>
+                        <p>Exit full screen, and save your game.</p>
+                        <p>See if you can make it better.</p>
+                        <p>Maybe add a second snake coming from the left?</p>
+                        <p>Maybe the snakes could get faster as the game goes on?</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '002';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

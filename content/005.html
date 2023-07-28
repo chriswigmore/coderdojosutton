@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=3" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 5 &mdash; Cruising the galaxy</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>3D</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Reusing clones</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Cruising the galaxy</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Brightness</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Speed</a></li>
+                    <li><a href="#06-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>Fly into the third dimension.</p>
+                        <div class="img-wrapper">
+                            <img src="../img/005/star-flight.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">3D <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3D 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>3D</h2>
+                        <p>Start from an empty Scratch project (<a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a> &mdash; remember to delete the cat sprite).</p>
+                        <p>Create a new sprite, clicking 'Paint', rather than 'Choose a Sprite'.</p>
+                        <img src="../img/002/paint-sprite.png"/>
+                        <p>Zoom in until the chequered background becomes large, then select the Circle tool, change the Fill colour to white, the Outline thickness to 0, and draw a 2 pixel by 2 pixel circle &mdash; this should fill a quarter of a chequered tile.</p>
+                        <img src="../img/005/white-circle.png"/>
+                        <p>Paint a black backdrop.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How do I paint a black backdrop? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Hover over 'Choose a backdrop', but click 'Paint' rather than 'Choose a backdrop'.</p>
+                                <img src="../img/005/paint-backdrop.png"/>
+                                <p>Click 'Convert to Bitmap'.</p>
+                                <img src="../img/005/convert-to-bitmap.png"/>
+                                <p>Select the Fill tool, change the Fill colour to black, and click in the drawing area.</p>
+                                <img src="../img/005/fill-black.png"/>
+                            </div>
+                        </div>
+                        <p>When we work with clones, like we did in Modules 2 and 4, what do we usually do?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>Hide the template and show the clones</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">Show the template and hide the clones</label>
+                        </div>
+                    </div>
+
+
+                    <div class="question" data-hash="#01">
+                        <p>Click on Sprite 1, click the Code tab, and add code to hide the template and show 10 clones when the green flag is clicked.</p>
+                        <img src="../img/005/10-clones.png"/>
+                        <p>Click the green flag. What do you see?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">Nothing but black</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>A single star shining in the dark, because all 10 clones have the same position</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>We need to give each clone a different position, but in this module that position will be in 3D (three dimensions). We will then convert that 3D position into a 2D position on the screen.</p>
+                        <p>Create three variables named <span class="variable rounded">x</span>, <span class="variable rounded">y</span> and <span class="variable rounded">z</span>, being sure to check 'For this sprite only'.<p>
+                        <p>We'll use <span class="variable rounded">x</span> to measure how far right or left a star is and <span class="variable rounded">y</span> to measure how far up or down. We'll use <span class="variable rounded">z</span> to measure how far <em>into the screen</em> a star is.</p>
+                        <img src="../img/005/x-y-z.png"/>
+                        <p>After showing a clone, set its x and y to a random number between -100 and 100, but set its z to a random number between 1 and 100, because we're going to say that</p>
+                        <ul>
+                            <li>z is zero at your computer screen</li>
+                            <li>if stars have z <em>less than zero</em> they are behind you</li>
+                            <li>if they have z <em>greater than zero</em> they are in front of you<li>
+                        </ul>
+                        <p>Does your code look like this?</p>
+                        <img src="../img/005/set-x-y-z.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>We now need to <em>project</em> these stars' 3D positions into 2D positions on the screen. This uses some Maths that older kids will have learnt at school but younger ones won't, so I'll just tell you the answer &mdash; we'll need to divide <span class="variable rounded">x</span> by <span class="variable rounded">z</span> to give the x position on the screen (and similar for y). We'll add that code in a moment.</p>
+                        <p>We want to create the illusion that we're flying forwards &mdash; we can do that by repeatedly decreasing each clone's <span class="variable rounded">z</span> until it's behind us.</p>
+                        <p>Add the following code:</p>
+                        <img src="../img/005/repeat-go-change.png"/>
+                        <p>Click the green flag. What do you see?</p>
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03" data-correct>The stars fly towards me, but then stop, as though they've been splatted on my spaceship's windscreen</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>There are about a hundred billion (100,000,000,000) stars in our galaxy. We need a lot more than the ten we have here.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Reusing clones <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reusing clones 02 -->
+
+                    <div class="question" data-hash="#02">
+                        <h2>Reusing clones</h2>
+                        <p>In earlier modules when we created clones, we would delete them once we'd finished with them. But Scratch only lets us create a maximum of 300 clones. To create the illusion of flying through a galaxy of billions of stars, we'll need to reuse clones.</p>
+                        <p>So after the repeat loop, we don't delete the clone, we run all the code again. Not the <span class="looks">show</span>, we only need to do that once, but setting the x, y, z, etc. Wrap all that code in a forever loop.<p>
+                        <p>Also, create 300 clones, rather than just 10.</p>
+                        <p>Does your code look like this?</p>
+                        <img src="../img/005/forever-wrap.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Click the green flag. What do you see?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">The stars still splat on my windscreen</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>I'm flying through the stars!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>All the stars are in a narrow column of space in front of our screen. If we want to fly through the galaxy, we'll need to spread them out.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Cruising the galaxy <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cruising the galaxy 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Cruising the galaxy</h2>
+                        <p>Increase the range of <span class="variable rounded">x</span> by setting it to a random number between -10000 and 10000. Increase the <span class="variable rounded">y</span> range too, but not as much, try -300 to 300.</p>
+                        <img src="../img/005/10000-300.png"/>
+                        <p>With the range of <span class="variable rounded">x</span> now bigger than the range of <span class="variable rounded">y</span>, will the stars come in a tall thin column, or in a wide flat row?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">Tall thin column</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>Wide flat row</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>That's right. It should look like we're flying in the plane of a disc-shaped galaxy.</p>
+                        <p>Click the green flag. Can you see any problems?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">No</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>There are stars piling up at the edge of the screen</label>
+                        </div>
+                    </div>
+                    
+                    <div class="question" data-hash="#03">
+                        <p>Change the repeat-loop condition so that a star gets reused if its <span class="variable rounded">z</span> is less than one (as before) <em>or</em> if it's touching the edge.</p>
+                        <p>Be sure to add a <span class="motion">go to x: <var>0</var> y: <var>0</var></span> just before the repeat-loop:</p>
+                        <img src="../img/005/go-0-0.png"/>
+                        <p>Why is that <span class="motion">go to x: <var>0</var> y: <var>0</var></span> needed?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">It helps the stars move faster</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02" data-correct>Without it, any star that touches the edge &mdash; even once &mdash; will never get back into the repeat-loop, so it will never go to its new x and y position, so it will stay at the edge forever.</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Click the green flag. Have we fixed the piling-up-at-the-edge bug?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Good. Time for a trick to make things look even better.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Brightness <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brightness 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Brightness</h2>
+                        <p>Stars that are further away tend to appear darker. Further away stars have...</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>bigger <span class="variable rounded">z</span> values</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">smaller <span class="variable rounded">z</span> values</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>... so, to make them darker, we should set the brightness effect to...</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01"><span class="variable rounded">z</span></label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>-<span class="variable rounded">z</span></label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>That's right. Set it inside the repeat-loop, so the brightness can change as we fly closer:</p>
+                        <img src="../img/005/set-brightness.png"/>
+                        <p>Can you see darker stars getting brighter as they get closer?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Time for one last improvement.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Speed <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Speed 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Speed</h2>
+                        <p>Add a variable named <span class="variable rounded">speed</span> (for all sprites).</p>
+                        <p>Change its readout to a slider (like we did in Module 3) and set the maximum value to 10.0.</p>
+                        <p>When speed is bigger, we want the stars to come towards us more quickly. So we should change <span class="variable rounded">z</span> by...</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00"><span class="variable rounded">speed</span></label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00" data-correct>-<span class="variable rounded">speed</span></label>
+                        </div>
+                    </div>
+                        
+                    <div class="question" data-hash="#05">
+                        <p>That's right. When <span class="variable rounded">speed</span> is 1, everything will look like it just did. However, when it's bigger than 1, it will look like we're flying faster; when it's less than 1, it will look like we're flying slower.</p>
+                        <p>Inside the repeat-loop, change <span class="variable rounded">z</span> by -<span class="variable rounded">speed</span> instead of -1. Does your code look like this?</p>
+                        <img src="../img/005/change-z.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>Click the full screen button, click the green flag and try flying at different speeds.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#04-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#06-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 06 -->
+
+                    <div class="question" data-hash="#06">
+                        <h2>Next steps</h2>
+                        <p>Exit full screen, and save your game.</p>
+                        <p>See if you can make it better.</p>
+                        <p>Could you make a game where you try to 'tail' another spaceship, staying close enough to monitor it but not so close that it detects you?</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '005';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

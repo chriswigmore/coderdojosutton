@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=4" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 13 &mdash; Asteroid defence I: Path tracking</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Planet Earth</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Path</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Asteroid</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Speed</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Defence</a></li>
+                    <li><a href="#06-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>
+                            This module is the first in a series of modules building an asteroid defence game, in which you need to destroy asteroids on a collision-course
+                            with planet Earth. Today we'll destroy them by clicking on them as they fly through space &mdash; in a later module we'll build turrets to
+                            destroy them automatically as they fly past.
+                        </p>
+                        <div class="img-wrapper">
+                            <img src="../img/013/asteroid.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Planet Earth <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Planet Earth 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Planet Earth</h2>
+                        <p>
+                            Start from an empty Scratch project (<a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a> &mdash; remember to delete the cat sprite).
+                        </p>
+                        <p>Paint the backdrop black.</p>
+                        <p>
+                            Paint a new sprite, named 'Earth'. Zoom in until the chequered background becomes large, then select the Circle tool,
+                            change the Fill colour to blue, the Outline thickness to 0, and draw a circle (remembering to hold down the shift key to ensure it's a perfect circle).
+                            It should be about 60 &times; 60 pixels (it doesn't need to be exact) &mdash; you can see the sizes of costumes (in pixels) by looking in the costumes pane:
+                        </p>
+                        <img src="../img/013/costume-size.png"/>
+                        <p>
+                            Snap the circle to the centre of the drawing area. Then select the Brush tool, change the Fill colour to green, and draw some continents
+                            (being <strong>careful not to spill outside the blue circle</strong>):
+                        </p>
+                        <img src="../img/013/earth-1.png"/>
+                        <p>
+                            Use the Select tool to copy and paste the blue circle, change the copy's Fill colour to a radial gradient &mdash; transparent at the centre and
+                            black at the edge &mdash; and snap it to the centre of the drawing area:
+                        </p>
+                        <img src="../img/013/earth-2.png"/>
+                        <p>
+                            Finally, draw another circle, slightly larger than the planet, this time going from grey at the centre to transparent at the edge.
+                            This is Earth's atmosphere &mdash; send it to the back and snap it to the centre of the drawing area:
+                        </p>
+                        <img src="../img/013/earth-3.png"/>
+                        <p>Does your sprite look like planet Earth?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            Good. Drag it to the bottom left of the stage &mdash; it should be around (-160, -100)... that's a quick way of saying x should be around -160
+                            and y should be around -100 (the first number in the brackets is the x position, the second number is the y position):
+                        </p>
+                        <img src="../img/013/earth-4.png"/>
+                        <p>Now let's draw a path for the asteroids to fly along.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Path <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Path 02 -->
+                    <div class="question" data-hash="#02">
+                        <h2>Path</h2>
+                        <p>
+                            Paint a new sprite named 'Path'. Set it to (0, 0):
+                        </p>
+                        <img src="../img/013/path-0-0.png"/>
+                        <p>
+                            Select the Line tool, change the Outline colour to a very dark grey, and <strong>set the thickness to 2</strong>. Draw a line from the very bottom right corner to
+                            <em>near</em> the bottom left corner.
+                        </p>
+                        <p>
+                            Then use the Reshape tool to position the left point at Earth's centre &mdash; keep checking the stage to help you
+                            position it:
+                        </p>
+                        <small class="pull-right">Drag the left point...</small>
+                        <img src="../img/013/path-1.png"/>
+                        <hr class="clearfix"/>
+                        <small class="pull-right" style="width:150px">... until it's over Earth's centre.</small>
+                        <img src="../img/013/path-2.png"/>
+                        <p>Do asteroids usually travel in straight lines, or in curves?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">Straight lines</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>Curves</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Use the Reshape tool to make the straight line into an arc that gently curves down. Don't move either of the two endpoints &mdash; click in the middle of
+                            the line to create a new point and drag it upwards, using the point's handles to make the curve nice and smooth:
+                        </p>
+                        <img src="../img/013/path-3.png"/>
+                        <p>
+                            Switch to the Code tab, find the <span class="looks">go to <span>front</span> layer</span> block, change it to
+                            <span class="looks">go to <span>back</span> layer</span> and click it. What happened?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">Nothing happened</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="#02-01" data-correct style="position:relative">
+                                <span>The path is now behind Earth</span>
+                                <img src="../img/013/earth-5.png"/>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Let's make an asteroid fly along this path.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Asteroid <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Asteroid 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Asteroid</h2>
+                        <p>
+                            Paint a new sprite named 'Asteroid'. Select the Circle tool and set the Fill colour to a radial gradient of grey-brown going to a
+                            slightly darker grey-brown. Set the Outline thickness to 0 and draw a circle about 20 &times; 20 pixels, snapped to the centre:
+                        </p>
+                        <img src="../img/013/asteroid-1.png"/>
+                        <p>
+                            Use the Reshape tool to make it a bit jagged:
+                        </p>
+                        <img src="../img/013/asteroid-2.png"/>
+                        <p>
+                            Add a drop shadow (that is, a circle, black at the centre fading to transparent at the edge, slightly larger than the asteroid shape, sent to the back):
+                        </p>
+                        <img src="../img/013/asteroid-3.png"/>
+                        <p>We'll see this drop shadow better when we have lots of asteroids coming so thick and fast that they overlap each other &mdash; that's coming in a later module.</p>
+                        <p>Switch to the Code tab, and when the green flag is clicked the Asteroid should go to (240, -180):</p>
+                        <img src="../img/013/asteroid.png" class="pull-right"/>
+                        <img src="../img/013/goto-240-180.png"/>
+                        <p>Click the green flag. Where is the Asteroid now?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>Bottom right of the stage</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">Top left of the stage</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Point the Asteroid in direction 0. Move 3 steps repeatedly until it touches Earth:
+                        </p>
+                        <img src="../img/013/asteroid.png" class="pull-right"/>
+                        <img src="../img/013/fly-20.png"/>
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="#03-01" data-correct>The asteroid flies straight up the right side of the stage
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            We want our asteroid to fly along the curved path that we drew, not in a straight line. This means that we'll need to keep changing the direction of the
+                            asteroid such that it points along the path.
+                        </p>
+                        <p>
+                            I need to show you something. Choose a new sprite (don't paint your own this time) named 'Rocketship'. Add a <span class="control">forever</span> loop
+                            and nest a <span class="motion">point towards <span>mouse-pointer</span></span> inside:
+                        </p>
+                        <img src="../img/013/rocketship-icon.png" class="pull-right"/>
+                        <img src="../img/013/forever-point-mouse.png"/>
+                        <p>
+                            Click to run the script. Move your mouse around the stage. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02" data-correct>The rocket ship does NOT point towards the mouse pointer</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">The rocket ship points towards the mouse pointer</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Right &mdash; the rocket ship turns such that its <em>right side</em> points towards the mouse pointer.</p>
+                        <p>
+                            Switch to the Costume tab, use Ctrl + A to select everything, then rotate the image until it points right (remember to
+                            hold down the shift key so that it snaps to the nearest 45 degree angle):
+                        </p>
+                        <img src="../img/013/rocketship.png"/>
+                        <p>
+                            Now move your mouse around the stage. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03">The rocket ship does NOT point towards the mouse pointer</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03" data-correct>The rocket ship points towards the mouse pointer</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Remember this. A sprite's <em>forwards</em> direction is <em>to the right</em>.
+                        </p>
+                        <p>
+                            Ok. Delete the Rocketship sprite. We've learned our lesson.
+                        </p>
+                        <p>
+                            Paint a new costume in the Asteroid sprite named 'path finder'. Zoom in until the chequered background becomes large, then draw
+                            a tiny circle, 2 &times; 2 pixels, filled with grey. Snap it to the centre, then use the arrow keys to move it two chequered squares to the right:    
+                        </p>
+                        <img src="../img/013/path-finder.png"/>
+                        <p>That tiny circle is...</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04" data-correct>out in front of the sprite's centre</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04">off to the right of the sprite's centre</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04">behind the sprite's centre</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Correct. So if we turn that costume until it touches the path, we know that we've turned the sprite to point along the path:
+                        </p>
+                        <div class="video" style="height:404px">
+                            <svg width="700" height="400">
+                                <rect width="100%" height="100%" fill="black"/>
+                                <path d="M 300 400 C 200 100, 40 20, 0 0" stroke="grey" stroke-width="4"/> <!-- move to (300, 400), cubic curve with starting handle (200, 100) and ending handle (40, 20) to (0, 0) -->
+                                <text x="320" y="40" id="caption-1" stroke="silver" fill="silver" font-size="20">The sprite starts here...</text>
+                                <g id="sprite-1" opacity="0">
+                                    <circle cx="300" cy="300" r="5" fill="grey"/>
+                                    <circle cx="300" cy="400" r="50" stroke="grey" stroke-width="2" stroke-dasharray="10" fill="transparent" id="centre-1" opacity="0"/>
+                                    <g id="arrow-1" opacity="0">
+                                        <path d="M 300 385 V 230" stroke="grey" stroke-width="2" stroke-dasharray="10"/>
+                                        <path d="M 300 230 L 295 240" stroke="grey" stroke-width="2"/>
+                                        <path d="M 300 230 L 305 240" stroke="grey" stroke-width="2"/>
+                                    </g>
+                                </g>
+                                <g id="play-button-1">
+                                    <rect width="100%" height="100%" fill="black" opacity="0.7"/>
+                                    <polygon points="320,160 320,240 380,200" fill="white"/>
+                                    <circle cx="340" cy="200" r="70" stroke="white" stroke-width="3" fill="transparent" />
+                                </g>
+                            </svg>
+                       </div>
+
+                        <p>
+                            In the Code tab, make a new Block named <span class="my-blocks">Point along path</span>, running without screen refresh.
+                            In its definition, repeatedly turn 10 degrees anti-clockwise until touching Path, and call it after the asteroid has moved:
+                        </p>
+                        <img src="../img/013/point-block.png"/>
+                        <p>
+                            Notice that we've assumed that we're pointing <em>above</em> the path and that we need to turn <em>downwards</em>. That's not always true and, if not,
+                            we might end up flying backwards:
+                        </p>
+                        <div class="video" style="height:404px">
+                            <svg width="700" height="400">
+                                <rect width="100%" height="100%" fill="black"/>
+                                <path d="M 300 400 C 300 200, 100 50, 0 0" stroke="grey" stroke-width="2"/> <!-- move to (300, 400), cubic curve with starting handle (200, 100) and ending handle (40, 20) to (0, 0) -->
+                                <text x="320" y="40" id="caption-2" stroke="silver" fill="silver" font-size="20">Suppose we turn to point along the path...</text>
+                                <g id="sprite-2" transform="rotate(20 300 400) scale(0.5) translate(300 400)">
+                                    <circle cx="300" cy="300" r="5" fill="grey"/>
+                                    <circle cx="300" cy="400" r="50" stroke="grey" stroke-width="2" stroke-dasharray="10" fill="transparent"/>
+                                    <g>
+                                        <path d="M 300 385 V 230" stroke="grey" stroke-width="2" stroke-dasharray="10"/>
+                                        <path d="M 300 230 L 295 240" stroke="grey" stroke-width="2"/>
+                                        <path d="M 300 230 L 305 240" stroke="grey" stroke-width="2"/>
+                                    </g>
+                                </g>
+                                <g id="play-button-2">
+                                    <rect width="100%" height="100%" fill="black" opacity="0.7"/>
+                                    <polygon points="320,160 320,240 380,200" fill="white"/>
+                                    <circle cx="340" cy="200" r="70" stroke="white" stroke-width="3" fill="transparent" />
+                                </g>
+                            </svg>
+                       </div>
+                        <p>How could we fix this bug?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-05">It can't be fixed</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-05" data-correct>We could turn clockwise just before we start turning anti-clockwise</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>That will help. Add that block:</p>
+                        <img src="../img/013/fix-bug.png"/>
+                        <p>Click the green flag. What do you see? (You might need full screen mode to see anything.)</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-06">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-06" data-correct>A tiny circle flies along the path</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            We forgot to change back to the proper costume! Add a block at the end to fix that, and another block to ensure that
+                            we're using the path finder costume at the start:
+                        </p>
+                        <img src="../img/013/wrap-in-costumes.png"/>
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-07">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-07" data-correct>The asteroid flies along the path!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Good. Let's speed it up.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Speed <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Speed 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Speed</h2>
+                        <p>Make a variable named <span class="variable">speed</span>, for this sprite only, and uncheck its box.</p>
+                        <p>Set it to 3 when the green flag is clicked, and move <span class="variable">speed</span> steps instead of moving 3 steps:</p>
+                        <img src="../img/013/speed-refactor.png"/>
+                        <p>Have we changed the behaviour of the asteroid?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            This is what's known as <em>refactoring</em>. The asteroid used to move 3 steps at a time; it still moves 3 steps at a time. No change in
+                            behaviour.
+                        </p>
+                        <p>So why did we do it?</p>
+                        <p>Because using a variable will make it easier for us in a later module when we have many asteroids, and we want them to have different speeds.</p>
+                        <p>For now, change the speed to 5:</p>
+                        <img src="../img/013/speed-5.png"/>
+                        <p>Click the green flag. Does the asteroid move faster?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Change the speed to 10. Does it move even faster?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Keep increasing the speed and testing the asteroid's flight. At some point you will see the asteroid flip around and fly back and forth.</p>
+                        <p>
+                            That's because the bug fix we added &mdash; turning clockwise before repeatedly turning anticlockwise &mdash; only <em>helped</em>.
+                            If the asteroid travels too fast, or the path has too sharp a curve, a proper bug fix because more complicated.
+                        </p>
+                        <p>Change the speed back to 3.</p>
+                        <p>It's time to turn this into a game.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Defence <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Defence 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Defence</h2>
+                        <p>
+                            Add a <span class="events">when this sprite clicked</span> and snap a <span class="looks">hide</span> underneath.
+                            Remember to <span class="looks">show</span> the asteroid when the green flag is clicked.
+                        </p>
+                        <img src="../img/013/click-hide.png"/>
+                        <p>
+                            Click the full screen button, click the green flag, and try to click the asteroid before it crashes into Earth. What happens when you click it?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00" data-correct>The asteroid is destroyed!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>
+                            Great. If the game is too hard, use a slower speed or make the asteroid larger. If it's too easy, set a faster speed
+                            (remembering to stay under the flip-around speed).
+                        </p>
+                        <p>
+                            <strong>Tip:</strong> a game should be challenging enough that players are pleased when they win, but not so challenging that they become frustrated.
+                        </p>
+                        <p>
+                            In the next module, we'll send lots of asteroids flying towards Earth (rather than just one) and we'll learn how to display a beautiful score
+                            (rather than Scratch's orange variable readout).
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#04-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#06-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 06 -->
+
+                    <div class="question" data-hash="#06">
+                        <h2>Next steps</h2>
+                        <p>Save your project.</p>
+                        <p>In the next few modules we will:</p>
+                        <ul>
+                            <li>earn cash for destroying asteroids</li>
+                            <li>improve the art with a starry background and explosion effects</li>
+                            <li>give Earth a health bar</li>
+                            <li>make a 'turret' to automatically shoot asteroids</li>
+                            <li>create a shop for buying extra turrets</li>
+                        </ul>
+                        <p>Feel free to try out any of those ideas beforehand, or to try a different idea of your own instead.</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules2.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+
+        function fadeOut($element, dt) {
+            $element.attr('opacity', 0.9 - (dt * 0.1));
+        }
+        function fadeIn($element, dt) {
+            $element.attr('opacity', 0.1 + (dt * 0.1));
+        }
+        function updateCaption($caption, newText, dt) {
+            if (dt < 10) {
+                fadeOut($caption, dt);
+            } else if (dt < 20) {
+                var dt2 = dt - 10;
+                $caption[0].textContent = newText;
+                fadeIn($caption, dt2);
+            }
+        }
+        var $caption1 = $('#caption-1');
+        var $sprite1 = $('#sprite-1');
+        var $centre1 = $('#centre-1');
+        var $arrow1 = $('#arrow-1');
+        var intervalId1 = 0;
+        var keyframes1 = [
+                  10 // kf00 pause
+                , 20 // kf01 sprite fades in
+                , 20 // kf02 'centre here' shown
+                , 20 // kf03 centre fades in
+                , 30 // kf04 'pointing up' shown
+                , 20 // kf05 arrow shown
+                , 40 // kf06 'if turn' shown
+                , 10 // kf07 turned
+                , 40 // kf08 'it will point' shown
+                , 40 // kf09 'now move' shown
+                , 10 // kf10 move
+                , 40 // kf11 'path curves away' shown
+                ,  5 // kf12 turned
+                , 40 // kf13 'move again'
+                , 10 // kf14 move
+                , 40 // kf15 'and so on'
+                , 10 // kf16 fade
+        ].reduce(function(r, a) {
+            r.push((r.length && r[r.length - 1] || 0) + a); // convert to a 'cumulative array'
+            return r;
+        }, []);
+        function reset1() {
+            $caption1.attr('opacity', '1');
+            $caption1[0].textContent = 'The sprite starts here...';
+            $sprite1.attr('opacity', '0');
+            $sprite1.attr('transform', 'rotate(0)');
+            $centre1.attr('opacity', '0');
+            $arrow1.attr('opacity', '0');
+        }
+        function animate1(t) {
+            var keyframe = keyframes1.findIndex(function(cutoff) { return cutoff > t; });
+            var dt = t - (keyframe === 0 ? 0 : keyframes1[keyframe - 1]); // time since start of keyframe
+            if (keyframe === 0) {
+                // pause
+            } else if (keyframe === 1) {
+                fadeIn($sprite1, dt);
+            } else if (keyframe === 2) {
+                updateCaption($caption1, "... its centre is here...", dt);
+            } else if (keyframe === 3) {
+                fadeIn($centre1, dt);
+            } else if (keyframe === 4) {
+                updateCaption($caption1, "... and it's pointing straight up", dt);
+            } else if (keyframe === 5) {
+                fadeIn($arrow1, dt);
+            } else if (keyframe === 6) {
+                updateCaption($caption1, "If we turn it until it touches the Path...", dt);
+            } else if (keyframe === 7) {
+                $sprite1.attr('transform', 'rotate(' + (-2 * dt) + ' 300 400)');
+            } else if (keyframe === 8) {
+                updateCaption($caption1, "... then it will point along the Path", dt);
+            } else if (keyframe === 9) {
+                updateCaption($caption1, "Now we move it forwards", dt);
+            } else if (keyframe === 10) {
+                $sprite1.attr('transform', 'rotate(-18 300 400) translate(0 -80)');
+            } else if (keyframe === 11) {
+                updateCaption($caption1, "The path curves away so we turn again...", dt);
+            } else if (keyframe === 12) {
+                $sprite1.attr('transform', 'rotate(-18 300 400) translate(0 -80) rotate(' + (-2 * dt) + ' 300 400)');
+            } else if (keyframe === 13) {
+                updateCaption($caption1, "... then move forwards again...", dt);
+            } else if (keyframe === 14) {
+                $sprite1.attr('transform', 'rotate(-18 300 400) translate(0 -80) rotate(-8 300 400) translate(0 -80)');
+            } else if (keyframe === 15) {
+                updateCaption($caption1, "... and so on...", dt);
+            } else if (keyframe === 16) {
+                fadeOut($caption1, dt);
+                fadeOut($sprite1, dt);
+                fadeOut($centre1, dt);
+                fadeOut($arrow1, dt);
+            } else {
+                clearInterval(intervalId1);
+                $('#play-button-1').fadeIn('slow', function() {
+                    reset1();
+                });
+            }
+        }
+        $('#play-button-1').on('click', function() {
+            reset1();
+            $('#play-button-1').fadeOut('slow', function() {
+                var t = 0;
+                intervalId1 = setInterval(function() { animate1(t++); }, 100);
+            });
+        });
+    </script>
+    <script>
+        var $caption2 = $('#caption-2');
+        var $sprite2 = $('#sprite-2');
+        var intervalId2 = 0;
+        var transform = '';
+        var keyframes2 = [
+                  20 // kf00 pause
+                , 12 // kf01 turn
+                , 40 // kf02 'then move' shown
+                , 10 // kf03 move
+                , 40 // kf04 'we turn' shown
+                , 14 // kf05 turn
+                , 40 // kf06 'then fly' shown
+                , 10 // kf07 move
+                , 40 // kf08 'now when we turn' shown
+                , 25 // kf09 turn
+                , 40 // kf10 'point backwards'
+                , 10 // kf11 fade
+        ].reduce(function(r, a) {
+            r.push((r.length && r[r.length - 1] || 0) + a); // convert to a 'cumulative array'
+            return r;
+        }, []);
+        function reset2() {
+            $caption2.attr('opacity', '1');
+            $caption2[0].textContent = 'Suppose we turn to point along the path...';
+            $sprite2.attr('opacity', '1');
+            $sprite2.attr('transform', 'rotate(20 300 400) scale(0.5) translate(300 400)');
+            transform = $sprite2.attr('transform');
+        }
+        function animate2(t) {
+            var keyframe = keyframes2.findIndex(function(cutoff) { return cutoff > t; });
+            var dt = t - (keyframe === 0 ? 0 : keyframes2[keyframe - 1]); // time since start of keyframe
+            if (keyframe === 0) {
+                // pause
+            } else if (keyframe === 1) {
+                $sprite2.attr('transform', transform + ' rotate(' + (-2 * dt) + ' 300 400)');
+            } else if (keyframe === 2) {
+                updateCaption($caption2, "... then move really fast", dt);
+                transform = $sprite2.attr('transform');
+            } else if (keyframe === 3) {
+                $sprite2.attr('transform', transform + ' translate(0 -280)');
+            } else if (keyframe === 4) {
+                updateCaption($caption2, "We turn to touch the path...", dt);
+                transform = $sprite2.attr('transform');
+            } else if (keyframe === 5) {
+                 $sprite2.attr('transform', transform + ' rotate(' + (-4 * dt) + ' 300 400)');
+            } else if (keyframe === 6) {
+                updateCaption($caption2, "... then fly across it!", dt);
+                transform = $sprite2.attr('transform');
+            } else if (keyframe === 7) {
+                $sprite2.attr('transform', transform + ' translate(0 -280)');
+            } else if (keyframe === 8) {
+                updateCaption($caption2, "Now when we turn...", dt);
+                transform = $sprite2.attr('transform');
+            } else if (keyframe === 9) {
+                $sprite2.attr('transform', transform + ' rotate(' + (-8 * dt) + ' 300 400)');
+            } else if (keyframe === 10) {
+                updateCaption($caption2, "... we point backwards!", dt);
+            } else if (keyframe === 11) {
+                fadeOut($caption2, dt);
+                fadeOut($sprite2, dt);
+            } else {
+                clearInterval(intervalId2);
+                $('#play-button-2').fadeIn('slow', function() {
+                    reset2();
+                });
+            }
+        }
+        $('#play-button-2').on('click', function() {
+            reset2();
+            $('#play-button-2').fadeOut('slow', function() {
+                var t = 0;
+                intervalId2 = setInterval(function() { animate2(t++); }, 100);
+            });
+        });
+    </script>
+    <script>
+        'use strict';
+        var page = '013';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

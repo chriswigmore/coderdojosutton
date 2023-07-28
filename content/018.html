@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=4" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 18 &mdash; Asteroid defence VI: Choice</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Buying</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Hit points</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Size</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Double turret</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Firepower</a></li>
+                    <li><a href="#06-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>
+                            Players like to make choices &mdash; it adds an element of <em>strategy</em> to a game.
+                        </p>
+                        <p>
+                            We will offer a 'basic turret' in our shop, but also a more expensive and more powerful 'double turret' that they can save up for.
+                        </p>
+                        <div class="img-wrapper">
+                            <img src="../img/018/choice.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Buying <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buying 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Buying</h2>
+                        <p>
+                            Load up the project you saved at the end of the last module.
+                        </p>
+                        <p>
+                            Firstly, there's something we should fix - the shop currently lets you get turrets for free! Let's charge $20 per turret.
+                        </p>
+                        <p>
+                            Select the Turret icon sprite and create a variable named <span class="variable rounded">cost</span> (for this sprite only). Set it to 20 when the green
+                            flag is clicked:
+                        </p>
+                        <img src="../img/018/turret-icon.png" class="pull-right"/>
+                        <img src="../img/018/cost-20.png"/>
+                        <p>
+                            When the sprite is clicked, we should only create a clone if we have enough cash, i.e. if <span class="variable rounded">cost</span> is not greater than
+                            <span class="variable rounded">CASH</span>:
+                        </p>
+                        <img src="../img/018/turret-icon.png" class="pull-right"/>
+                        <img src="../img/018/not-cost-gt-cash.png"/>
+                        <p>We also need to reduce the amount of cash we have. How should we do that?</p>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="#01-00">
+                                <span class="variable">change <span>CASH</span> by <var><span class="variable rounded">cost</span></var></span>
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="#01-00" data-correct>
+                                <span class="variable">change <span>CASH</span> by <var><span class="operators rounded"><var></var> - <var><span class="variable rounded">cost</span></var></span></var></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            Go ahead and add that inside the if-then block:
+                        </p>
+                        <img src="../img/018/turret-icon.png" class="pull-right"/>
+                        <img src="../img/018/change-cash.png"/>
+                        <p>
+                            It's really helpful to let players know when they <em>can't</em> do something by <em>greying out</em> the button. So this sprite should forever check whether
+                            there is enough cash to buy a turret and, if not, it should decrease its brightness. Add code for that inside the forever-loop.
+                        </p>
+                        <p>
+                            Does your code look like this?
+                        </p>
+                        <img src="../img/018/turret-icon.png" class="pull-right"/>
+                        <img src="../img/018/grey-out.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            Switch to the Asteroid sprite and, instead of setting <span class="variable rounded">CASH</span> to zero, set it to 20, so that players start
+                            with just enough to buy one turret:
+                        </p>
+                        <img src="../img/018/asteroid.png" class="pull-right"/>
+                        <img src="../img/018/cash-20.png"/>
+                        <p>
+                            Click the green flag. Does the turret icon still 'light up' when you hover over it?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            Can you still buy a turret and place it on the stage?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            After buying a turret, is the turret icon greyed out?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            Good.
+                        </p>
+                        <p>
+                            We're about to build a double turret, which will have twice the firepower. But that's not useful at the moment because each asteroid can be
+                            destroyed by a single hit from a basic turret missile. Let's give asteroids <em>hit points</em>, increasing with each wave, so asteroids become
+                            harder to destroy over time.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Hit points <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hit points 02 -->
+                    <div class="question" data-hash="#02">
+                        <h2>Hit points</h2>
+                        <p>
+                            Still in the Asteroid sprite, make a variable named <span class="variable rounded">hit points</span> (for this sprite only).
+                            Set the number of hit points to be the same as <span class="variable rounded">wave</span>:
+
+                        </p>
+                        <img src="../img/018/asteroid.png" class="pull-right"/>
+                        <img src="../img/018/hit-points-wave.png"/>
+                        <p>
+                            In the <span class="events">when I receive <span>Asteroid hit</span></span> script, don't just <span class="events">delete this clone</span>.
+                            Instead, reduce <span class="variable rounded">hit points</span> by 1, and only delete the clone if we have none left:
+                        </p>
+                        <img src="../img/018/asteroid.png" class="pull-right"/>
+                        <img src="../img/018/decrease-hit-points.png"/>
+                        <p>
+                            We could have written the script like 'if hit points is zero, delete this clone'. Why is it better to check for hit points being <em>less than one</em>?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">It's not better, it's exactly the same</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>
+                                If an asteroid has one hit point, and then gets hit by a powerful missile that subtracts two hit points, it will have <em>-1</em> hit points.
+                                If we only check for equality with zero, that asteroid would <em>not</em> be deleted; by checking for 'less than one' we catch the case when hit points are zero 
+                                <em> or </em> negative.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Click the green flag and place a turret on the stage. Is the first wave of asteroids destroyed by a single missile?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Do the asteroids in the second wave need two missile hits to be destroyed?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Good. Let's add one more improvement before we build our double turret &mdash; asteroids with more hit points should be bigger.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Size <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Size 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Size</h2>
+                        <p>
+                            If an asteroid's size is related to its hit points, then it lets the player know why some asteroids are harder to destroy than others.
+                        </p>
+                        <p>
+                            Also, as each missile blows bits off an asteroid, we will see that asteroid get smaller.
+                        </p>
+                        <p>
+                            In the <span class="events">when I start as a clone</span> script, inside the repeat-until loop, add some code that <em>scales up</em> the asteroid's
+                            size by the <em>square root</em> of its hit points.
+                        </p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> Why the square root? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>If we simply scaled up the asteroid's size by its hit points, asteroids would get very big very quickly.</p>
+                                <p>By using the square root of the hit points, the asteroids get bigger with each wave, but it takes them much longer before they get crazy big.</p>
+                            </div>
+                        </div>
+                        <img src="../img/018/asteroid.png" class="pull-right"/>
+                        <img src="../img/018/set-size.png"/>
+                        <p>
+                            Click the green flag and place a turret. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>The asteroids start off normal size then get bigger with each wave</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Good. Time to build a double turret.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Double turret <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Double turret 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Double turret</h2>
+                        <p>
+                            The moment we introduce a more expensive turret to the player, we need to let them know why it's better. Let's show the turret <em>stats</em>
+                            in the shop.
+                        </p>
+                        <p>
+                            Select the Turret icon sprite, go to the Costumes tab, and duplicate costume1.
+                        </p>
+                        <p>
+                            In the duplicated costume, costume2, draw a rectangle &mdash; black at the top fading to transparent at the bottom &mdash; and make it the same
+                            width as the shop we made in the last module (150 pixels in my case):
+                        </p>
+                        <img src="../img/018/black-rect.png"/>
+                        <p>
+                            Select the Text tool, choose a grey Fill colour, and click to place the cursor at the top left of the black rectangle you just drew.
+                            Write the following text:
+                        </p>
+                        <p>
+                            Basic turret<br/>
+                            Cost: $20<br/>
+                            Cooldown: 15 ticks<br/>
+                            Damage: 1<br/>
+                        </p>
+                        <p>
+                            If the text overflows the rectangle, use the select tool to resize it until it fits:
+                        </p>
+                        <img src="../img/018/with-text.png"/>
+                        <p>
+                            Switch to the code tab and, inside the forever-loop, instead of setting the brightness higher on mouse over, switch to costume2 on mouseover.
+                            Remember to switch back to costume1 if the mouse isn't touching the sprite. Also remember to set the brightness to zero before we check if we
+                            have enough cash (and grey out the sprite if not):
+                        </p>
+                        <img src="../img/018/turret-icon.png" class="pull-right"/>
+                        <img src="../img/018/switch-costumes.png"/>
+                        <p>Test your code. Do the turret stats flash up on mouse-over?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Good. You might need to adjust the position or size of your text and its rectangle so that it looks good inside the shop:
+                        </p>
+                        <img src="../img/018/turret-icon.png" class="pull-right"/>
+                        <img src="../img/018/tweak-position.png"/>
+                        <p>
+                            Once you're happy, duplicate the whole of Turret icon &mdash; the new sprite will be called <em>Turret icon2</em>.
+                        </p>
+                        <p>
+                            Set the x and y position of Turret icon2 to be <em>exactly the same</em> as Turret icon, in my case that's (-171, 112):
+                        </p>
+                        <img src="../img/018/set-x-y.png"/>
+                        <p>
+                            At the moment, we have two sprites exactly overlapping each other. If you press the green flag and open the shop, it will look like there's only
+                            one turret for sale. Go to costume1, select all (Ctrl + A), and drag the turret down so that sits just underneath where it was. Now open the shop.
+                            Does it look like this?
+                        </p>
+                        <img src="../img/018/two-turret-icons.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Good. Now that we've got the position right, let's turn it into a double turret. Duplicate the barrel, and place both barrels side-by-side:
+                        </p>
+                        <img src="../img/018/two-barrels.png"/>
+                        <p>
+                            Select all, copy (Ctrl + C) and paste <em>into costume2</em> (Ctrl + V). Delete the single-barrelled turret from costume2, and update the text as follows:
+                        </p>
+                        <p>
+                            Double turret<br>
+                            Cost: $50<br/>
+                            Cooldown: 10 ticks<br/>
+                            Damage: 2<br/>
+                        </p>
+                        <img src="../img/018/costume2.png"/>
+                        <p>
+                            Click the green flag and open the shop. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>As I mouse over the turrets, their stats flash up on screen</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Switch to the Code tab and set the cost to 50:
+                        </p>
+                        <img src="../img/018/turret-icon2.png" class="pull-right"/>
+                        <img src="../img/018/cost-50.png"/>
+                        <p>
+                            Create a new variable <span class="variable rounded">TURRET TYPE</span> (for all sprites). We will use this to store which type of turret the player
+                            is buying.
+                        </p>
+                        <p>
+                            Set it to 1 in the Turret icon sprite, just before creating the clone, and set it to 2 in the Turret icon2 sprite:
+                        </p>
+                        <img src="../img/018/turret-icon.png" class="pull-right"/>
+                        <img src="../img/018/turret-type-1.png"/>
+                        <br class="clearfix"/>
+                        <img src="../img/018/turret-icon2.png" class="pull-right"/>
+                        <img src="../img/018/turret-type-2.png"/>
+                        <p>
+                            Switch to the Turret sprite and create two lists (for this sprite only): <span class="list rounded">cool downs</span> and
+                            <span class="list rounded">damages</span>.
+                        </p>
+                        <img src="../img/018/turret.png" class="pull-right"/>
+                        <img src="../img/018/cooldowns-damages.png"/>
+                        <p>
+                            How do you think we're going to use these lists?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-03">We will add new items to them every time we create a new turret clone</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="#04-03" data-correct>
+                                We won't add or remove any items, rather we will use them to look up the cool down and damage values for new turret clones.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Correct &mdash; a list used in this way is known as a <em>lookup</em>.
+                        </p>
+                        <p>
+                            If the player has bought a basic turret,
+                            <span class="variable rounded">TURRET TYPE</span> will be 1, so
+                            <span class="list">item <var><span class="variable rounded">TURRET TYPE</span></var> of <span>cool downs</span></span> will be 15.
+                        </p>
+                        <p>
+                            However, if the player has bought a <em>double turret</em>,
+                            <span class="variable rounded">TURRET TYPE</span> will be <em>2</em>, so
+                            <span class="list">item <var><span class="variable rounded">TURRET TYPE</span></var> of <span>cool downs</span></span> will be 10.
+                        </p>
+                        <p>
+                            Similarly we can look up damage by turret type &mdash; the basic turret will do damage 1, the double turret, damage 2. Putting these together,
+                            our double turrets will not only pack twice the punch, they'll cool down more quickly too &mdash; will that make the extra cost worth it?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-04" data-correct>Yes
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-04">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Create three new variables (for this sprite only) to capture the values that each clone cares about: <span class="variable rounded">cool down</span>,
+                            <span class="variable rounded">damage</span> and <span class="variable rounded">turret type</span>.
+                        </p>
+                        <p>
+                            Note that we have a variable, <span class="variable rounded">TURRET TYPE</span>, and now also a very similar variable,
+                            <span class="variable rounded">turret type</span>. The upper case one, <span class="variable rounded">TURRET TYPE</span>, is for all sprites,
+                            so we can set it when one of the turret icons is clicked, and then a different sprite, the Turret sprite, can read it and know which kind of clone to make.
+                            The other, <span class="variable rounded">turret type</span>, is for this sprite only, letting it store a different value for each clone, meaning we can have
+                            a mixture of different types of turrets to defend Earth. Using our upper case / lower case convention makes it easy to know which variable is which.
+                        </p>
+                        <p>
+                            Let these variables capture the appropriate values when a turret clone is created:
+                        </p>
+                        <img src="../img/018/turret.png" class="pull-right"/>
+                        <img src="../img/018/capture.png"/>
+                        <p>
+                            Straight away we can update the <span class="my-blocks">Fire</span> block. Currently we set <span class="variable rounded">time when cool</span>
+                            to <span class="variable rounded">T</span> + 15. That number, 15, is <em>hard-coded</em>. Replace it with the 
+                            <span class="variable rounded">cool down</span> variable, so that it varies depending on turret type:
+                        </p>
+                        <img src="../img/018/turret.png" class="pull-right"/>
+                        <img src="../img/018/cooldown.png"/>
+                        <p>
+                            Switch to the costume tab and duplicate costume1. Delete the basic turret, and copy-paste in the double turret you drew in the Turret icon2 sprite.
+                            Make sure that you centre it, and delete any drop shadow.
+                        </p>
+                        <p>
+                            (While we're among the costumes, you might want to delete the barrel from the <em>range</em> costume. Since we'll use this costume when placing both
+                            kinds of turret, it would be nice to have something that works with either.)
+                        </p>
+                        <p>
+                            Switch back to the Code tab and, at the end of the forever-loop, don't switch back to costume1 &mdash; that's a hard-coded value. Switch to
+                            <span class="variable rounded">turret type</span> instead:
+                        </p>
+                        <img src="../img/018/turret.png" class="pull-right"/>
+                        <img src="../img/018/switch-turret-type.png"/>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> Wait &mdash; <span class="variable rounded">turret type</span> is either 1 or 2, not <em>costume1</em> / <em>costume2</em>... will this work?<span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Well spotted. This will work because you can tell Scratch to switch costume based either on name <em>or on number</em>.</p>
+                                <p>
+                                    The basic turret will have a turret type of 1, in which case this block will switch to the <em>first costume</em>.
+                                    The double turret will have a turret type of 2, in which case this block will switch to the <em>second costume</em>.
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            Click the green flag and start playing. Once you've saved up enough, buy a double turret and place it on the stage. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-05">Nothing happens
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-05" data-correct>I can see the two barrels, and it fires more quickly too</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Good. Time to increase the firepower.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Firepower <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Firepower 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Firepower</h2>
+                        <p>
+                            Missiles need to know how much damage to do so, in the <span class="my-blocks">Fire</span> block, add
+                            <span class="variable rounded">damage</span> to <span class="list rounded">MISSILE INFO</span>:
+                        </p>
+                        <img src="../img/018/turret.png" class="pull-right"/>
+                        <img src="../img/018/add-damage.png"/>
+                        <p>
+                            Switch to the Missile sprite.
+                        </p>
+                        <p>
+                            Create a variable called <span class="variable rounded">damage</span> (for this sprite only) and
+                            capture the appropriate value:
+                        </p>
+                        <img src="../img/018/missile.png" class="pull-right"/>
+                        <img src="../img/018/capture-damage.png"/>
+                        <p>
+                            Now, when an asteroid is hit, it needs to know how much damage the missile did, so create a list named <span class="list rounded">DAMAGES</span>
+                            (for all sprites) and, when a missile hits an asteroid, add the appropriate value to the list:
+                        </p>
+                        <img src="../img/018/missile.png" class="pull-right"/>
+                        <img src="../img/018/damages.png"/>
+                        <p>
+                            Don't forget to clear out the <span class="list rounded">DAMAGES</span> list when the green flag is clicked:
+                        </p>
+                        <img src="../img/018/missile.png" class="pull-right"/>
+                        <img src="../img/018/delete-damages.png"/>
+                        <p>
+                            Switch to the Asteroid sprite.
+                        </p>
+                        <p>
+                            When the asteroid is hit, don't just take off one hit point, take off the number of hit points we just added to <span class="list rounded">DAMAGES</span>.
+                            Don't forget to delete that item from the list afterwards:
+                        </p>
+                        <img src="../img/018/asteroid.png" class="pull-right"/>
+                        <img src="../img/018/take-damage.png"/>
+                        <p>
+                            Test your code changes. Are the double turrets inflicting twice the damage? (If it's hard to test, try temporarily starting the game with $50 so
+                            you can buy a double turret right away, and see if it destroys the wave 2 asteroids with a single hit.)
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>
+                            You might have noticed a bug &mdash; if an asteroid touches a turret, everything slows right down, and the turret's thin blue <em>aim</em> costume
+                            becomes visible, spinning wildly around. Let's avoid this bug, and also make the game more challenging, by letting asteroids destroy turrets
+                            when they touch them &mdash; add code to the Turret sprite:
+                        </p>
+                        <img src="../img/018/turret.png" class="pull-right"/>
+                        <img src="../img/018/destroy-turrets.png"/>
+                        <p>
+                            Test your code change. Are turrets destroyed when asteroids hit them?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>
+                            It would be nice if the double turret fired a <em>double missile</em>. Switch to the Missile sprite and duplicate costume1.
+                        </p>
+                        <p>
+                            Copy-paste the single missile, and position the two missiles next to each other (symmetrically about the middle line, the same distance
+                            apart as the two barrels):
+                        </p>
+                        <img src="../img/018/double-missile.png"/>
+                        <p>
+                            Switch back to the Code tab, and switch the costume to <span class="variable rounded">damage</span>.
+                        </p>
+                        <p>
+                            Note: this is what's known as a <em>hack</em>.
+                            It 'just happens' that we want the single missile costume when the damage is 1 and the double missile costume when the costume is 2, but what if we
+                            want to create a third costume that does 4 damage? The current code would try to pick costume number 4, which wouldn't exist!
+                        </p>
+                        <p>
+                            It would be safer to add a fifth item to the <span class="list rounded">MISSILE INFO</span> list containing the missile costume number, but we'll leave
+                            that as an exercise for the keen reader.
+                        </p>
+                        <p>
+                            A final touch &mdash; let's leave a bigger smoke trail if we're firing two missiles. Add some code for that too. Does your script look like this?
+                        </p>
+                        <img src="../img/018/missile.png" class="pull-right"/>
+                        <img src="../img/018/show-double-missile.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>
+                            Click the full screen button, click the green flag, and see how well you can defend planet Earth...
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#04-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#06-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 06 -->
+
+                    <div class="question" data-hash="#06">
+                        <h2>Next steps</h2>
+                        <p>Save your project.</p>
+                        <p>See if you can make the game better.</p>
+                        <p>Maybe you could add more types of turret?</p>
+                        <p>Maybe you could add some sound effects for the explosions?</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules2.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '018';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

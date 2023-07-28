@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=4" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 10 &mdash; Random tile game</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Grid of tiles</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>My Blocks</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Random tile patterns</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Losing</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Winning</a></li>
+                    <li><a href="#06-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>In this module we will make a game in which the player has to memorize a random tile pattern.</p>
+                        <div class="img-wrapper">
+                            <img src="../img/010/random-tile-game.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Grid of tiles <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grid of tiles 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Grid of tiles</h2>
+                        <p>Start from an empty Scratch project (<a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a> &mdash; remember to delete the cat sprite).</p>
+                        <p>
+                            Paint a new sprite, named 'Tile'. Zoom in until the chequered background becomes large, then select the Rectangle tool, change the Fill colour to light green, the Outline thickness to 0, and draw a square, 4 chequered tiles by 4 chequered tiles.
+                            <strong>The size is important.</strong>
+                        </p>
+                        <img src="../img/010/light-green-square.png"/>
+                        <p>Name the costume 'normal'. <strong>The name is important.</strong></p>
+                        <p>On the Code tab, add the usual hide-template-show-clone scripts.</p>
+                        <img src="../img/010/hide-template-show-clone.png"/>
+                        <p>
+                            We're going to use our tile to create a grid of many tiles. Create a variable (for all sprites) called <span class="variable rounded">GRID SIZE</span> to store the size of the grid.
+                            Create two more variables (for all sprites) called <span class="variable rounded">X</span> and <span class="variable rounded">Y</span> &mdash; we'll use these to position our tiles.
+                            Hide them from the stage by unchecking their checkboxes.
+                        </p>
+                        <p>Why do you think these variables' letters are all uppercase?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">Because the computer is angry and shouting at us?</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>Because it's a good idea to use uppercase when a variable is for all sprites, and lowercase when it's for this sprite only?</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            Good guess &mdash; from this module onwards we'll use this 'convention', i.e. this way of doing things: uppercase when a variable is 'for all sprites', lowercase when it's for 'this sprite only'. It will make our code easier to read.
+                            (Note: other projects you see on Scratch might not use this convention.)
+                        </p>
+                        <p>When the green flag is clicked, set <span class="variable rounded">GRID SIZE</span> to 6.</p>
+                        <img src="../img/010/grid-size-6.png"/>
+                        <p>Now we need to move the template tile upwards, repeatedly, cloning it as it goes, until it reaches the top of the grid. Then, it should drop down and to the right, and start making another column of cloned tiles. And so on, until we have a full grid.</p>
+                        <img src="../img/010/tile-numbering.png"/>
+                        <p>We do this with nested repeat loops. Start off by setting <span class="variable rounded">X</span> and <span class="variable rounded">Y</span> to zero, then repeatedly position the template, clone it, then increase <span class="variable rounded">Y</span> by 20:</p>
+                        <img src="../img/010/y-loop.png"/>
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>A column of green tiles is created</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            Now we nest that loop inside another loop which will increase <span class="variable rounded">X</span> by 20.
+                            Don't zero <span class="variable rounded">X</span> inside this loop, we want <span class="variable rounded">X</span>
+                            to keep increasing so the columns keep moving right,
+                            but do zero <span class="variable rounded">Y</span>, we want each column's first tile to be at the bottom:</p>
+                        <img src="../img/010/x-loop.png"/>
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02" data-correct>A grid of tiles is created!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Good. Notice how it takes about a second to create all the tiles? Let's fix that.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">My Blocks <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- My Blocks 02 -->
+                    <div class="question" data-hash="#02">
+                        <h2>My Blocks</h2>
+                        <p>In the 'My Blocks' section click the 'Make a Block' button. Type 'Make grid' as the block name and click 'Ok'. You should see a new 'define' block appear in your code area, and a new code block appear in the list of code blocks:</p>
+                        <img src="../img/010/make-grid.png"/>
+                        <p>Click the red stop sign to clear the stage. The click the <span class="my-blocks">Make grid</span> code block. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">A new grid of tiles is created</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>When <span class="my-blocks">Make grid</span> runs, all the blocks snapped under its <em>definition</em> run. Right now, there are no blocks snapped under its definition, so nothing happens.</p>
+                        <p>Drag the nested loops we just added and snap them under the definition:</p>
+                        <img src="../img/010/define-make-grid.png"/>
+                        <p>Click the <span class="my-blocks">Make grid</span> code block. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>A new grid of tiles is created</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>My Blocks are useful for giving a name to a <strong>group of code blocks</strong> that <strong>do a single thing</strong>. You can then run all those code blocks by simply running the one Block.</p>
+                        <p>As your Scratch projects get larger, it's much easier to think about a few well-named Blocks, rather than hundreds of repeat loops / variable setters / etc.</p>
+                        <p>But there's another reason to use a Block. Right-click on <span class="my-blocks">Make grid</span> and click 'Edit':</p> 
+                        <img src="../img/010/edit-definition.png"/>
+                        <p>Check the 'Run without screen refresh' checkbox and click 'OK'.</p>
+                        <img src="../img/010/screen-refresh.png"/>
+                        <p>Click the red stop sign to clear the stage then click the <span class="my-blocks">Make grid</span> code block. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>A new grid of tiles is drawn super quickly!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Previously, we saw the grid of tiles being created, tile by tile, because Scratch refreshed the screen for us each time round the repeat loops.
+                            Now that we're using a Block <em>without</em> screen refresh, the loops run super quickly (screen refreshes slow things down) and we get a single screen refresh at the end showing us that all the tiles have been created.
+                        </p>
+                        <p>Snap a <span class="my-blocks">Make grid</span> under the <span class="variable">set <span>GRID SIZE</span> to <var>6</var></span> so that a grid is made whenever the green flag is clicked.</p>
+                        <p>Does your code look like this?</p>
+                        <img src="../img/010/run-make-grid.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Let's fix one more problem &mdash; the grid is currently positioned in the top right corner of the screen (filling a space with a width and height of 20 &times; <span class="variable rounded">GRID SIZE</span>):</p>
+                        <img src="../img/010/top-right.png"/>
+                        <p>It would look better if it were centred. Fix that by moving each tile left by half the width, and down by half the height (i.e. 10 &times; <span class="variable rounded">GRID SIZE</span>):</p>
+                        <img src="../img/010/centred.png"/>
+                        <p>Does your code look like this?</p>
+                        <img src="../img/010/go-to-centred.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Click the green flag and check that the grid is now centred nicely. Try setting <span class="variable rounded">GRID SIZE</span> to 12 and confirm that the grid is still nicely centred. Set it back to 6 when you're done.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Random tile patterns <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Random tile patterns 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Random tile patterns</h2>
+                        <p>
+                            Click on the Costume tab and duplicate the 'normal' costume until there are 5 identical costumes. Name them
+                            <ul>
+                                <li>normal</li>
+                                <li>normal hidden</li>
+                                <li>special</li>
+                                <li>special hidden</li>
+                                <li>wrong</li>
+                            </ul>
+                            Note: the names and even the casings (upper case / lower case) are important.
+                        </p>
+                        <p>Select the costume named 'special', and use the Select tool to change the Fill colour to a strong green. Then select the costume named 'wrong', and use the Select tool to change the Fill colour to bright red:</p>
+                        <img src="../img/010/costumes.png"/>
+                        <p>Switch to the Code tab, and add some code to randomly pick either the normal or the special costume:</p>
+                        <img src="../img/010/random-costume.png"/>
+                        <p>Click the green flag a few times. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>Random patterns are created in the grid of tiles!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Our game will test the player's ability to remember each random tile pattern. So we'll show the pattern for a second, then hide it. Add the following code:</p>
+                        <img src="../img/010/wait-next.png"/>
+                        <p>Click the green flag a few times and check that a pattern is shown briefly then hidden. Why does the <span class="looks">next costume</span> block hide the pattern?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">Because <span class="looks">next costume</span> switches every costume to 'normal'</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>Because <span class="looks">next costume</span> switches 'normal' to 'normal hidden', and it switches 'special' to 'special hidden', and 'normal hidden' and 'special hidden' are the same colour</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>That's right. Now it's time to turn this into a game.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Losing <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Losing 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Losing</h2>
+                        <p>Players will win this game by clicking on all the special tiles that have been hidden; if they click a normal tile, they will lose.</p>
+                        <p>
+                            Add a <span class="events">when this sprite clicked</span> and snap two <span class="control">if <span class="slot"></span> then</span> blocks underneath. We need to detect whether this tile is a 'special hidden' tile or a 'normal hidden' tile, and we do that with the below code
+                            (noting that you need to grab a <span class="looks">costume <span>number</span></span> block from the 'Looks' section and change 'number' to 'name'):
+                        </p>
+                        <img src="../img/010/when-clicked.png"/>
+                        <p>(Note: our code area is getting so full that I'm only showing the new script here.)</p>
+                        <p>If the clicked tile is a 'special hidden' tile, switch it to 'special' so the player can see that they got it right. If 'normal hidden', switch it to 'wrong':</p>
+                        <img src="../img/010/show-right-wrong.png"/>
+                        <p>Click the green flag, then click some special tiles and some normal tiles. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>The special tiles turn a strong green and the normal tiles turn red!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>If the player clicks a wrong tile, it should be game over, i.e. no more clicking allowed. It would also be nice to show them where the special tiles actually were.</p>
+                        <p>Let's broadcast a message called 'Game over' when a normal tile is clicked:</p>
+                        <img src="../img/010/wrong-game-over.png"/>
+                        <p>
+                            Add a <span class="events">when I receive <span>Game over</span></span> block.
+                            Remember that <em>one</em> of the cloned tiles will broadcast this event, but <em>every</em> tile will receive it. We only want to show the special hidden tiles, so use an <span class="control">if <span class="slot"></span> then</span> block to show only these:
+                        </p>
+                        <img src="../img/010/receive-game-over.png"/>
+                        <p>Click the green flag then click a normal tile. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>The normal tile turned red, and all the special tiles turned green!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Good &mdash; it's now clear when the player loses. But it's nice to have some kind of 'reward' when the player wins...</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Winning <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Winning 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Winning</h2>
+                        <p>Before we can reward the player for winning, we need to know when they've won. Note: they don't win after clicking <em>a</em> special tile; they win after clicking <em>all</em> the special tiles.</p>
+                        <p>
+                            We could use a variable to count the number of special tiles, and a second variable to count how many special tiles have been found. Or, we could use one variable to count the number of special tiles <em>yet to be found</em>.
+                            Which do you think is better?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00">Using two variables</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00" data-correct>Using one variable</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>There are usually several ways to solve a problem in Scratch and, in general, the ways that use fewer blocks and fewer variables are considered better, or more 'elegant'.</p>
+                        <p>Make a variable (for all sprites) called <span class="variable">NUM HIDDEN SPECIALS</span>. (You could name it 'NUMBER OF HIDDEN SPECIALS' if you want, but I'll use a common abbreviation.)</p>
+                        <p>Insert a block right at the start of the 'Make grid' definition that sets <span class="variable">NUM HIDDEN SPECIALS</span> to zero. Then, whenever we clone a special tile, increase that variable by one:</p>
+                        <img src="../img/010/increment-hidden-specials.png"/>
+                        <p>Next, decrease <span class="variable">NUM HIDDEN SPECIALS</span> whenever a special tile is found. Then, if there are none left to find, the player has won &mdash; broadcast the message 'Game over':</p>
+                        <img src="../img/010/decrement-hidden-specials.png"/>
+                        <p>
+                            Let's make the grid shake when the game is over.
+                            Drag a <span class="control">repeat <var>10</var></span> onto the code area and nest a <span class="motion">move <var>10</var> steps</span> and a <span class="motion">move <var>-10</var> steps</span> inside:
+                        </p>
+                        <img src="../img/010/repeat-move-move.png"/>
+                        <p>Click this script to run it. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01" data-correct>Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01">The grid shakes</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>There are a couple of reasons why. Firstly, it was the template that ran that script, and the template is currently hidden. Show the template and run the script again.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How do I show the template? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Click the 'Show' icon.</p>
+                                <img src="../img/010/show-template.png"/>
+                            </div>
+                        </div>
+                        <p>Why did nothing happen this time?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-02">Because templates can't move</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-02" data-correct>Because if you move 10 and then move -10 you end up where you started</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>Add a <span class="control">wait <var>0</var> seconds</span> block between the two move blocks.</p>
+                        <p>You might think that waiting for zero seconds won't do anything. Run the script. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-03">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-03" data-correct>The template shakes left and right!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>
+                            That little <span class="control">wait <var>0</var> seconds</span> block forced the screen to refresh <em>between the back and forth movements</em>,
+                            so we saw the shake.
+                        </p>
+                        <p>Snap that whole repeat loop onto the end of the <span class="events">when I receive <span>Game over</span></span>:</p>
+                        <img src="../img/010/game-over-shake.png"/>
+                        <p>Click the green flag and play a game. Whether you win or lose, what happens at the end?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-04">The whole grid of tiles disappears</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-04" data-correct>The whole grid of tiles shakes left and right!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>Great. Click the full screen button and play a few games.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#04-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#06-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 06 -->
+
+                    <div class="question" data-hash="#06">
+                        <h2>Next steps</h2>
+                        <p>Save your game. See if you can make it better.</p>
+                        <p>Is it more fun with a larger grid size, or a smaller one?</p>
+                        <p>Is it easier if you show the pattern for longer than one second before hiding it?</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules2.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '010';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

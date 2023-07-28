@@ -1,0 +1,510 @@
+body {
+    padding-top: 50px;
+    background-color: #f5f6f9;
+    font-size: 1.8rem !important;
+}
+
+a[disabled] {
+    pointer-events: none;
+}
+
+.navbar-fixed-top {
+    background-color: white;
+    border-bottom: 1px solid #DCDDE0;
+    height: 90px;
+}
+
+.navbar-fixed-top .container {
+    padding-top: 20px;
+}
+
+.navbar-fixed-top a {
+    color: black;
+}
+
+.navbar-header {
+    border-right: 1px solid #DCDDE0;
+}
+
+.banner {
+    margin-top: 12px;
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.module {
+    box-shadow: 0 1px 3px rgb(0 0 0 / 25%);
+    border: 1px solid #DCDDE0;
+    border-radius: 8px;
+    background-color: white;
+    padding: 12px 24px 20px 24px;
+    margin: 12px 0;
+    height: 210px;
+    overflow: hidden;
+}
+.module img {
+    margin-top: -12px;
+    margin-right: -24px;
+}
+.module a {
+    margin-top: 120px;
+    opacity: 0.5;
+}
+.module:not(.disabled):hover a {
+    opacity: 1;
+}
+.module.disabled {
+    background-color: #fafbfc;
+    color: #888;
+    position: relative;
+}
+.module.disabled:after {
+    content: 'Coming soon...';
+    position: absolute;
+    top: 75px;
+    transform: rotate(-15deg);
+    font-size: 4rem;
+    background: white;
+    opacity: 0.8;
+    border: 1px solid silver;
+    margin-left: -25px;
+    width: 100%;
+    text-align: center;
+}
+
+.module-banner {
+    margin-top: 12px;
+    padding: 40px 15px;
+    background-color: #f3524f;
+    color: white;
+    text-shadow: 3px 3px 0 rgb(0 0 0 / 15%);
+}
+
+.module-navbar {
+    padding-top: 12px;
+}
+.module-navbar li {
+    opacity: 1;
+    font-weight: normal;
+    height: 40px;
+    padding: 5px;
+    border-radius: 6px;
+}
+.module-navbar li a {
+    color: #f3524f;
+}
+.module-navbar li.active {
+    font-weight: bold;
+    background-color: white;
+}
+.module-navbar li.active ~ li {
+    opacity: 0.5;
+}
+.module-navbar li.active ~ li a {
+    color: #333;
+}
+
+.module-navbar .circle {
+    position: relative;
+    border: 2px solid #f3524f;
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    margin-top: 16px;
+    background-color: white;
+    display: inline-block;
+    z-index: 2;
+    margin-right: 12px;
+}
+.module-navbar .circle:first-child {
+    margin-top: 5px;
+}
+.module-navbar .circle:before {
+    position: absolute;
+    border: 1px solid #f3524f;
+    width: 0;
+    height: 24px;
+    display: block;
+    content: '';
+    left: 50%;
+    z-index: 1;
+    top: -26px;
+    margin-left: -1px;
+}
+.module-navbar li:first-child .circle:before {
+    border: 0;
+}
+.module-navbar .active .circle {
+    border-width: 8px;
+}
+.module-navbar .active .circle:before {
+    top: -32px;
+}
+.module-navbar li.active ~ li .circle, .module-navbar li.active ~ li .circle:before {
+    border-color: #333;
+}
+
+.question {
+    box-shadow: 0 1px 3px rgb(0 0 0 / 25%);
+    border: 1px solid #DCDDE0;
+    background-color: white;
+    padding: 12px 24px 20px 24px;
+    margin: 12px 0;
+    opacity: 0.5;
+}
+.question.active {
+    opacity: 1;
+}
+.question.active ~ .question {
+    opacity: 0.5;
+}
+
+.radio:last-child {
+    margin-bottom: 0;
+}
+
+.question .radio .glyphicon-ok {
+    margin-left: 8px;
+}
+.incorrect {
+    color: #f3524f;
+}
+
+.btn-next {
+    background-color: #4ab858;
+    color: white;
+    text-align: left;
+}
+.btn-next:not([disabled]):hover {
+    background-color: black;
+    color: white;
+}
+.question .btn-next {
+    display: block;
+}
+
+.help {
+    border: 1px solid #DCDDE0;
+    border-radius: 6px;
+    padding: 16px;
+    display: inline-block;
+    width: 100%;
+}
+.help > span > .glyphicon {
+    color: #888;
+    vertical-align: text-top;
+}
+.help .glyphicon-chevron-down {
+    display: none;
+}
+.help:hover .glyphicon-chevron-down {
+    display: block;
+}
+.help:hover {
+    cursor: pointer;
+}
+.help > div {
+    border-top: 1px solid #DCDDE0;
+    margin-top: 12px;
+    padding-top: 12px;
+    display: none;
+}
+.help.shown > div {
+    display: block;
+}
+.help + p {
+    margin-top: 12px;
+}
+.help p:last-child {
+    margin-bottom: 0;
+}
+img + p, img + .row {
+    margin-top: 12px;
+}
+
+.img-wrapper {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+span.motion > span:after, span.looks > span:after, span.events > span:after, span.control > span:after, span.sensing > span:after, span.variable > span:after, span.operators > span:after, span.list > span:after {
+    content: '';
+    border-top: 4px solid white;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    position: absolute;
+    top: 8px;
+    right: 5px;
+}
+span.rounded {
+    border-radius: 16px;
+    margin-left: 0;
+}
+span.rounded > span {
+    border-radius: 0;
+}
+
+span.motion {
+    background-color: #4c97ff;
+    color: white;
+    padding: 4px 8px;
+    font-size: 1.4rem;
+    white-space: nowrap;
+}
+span.motion > span {
+    background-color: #4280d7;
+    color: white;
+    border: 1px solid #3C9BC5;
+    border-radius: 8px;
+    padding: 1px 16px 1px 6px;
+    position: relative;
+}
+
+span.events {
+    background-color: #ffbf00;
+    color: white;
+    padding: 4px 8px;
+    font-size: 1.4rem;
+    white-space: nowrap;
+}
+span.events > span {
+    border: 1px solid #DEA600;
+    border-radius: 1px;
+    padding: 1px 16px 1px 6px;
+    position: relative;
+}
+span.events > span.rounded {
+    background-color: #CC9900;
+    border-radius: 8px;
+}
+
+span.sensing {
+    background-color: #5CB1D6;
+    color: white;
+    padding: 4px 8px;
+    font-size: 1.4rem;
+    white-space: nowrap;
+    position: relative;
+    vertical-align: middle;
+    z-index: 1;
+}
+span.hex {
+    margin: 0 12px;
+}
+span.sensing > span {
+    background-color: #47A8D1;
+    color: white;
+    border: 1px solid #3C9BC5;
+    border-radius: 8px;
+    padding: 1px 16px 1px 6px;
+    position: relative;
+}
+span.sensing.hex:before, span.sensing.hex:after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 0;
+    border-right: 0;
+}
+span.sensing.hex:before {
+    left: -12px;
+    border-right: 12px solid #5CB1D6; 
+    z-index: 1;
+}
+span.sensing.hex:after {
+    right: -12px;
+    border-left: 12px solid #5CB1D6;
+    z-index: 1;
+}
+
+span.control {
+    background-color: #ffab19;
+    color: white;
+    padding: 4px 8px;
+    font-size: 1.4rem;
+    white-space: nowrap;
+}
+span.control > span {
+    background-color: #EC9C13;
+    border: 1px solid #E09615;
+    border-radius: 8px;
+    padding: 1px 16px 1px 6px;
+    position: relative;
+}
+span.control > span.slot {
+    background-color: #CF8B17;
+    min-width: 8px;
+    height: 23px;
+    display: inline-block;
+    margin: -2px 16px 0 16px;
+    vertical-align: middle;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+}
+span.control > span.slot:before, span.control > span.slot:after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 0;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent; 
+    border-left: 0;
+    border-right: 0;
+}
+span.control > span.slot:before {
+    left: -11px;
+    border-right: 11px solid #CF8B17; 
+    z-index: 0;
+}
+span.control > span.slot:after {
+    right: -11px;
+    border-left: 11px solid #CF8B17;
+    z-index: 0;
+}
+span.control > span.slot > span {
+    margin: 0 1px;
+    font-size: 99%;
+}
+span > var {
+    background-color: white;
+    color: #333;
+    border-radius: 8px;
+    padding: 1px 6px;
+    font-style: normal;
+}
+
+span.looks {
+    background-color: #9966FF;
+    color: white;
+    padding: 4px 8px;
+    font-size: 1.4rem;
+    white-space: nowrap;
+}
+span.looks > span {
+    color: white;
+    border: 1px solid #885AE6;
+    border-radius: 1px;
+    padding: 1px 16px 1px 6px;
+    position: relative;
+}
+
+span.variable {
+    background-color: #FF8C1A;
+    color: white;
+    border: 1px solid #D7732E;
+    padding: 4px 8px;
+    font-size: 1.4rem;
+    white-space: nowrap;
+}
+span.variable.rounded {
+    padding: 1px 6px;
+    border-radius: 8px;
+}
+var > span.rounded {
+    margin: 0 -6px;
+}
+span.variable > span {
+    background-color: #FF8C1A;
+    color: white;
+    border: 1px solid #e67708;
+    border-radius: 1px;
+    padding: 1px 16px 1px 6px;
+    position: relative;
+}
+
+span.operators {
+    background-color: #59C059;
+    color: white;
+    padding: 4px 8px;
+    font-size: 1.4rem;
+    white-space: nowrap;
+    position: relative;
+    vertical-align: middle;
+    z-index: 1;
+}
+span.operators.hex:before, span.operators.hex:after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 0;
+    border-right: 0;
+}
+span.operators.hex:before {
+    left: -12px;
+    border-right: 12px solid #59C059; 
+    z-index: 1;
+}
+span.operators.hex:after {
+    right: -12px;
+    border-left: 12px solid #59C059;
+    z-index: 1;
+}
+span.operators > var:not(:last-child) {
+    margin-right: 4px;
+}
+span.operators > span {
+    border: 1px solid #389438;
+    border-radius: 1px;
+    padding: 1px 16px 1px 6px;
+    position: relative;
+}
+
+span.list {
+    background-color: #ff661a;
+    color: white;
+    padding: 4px 8px;
+    font-size: 1.4rem;
+    white-space: nowrap;
+    position: relative;
+    vertical-align: middle;
+    z-index: 1;
+}
+span.list > span {
+    color: white;
+    border: 1px solid #ef5609;
+    border-radius: 1px;
+    padding: 1px 16px 1px 6px;
+    position: relative;
+}
+
+span.my-blocks {
+    background-color: #FF6680;
+    color: white;
+    padding: 4px 8px;
+    font-size: 1.4rem;
+    white-space: nowrap;
+    position: relative;
+    vertical-align: middle;
+    z-index: 1;
+}
+
+.rating {
+    padding: 0 50px;
+    text-align: center;
+}
+.rating div {
+    width: 33%;
+    float: left;
+    cursor: pointer;
+}
+.rating div:hover img {
+    transform: scale(1.1);
+}
+
+.video {
+    border: 2px solid whitesmoke;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    min-width: 700px;
+}

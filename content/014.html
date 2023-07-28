@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=4" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 14 &mdash; Asteroid defence II: Cash</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Two asteroids</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Waves of asteroids</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Cash</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Final tweaks</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>In the future, a huge asteroid on a collision-course with Earth might not be seen as a disaster.</p>
+                        <p>
+                            In fact it might be celebrated, because asteroids often contain precious metals like gold and platinum,
+                            and we might have spacecraft that can mine them.
+                        </p>
+                        <div class="img-wrapper">
+                            <img src="../img/014/asteroid.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Two asteroids <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Two asteroids 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Two asteroids</h2>
+                        <p>
+                            Load up the project you saved at the end of the last module.
+                        </p>
+                        <p>
+                            Let's send two asteroids towards Earth. We will need to use clones, so we don't want to show, position and move the asteroid when the 
+                            <em>green flag is clicked</em> &mdash; split that script off...
+                        </p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/split-script.png"/>
+                        <p>... and snap it under a <span class="control">when I start as a clone</span>:</p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/start-as-clone.png"/>
+                        <p>Click <span class="control">create clone of <span>myself</span></span>. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>An asteroid flies towards Earth, just like before</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Remember to delete the clone if it crashes into Earth:</p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/delete-clone-1.png"/>
+                        <p>If it's clicked, don't <span class="looks">hide</span> it any more... just delete it:</p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/delete-clone-2.png"/>
+                        <p>Make sure that the template is hidden when the green flag is clicked:</p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/flag-hide.png"/>
+                        <p>Now add some code to create two clones, spaced 1 second apart:</p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/two-clones.png"/>
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>Two asteroids fly towards Earth, one after the other</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Good. You should test that you can still destroy each of them by clicking them, and also test that they disappear if they crash into Earth.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Waves of asteroids <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Waves of asteroids 02 -->
+                    <div class="question" data-hash="#02">
+                        <h2>Waves of asteroids</h2>
+                        <p>
+                            Two asteroids are more fun than one, but it would be even more fun to send wave after wave of asteroids.
+                            We can make each wave more challenging than the first.
+                        </p>
+                        <p>
+                            Create a variable named <span class="variable rounded">T</span> (for all sprites) to keep track of the time. You can think of
+                            <span class="variable rounded">T</span> as the number of ticks of a very fast clock. Early waves can have lots of time between
+                            each asteroid; later waves can be denser.
+                        </p>
+                        <p>
+                            When the green flag is clicked, set <span class="variable rounded">T</span> to zero and then forever increment it:
+                        </p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/track-t.png"/>
+                        <p>
+                            Create a new variable named <span class="variable rounded">spawn time</span> (for this sprite only) to keep track of when a new asteroid should spawn.
+                            Set it to zero when the green flag is clicked:
+                        </p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/spawn-time-0.png"/>
+                        <p>
+                            Add a new <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span> and snap a <span class="control">repeat <var>5</var></span>
+                            underneath. Inside the repeat-loop, nest a <span class="control">create clone of <span>myself</span></span>:
+                        </p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/5-clones.png"/>
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>Five asteroids are created but they're all piled on top of each other</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            To space the asteroids out, add a <span class="control">wait until <span class="slot"></span></span> before creating the clone. Wait until
+                            <span class="variable rounded">T</span> is greater than <span class="variable rounded">spawn time</span>. Then, after creating the clone, set 
+                            <span class="variable rounded">spawn time</span> to <span class="operators"><var><span class="variable rounded">T</span></var> + <var>50</var></span>
+                            &mdash; after one asteroid is cloned, the next one will have to wait for 50 'ticks':
+                        </p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/space-out-asteroids.png"/>
+                        <p>Click the green flag. Are the asteroids more spread out this time?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Good. This is a single wave of 5 asteroids; let's send more waves.
+                        </p>
+                        <p>
+                            Create a variable named <span class="variable rounded">wave</span> (for this sprite only). Set it to 1 when the green flag is clicked:
+                        </p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/wave-1.png"/>
+                        <p>
+                            Wrap the repeat-loop inside a forever-loop, and increment <span class="variable rounded">wave</span> after each wave has finished creating clones.
+                            Also, make the delay bigger between waves:
+                        </p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/forever-waves.png"/>
+                        <p>Click the green flag and avoid the urge to destroy the asteroids. Do you see a wave of five, then a break, then another wave of five, and so on?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Let's make waves denser each time. Instead of waiting for 50 ticks, wait for 
+                            <span class="operators rounded"><var>50</var> / <var><span class="variable rounded">wave</span></var></span> ticks &mdash; with each wave the delay
+                            will get shorter:
+                        </p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/50-over-wave.png"/>
+                        <p>Click the green flag and watch three waves. Does each wave get denser?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Let's also make the asteroids faster with each wave. Unsnap the <span class="variable">set <span>speed</span> to <var>3</var></span> that runs when the
+                            green flag is clicked, and snap it in just before the repeat-loop. Instead of setting <span class="variable rounded">speed</span> to 3, set it to
+                            <span class="variable rounded">wave</span>:
+                        </p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/set-speed-to-wave.png"/>
+                        <p>Click the green flag and watch three waves. Does each wave get faster?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Good. Time to earn some cash.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Cash <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cash 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Cash</h2>
+                        <p>
+                            Create a variable named <span class="variable rounded">CASH</span> (for all sprites).
+                            Set it to zero when the green flag is clicked, and increment it whenever an asteroid is clicked:
+                        </p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/increment-cash.png"/>
+                        <p>
+                            Uncheck all the variables except for <span class="variable rounded">CASH</span>. Click the green flag and try to destroy some asteroids.
+                            Does <span class="variable rounded">CASH</span> increase each time you succeed?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Let's <em>customize</em> the display, that is, let's show our cash the way we want it to look, rather than relying on Scratch's grey
+                            and orange box.
+                        </p>
+                        <p>
+                            Paint a new sprite named 'Cash number'. Rename the first (empty) costume to '1'. Duplicate this costume until there are ten of them.
+                            The names of the costumes should automatically go 1, 2, 3... etc, which is what we want, except <em>change the last one to '0' rather than '10'</em>.
+                        </p>
+                        <p>
+                            Select costume '1', select the Text tool and browse the dropdown of fonts. 
+                        </p>
+                        <img src="../img/014/fonts.png"/>
+                        <p>
+                            I like the <em>Handwriting</em> font; feel free to pick whichever you like.
+                        </p>
+                        <p>
+                            Set the Fill colour to grey, click in the middle of the drawing area then type the number '1'. Change to the Select tool and snap the number to the centre:
+                        </p>
+                        <img src="../img/014/1.png"/>
+                        <p>
+                            Use Ctrl + C and Ctrl + V to copy and paste that number into costume '2'. Switch to the Text tool and change the number to '2'.
+                        </p>
+                        <p>
+                            Repeat until each costume contains the appropriate number. <em>Make sure that costume '0' contains the number '0', not '10'!</em>
+                        </p>
+                        <p>
+                            We will use clones of this sprite to handle numbers all the way up to 999. How many clones will we need?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">999</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>3</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            That's right &mdash; one clone for each digit.
+                        </p>
+                        <p>
+                            Add the usual hide-template-show-clone blocks.
+                            Create a variable named <span class="variable rounded">place</span> (for this sprite only) and loop over three places, cloning as we go:
+                        </p>
+                        <img src="../img/014/cash-number.png" class="pull-right"/>
+                        <img src="../img/014/3-places.png"/>
+                        <p>
+                            Click the green flag. What has happened to our 3 clones?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">They have crashed into planet Earth</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02" data-correct>They have piled up on top of each other</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>We need to space the digits out &mdash; add a <span class="motion">change x by <var>11</var></span> after cloning each digit:</p>
+                        <img src="../img/014/cash-number.png" class="pull-right"/>
+                        <img src="../img/014/space-digits.png"/>
+                        <p>
+                            Note: we are always showing all three clones. But if <span class="variable rounded">CASH</span> is one digit long, we only want to show the first clone
+                            (and if two digits, the first two clones).
+                        </p>
+                        <p>
+                            So, when each clone starts, instead of just showing it, add some code to show it <em>if need be</em>, otherwise hide it:
+                        </p>
+                        <img src="../img/014/cash-number.png" class="pull-right"/>
+                        <img src="../img/014/no-leading-zeroes.png"/>
+                        <p>
+                            Now we just need to set each clone to the correct costume, and to wrap things inside a forever-loop so clones update themselves whenever
+                            <span class="variable rounded">CASH</span> changes:
+                        </p>
+                        <img src="../img/014/cash-number.png" class="pull-right"/>
+                        <img src="../img/014/switch-costume.png"/>
+                        <p>
+                            Click the green flag, and set <span class="variable rounded">CASH</span> to a few different numbers (less than a thousand). What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03" data-correct>The value of <span class="variable rounded">CASH</span> is shown in our grey letters!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Good - we've made a custom display.
+                        </p>
+                        <p>
+                            What do you think will show up if you set <span class="variable rounded">CASH</span> to 1234?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04">1234</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04" data-correct>123</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04">234</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Right. This is called a 'silent failure'. Our custom display will handle numbers less than a thousand, but numbers greater than that will
+                            <em>seem</em> like they've been handled, but what's displayed will be <em>incorrect</em>. It's usually better to 'fail hard' than to fail silently.
+                        </p>
+                        <p>
+                            However, there are a few different ways to handle errors in Scratch, each with their pros and cons, so we'll just fail silently for now and
+                            explore error handling some other day.
+                        </p>
+                        <p>
+                            But there's another bug with this display &mdash; since we <span class="motion">change x by <var>11</var></span> 3 times whenever the green flag
+                            is clicked, the display gradually shifts to the right. Let's fix that.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Final tweaks <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Final tweaks 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Final tweaks</h2>
+                        <p>
+                            Paint a new sprite, naming it 'Cash text'.
+                        </p>
+                        <p>
+                            In the Costumes tab, select the Text tool and click in the middle of the drawing area.
+                        </p>
+                        <p>
+                            Type in <em>Cash: $</em> then select the Select tool and snap it to the centre:
+                        </p>
+                        <img src="../img/014/cash-text.png"/>
+                        <p>
+                            Drag the sprite across the stage, to the top left corner:
+                        </p>
+                        <img src="../img/014/cash-text-corner.png"/>
+                        <p>Note its x and y position &mdash; my sprite is at (-200, 160) but yours might be positioned slightly differently.</p>
+                        <p>
+                            Switch back to the 'Cash number' sprite, and switch to the Code tab. When the green flag is clicked, position the template just to the right
+                            of the 'Cash text' sprite &mdash; mine needs to be at (-160, 160) but yours might need a slightly different position:
+                        </p>
+                        <img src="../img/014/cash-number.png" class="pull-right"/>
+                        <img src="../img/014/go-to-160-160.png"/>
+                        <p>Click the green flag. What do you see?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">Game over</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>Cash: $0</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Click a few asteroids. Does the amount of cash, shown in our custom display, increase?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Good. One last tweak &mdash; the waves get too challenging, too quickly. Let's increase the difficulty more gradually.
+                        </p>
+                        <p>
+                            Add the <span class="operators"><span>abs</span> of <var>&nbsp;</var></span> block and change it to
+                            <span class="operators"><span>sqrt</span> of <var>&nbsp;</var></span> &mdash; the 'square root' operator.
+                        </p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> What's a square root? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>
+                                    The square root of 4 is 2, because 2 multiplied by itself makes 4 (that is, 2 &times; 2 = 4).
+                                </p>
+                                <p>
+                                    The square root of 9 is 3, because 3 multiplied by itself makes 9 (that is, 3 &times; 3 = 9).
+                                </p>
+                                <p>
+                                    The square root of any number is <em>whatever you have to multiply by itself to make that number</em>.
+                                </p>
+                                </div>
+                        </div>
+                        <p>
+                            As <span class="variable rounded">wave</span> gets bigger, the square root of <span class="variable rounded">wave</span> also gets bigger,
+                            but much more slower. If we replace <span class="variable rounded">wave</span> with
+                            <span class="operators"><span>sqrt</span> of <var><span class="variable rounded">wave</span></var></span> then we will eventually have asteroids
+                            flying towards Earth with speed 3 but, instead of that happening during wave 3, it will happen during wave 9.
+                        </p>
+                        <p>
+                            Make that change, and also change the delay between asteroids in the same way:
+                        </p>
+                        <img src="../img/014/asteroid.png" class="pull-right"/>
+                        <img src="../img/014/sqrt.png"/>
+                        <p>
+                            Click the green flag. Do the asteroids get faster in each wave?
+                        </p>
+
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02">No, they stay at the same speed</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02">Yes, they get crazy fast by wave 3</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>Yes, but they don't get crazy fast until much later</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Great! Click the full screen button, click the green flag, and see how much cash you can earn before an asteroid crashes into Earth.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Next steps</h2>
+                        <p>Save your project.</p>
+                        <p>In the next few modules we will:</p>
+                        <ul>
+                            <li>improve the art with a starry background and explosion effects</li>
+                            <li>give Earth a health bar</li>
+                            <li>make a 'turret' to automatically shoot asteroids</li>
+                            <li>create a shop for buying extra turrets</li>
+                        </ul>
+                        <p>Feel free to try out any of those ideas beforehand, or to try a different idea of your own instead.</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules2.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+
+        function fadeOut($element, dt) {
+            $element.attr('opacity', 0.9 - (dt * 0.1));
+        }
+        function fadeIn($element, dt) {
+            $element.attr('opacity', 0.1 + (dt * 0.1));
+        }
+        function updateCaption($caption, newText, dt) {
+            if (dt < 10) {
+                fadeOut($caption, dt);
+            } else if (dt < 20) {
+                var dt2 = dt - 10;
+                $caption[0].textContent = newText;
+                fadeIn($caption, dt2);
+            }
+        }
+        var $caption1 = $('#caption-1');
+        var $sprite1 = $('#sprite-1');
+        var $centre1 = $('#centre-1');
+        var $arrow1 = $('#arrow-1');
+        var intervalId1 = 0;
+        var keyframes1 = [
+                  10 // kf00 pause
+                , 20 // kf01 sprite fades in
+                , 20 // kf02 'centre here' shown
+                , 20 // kf03 centre fades in
+                , 30 // kf04 'pointing up' shown
+                , 20 // kf05 arrow shown
+                , 40 // kf06 'if turn' shown
+                , 10 // kf07 turned
+                , 40 // kf08 'it will point' shown
+                , 40 // kf09 'now move' shown
+                , 10 // kf10 move
+                , 40 // kf11 'path curves away' shown
+                ,  5 // kf12 turned
+                , 40 // kf13 'move again'
+                , 10 // kf14 move
+                , 40 // kf15 'and so on'
+                , 10 // kf16 fade
+        ].reduce(function(r, a) {
+            r.push((r.length && r[r.length - 1] || 0) + a); // convert to a 'cumulative array'
+            return r;
+        }, []);
+        function reset1() {
+            $caption1.attr('opacity', '1');
+            $caption1[0].textContent = 'The sprite starts here...';
+            $sprite1.attr('opacity', '0');
+            $sprite1.attr('transform', 'rotate(0)');
+            $centre1.attr('opacity', '0');
+            $arrow1.attr('opacity', '0');
+        }
+        function animate1(t) {
+            var keyframe = keyframes1.findIndex(function(cutoff) { return cutoff > t; });
+            var dt = t - (keyframe === 0 ? 0 : keyframes1[keyframe - 1]); // time since start of keyframe
+            if (keyframe === 0) {
+                // pause
+            } else if (keyframe === 1) {
+                fadeIn($sprite1, dt);
+            } else if (keyframe === 2) {
+                updateCaption($caption1, "... its centre is here...", dt);
+            } else if (keyframe === 3) {
+                fadeIn($centre1, dt);
+            } else if (keyframe === 4) {
+                updateCaption($caption1, "... and it's pointing straight up", dt);
+            } else if (keyframe === 5) {
+                fadeIn($arrow1, dt);
+            } else if (keyframe === 6) {
+                updateCaption($caption1, "If we turn it until it touches the Path...", dt);
+            } else if (keyframe === 7) {
+                $sprite1.attr('transform', 'rotate(' + (-2 * dt) + ' 300 400)');
+            } else if (keyframe === 8) {
+                updateCaption($caption1, "... then it will point along the Path", dt);
+            } else if (keyframe === 9) {
+                updateCaption($caption1, "Now we move it forwards", dt);
+            } else if (keyframe === 10) {
+                $sprite1.attr('transform', 'rotate(-18 300 400) translate(0 -80)');
+            } else if (keyframe === 11) {
+                updateCaption($caption1, "The path curves away so we turn again...", dt);
+            } else if (keyframe === 12) {
+                $sprite1.attr('transform', 'rotate(-18 300 400) translate(0 -80) rotate(' + (-2 * dt) + ' 300 400)');
+            } else if (keyframe === 13) {
+                updateCaption($caption1, "... then move forwards again...", dt);
+            } else if (keyframe === 14) {
+                $sprite1.attr('transform', 'rotate(-18 300 400) translate(0 -80) rotate(-8 300 400) translate(0 -80)');
+            } else if (keyframe === 15) {
+                updateCaption($caption1, "... and so on...", dt);
+            } else if (keyframe === 16) {
+                fadeOut($caption1, dt);
+                fadeOut($sprite1, dt);
+                fadeOut($centre1, dt);
+                fadeOut($arrow1, dt);
+            } else {
+                clearInterval(intervalId1);
+                $('#play-button-1').fadeIn('slow', function() {
+                    reset1();
+                });
+            }
+        }
+        $('#play-button-1').on('click', function() {
+            reset1();
+            $('#play-button-1').fadeOut('slow', function() {
+                var t = 0;
+                intervalId1 = setInterval(function() { animate1(t++); }, 100);
+            });
+        });
+    </script>
+    <script>
+        var $caption2 = $('#caption-2');
+        var $sprite2 = $('#sprite-2');
+        var intervalId2 = 0;
+        var transform = '';
+        var keyframes2 = [
+                  20 // kf00 pause
+                , 12 // kf01 turn
+                , 40 // kf02 'then move' shown
+                , 10 // kf03 move
+                , 40 // kf04 'we turn' shown
+                , 14 // kf05 turn
+                , 40 // kf06 'then fly' shown
+                , 10 // kf07 move
+                , 40 // kf08 'now when we turn' shown
+                , 25 // kf09 turn
+                , 40 // kf10 'point backwards'
+                , 10 // kf11 fade
+        ].reduce(function(r, a) {
+            r.push((r.length && r[r.length - 1] || 0) + a); // convert to a 'cumulative array'
+            return r;
+        }, []);
+        function reset2() {
+            $caption2.attr('opacity', '1');
+            $caption2[0].textContent = 'Suppose we turn to point along the path...';
+            $sprite2.attr('opacity', '1');
+            $sprite2.attr('transform', 'rotate(20 300 400) scale(0.5) translate(300 400)');
+            transform = $sprite2.attr('transform');
+        }
+        function animate2(t) {
+            var keyframe = keyframes2.findIndex(function(cutoff) { return cutoff > t; });
+            var dt = t - (keyframe === 0 ? 0 : keyframes2[keyframe - 1]); // time since start of keyframe
+            if (keyframe === 0) {
+                // pause
+            } else if (keyframe === 1) {
+                $sprite2.attr('transform', transform + ' rotate(' + (-2 * dt) + ' 300 400)');
+            } else if (keyframe === 2) {
+                updateCaption($caption2, "... then move really fast", dt);
+                transform = $sprite2.attr('transform');
+            } else if (keyframe === 3) {
+                $sprite2.attr('transform', transform + ' translate(0 -280)');
+            } else if (keyframe === 4) {
+                updateCaption($caption2, "We turn to touch the path...", dt);
+                transform = $sprite2.attr('transform');
+            } else if (keyframe === 5) {
+                 $sprite2.attr('transform', transform + ' rotate(' + (-4 * dt) + ' 300 400)');
+            } else if (keyframe === 6) {
+                updateCaption($caption2, "... then fly across it!", dt);
+                transform = $sprite2.attr('transform');
+            } else if (keyframe === 7) {
+                $sprite2.attr('transform', transform + ' translate(0 -280)');
+            } else if (keyframe === 8) {
+                updateCaption($caption2, "Now when we turn...", dt);
+                transform = $sprite2.attr('transform');
+            } else if (keyframe === 9) {
+                $sprite2.attr('transform', transform + ' rotate(' + (-8 * dt) + ' 300 400)');
+            } else if (keyframe === 10) {
+                updateCaption($caption2, "... we point backwards!", dt);
+            } else if (keyframe === 11) {
+                fadeOut($caption2, dt);
+                fadeOut($sprite2, dt);
+            } else {
+                clearInterval(intervalId2);
+                $('#play-button-2').fadeIn('slow', function() {
+                    reset2();
+                });
+            }
+        }
+        $('#play-button-2').on('click', function() {
+            reset2();
+            $('#play-button-2').fadeOut('slow', function() {
+                var t = 0;
+                intervalId2 = setInterval(function() { animate2(t++); }, 100);
+            });
+        });
+    </script>
+    <script>
+        'use strict';
+        var page = '014';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

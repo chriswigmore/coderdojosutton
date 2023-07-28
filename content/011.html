@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=3" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 11 &mdash; Hedgehog game</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Hedgehog</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Tree</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Forest</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Flowers</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Slugs</a></li>
+                    <li><a href="#06-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>Until now, our worlds in Scratch have been the same size as the stage. In this module we'll learn how to make a world that's <em>infinitely big</em>...</p>
+                        <div class="img-wrapper">
+                            <img src="../img/011/hedgehog-game.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Hedgehog <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hedgehog 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Hedgehog</h2>
+                        <p>
+                            The trick to making an infinitely big world is to keep your player in the centre of the stage, and to move the background around them.
+                            This is called a 'scrolling game' and you can have side-scrollers (where you view the player from the side and scroll left and right) or
+                            top-down scrollers (where you view your player from above and scroll up, down, left and right).
+                        </p>
+                        <p>
+                            In this module we'll make a top-down scroller, and our player will be a hedgehog, because when you look at a hedgehog from above you can't
+                            see its legs move... that saves us having to animate (like we did in module 7).
+                        </p>
+                        <p>Start from an empty Scratch project (<a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a> &mdash; remember to delete the cat sprite).</p>
+                        <p>Paint the backdrop green.</p>
+                        <p>
+                            Paint a new sprite, named 'Hedgehog'. Zoom in until the chequered background becomes large, then select the Circle tool,
+                            change the Fill colour to grey-brown, the Outline thickness to 0, and draw an ellipse, about 8 chequered squares by 6 chequered squares.
+                        </p>
+                        <p>Snap this ellipse to the centre of the drawing area.</p>
+                        <p>Select the Reshape tool, and squash in the right side of the ellipse:</p>
+                        <img src="../img/011/squashed-ellipse.png"/>
+                        <p>Select the Circle tool again, change the colour to a lighter grey-brown, and draw a smaller ellipse for the head:</p>
+                        <img src="../img/011/body-head.png"/>
+                        <p>Send the head to the back by pressing the Back button:</p>
+                        <img src="../img/011/back.png"/>
+                        <p>Use the Reshape tool to 'pinch out' a snout:</p>
+                        <img src="../img/011/snout.png"/>
+                        <p>Give the hedgehog some black eyes and a black nose. Both eyes should be identical, so you should make one, then use copy-and-paste (using Ctrl + C and Ctrl + V) to make the other:</p>
+                        <img src="../img/011/eyes-nose.png"/>
+                        <p>
+                            Finally, use the Line tool to make some spikes. Draw a short black line, use the Reshape tool to bend it very slightly, then copy-and-paste it a few times.
+                            Rotate the spikes to follow the contours of the Hedgehog's back, like in the picture below:
+                        </p>
+                        <p>Does your hedgehog look a bit like this?</p>
+                        <img src="../img/011/spikes.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Good. Switch to the code tab, and add some code that ensures our Hedgehog starts in the centre of the stage:</p>
+                        <img src="../img/011/green-flag-go-to-0-0.png"/>
+                        <p>
+                            Create two variables, <span class="variable rounded">X</span> and <span class="variable rounded">Y</span> (for all sprites).
+                            They will track our Hedgehog's position, so set them to zero when the green flag is clicked:
+                        </p>
+                        <img src="../img/011/zero-x-y.png"/>
+                        <p>
+                            Now add some code to listen for the arrow keys. However, don't change the Hedgehog's x and y position on the stage, instead change the 
+                            <span class="variable rounded">X</span> and <span class="variable rounded">Y</span> variables:
+                        </p>
+                        <img src="../img/011/change-x-y.png"/>
+                        <p>Click the green flag and press some arrow keys. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>The Hedgehog doesn't move</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">The Hedgehog moves around the stage</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            If you look at the <span class="variable rounded">X</span> and <span class="variable rounded">Y</span> variables, you'll see that
+                            they change, even though the Hedgehog doesn't move around the stage. That's what we want!
+                        </p>
+                        <p>However, it would be nice if the Hedgehog faced in the correct direction. Add some code to fix that:</p>
+                        <img src="../img/011/point-in-direction.png"/>
+                        <p>Click the green flag and press some arrow keys. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">The Hedgehog doesn't move</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02" data-correct>The Hedgehog points in the direction of the pressed arrow key</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Good. Let's walk around a tree.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Tree <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tree 02 -->
+                    <div class="question" data-hash="#02">
+                        <h2>Tree</h2>
+                        <p>
+                            Paint a new sprite, named 'Tree'. Zoom in until the chequered background becomes large, then select the Circle tool,
+                            change the Fill colour to dark green, the Outline thickness to 0, and draw a circle about three times bigger than the Hedgehog.
+                            Snap the circle to the centre of the drawing area.
+                        </p>
+                        <img src="../img/011/tree1.png"/>
+                        <p>Select the Reshape tool &mdash; you should see four 'points' on the edge of the circle:</p>
+                        <img src="../img/011/point.png"/>
+                        <p>You can select a point by clicking it, and you can add a new point by clicking on the circle's edge. Add four new points, one between each of the existing ones:</p>
+                        <img src="../img/011/tree2.png"/>
+                        <p>Now, add another new point between two of the existing points but, after you've added it, set its type to 'Pointed'...:</p>
+                        <img src="../img/011/pointed.png"/>
+                        <p>... and drag it slightly in towards the centre:</p>
+                        <img src="../img/011/tree3.png"/>
+                        <p>Repeat, seven times:</p>
+                        <img src="../img/011/tree4.png"/>
+                        <p>Now, select the Select tool, and copy-and-paste the shape we just made. Make its Fill colour a slightly lighter green and shrink it slightly (by dragging a corner of the bounding box).</p>
+                        <img src="../img/011/tree5.png"/>
+                        <p>Centre this smaller shape, and rotate it slightly, so that its 'bulges' line up with the 'indents' of the larger shape:</p>
+                        <img src="../img/011/tree6.png"/>
+                        <p>Make a third copy, slightly lighter again, slightly smaller, and rotated so that bulges and indents line up:</p>
+                        <img src="../img/011/tree7.png"/>
+                        <p>
+                            Finally, let's make something called a 'drop shadow'. Select the largest shape, copy-and-paste it, expand it slightly,
+                            set its Fill color to black and send it to the back. Now, adjust the Fill colour to give it a 'radial gradient' from black to transparent:
+                        </p>
+                        <img src="../img/011/tree8.png"/>
+                        <p>Does your sprite look like a tree seen from above?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Good. Switch to the Code tab and add the usual hide-template-show-clone blocks.</p>
+                        <img src="../img/011/hide-template-show-clone.png"/>
+                        <p>
+                            Create two variables <span class="variable rounded">offset x</span> and <span class="variable rounded">offset y</span> (for this sprite only).
+                            These will hold the position of the Tree (how far it is 'offset' from the centre).
+                        </p>
+                        <p>
+                            Suppose the Hedgehog and the Tree start off 100 pixels apart. Then suppose that the Hedgehog moves 5 steps towards the Tree.
+                            In a previous module we might have moved the Hedgehog to 'x = 5' and kept the Tree at 'x = 100':
+                        </p>
+                        <img src="../img/011/5-100.png"/>
+                        <p>
+                            But notice how the Hedgehog and Tree are now 95 pixels apart? What if we just kept the Hedgehog at 'x = 0' and moved the Tree to 'x = 95'?
+                            That would create the illusion that the Hedgehog had moved towards the Tree:
+                        </p>
+                        <img src="../img/011/0-95.png"/>
+                        <p>
+                            Therefore the Tree should forever set its x position to <span class="variable rounded">offset x</span> <em>minus</em> <span class="variable rounded">X</span>.
+                            We do something similar for the y position too:
+                        </p>
+                        <img src="../img/011/set-x-y.png"/>
+                        <p>Click the green flag, then click the <span class="control">create clone of <span>myself</span></span>. What happens if you press the arrow keys?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>The Hedgehog can walk around the Tree!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Good. Let's add more trees.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Forest <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Forest 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Forest</h2>
+                        <p>
+                            We want to create lots of Tree clones, all with different positions. But do you remember (from Module 10) that a repeat loop would be slow
+                            to create the trees? What's the quicker way?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">To use a forever loop</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>To use the repeat loop in a Block with 'run without screen refresh'</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Create a new Block named 'Create trees' (run without screen refresh). In its definition, add a <span class="control">repeat <var>10</var></span> and nest a 
+                            <span class="control">create clone of <span>myself</span></span> inside.
+                            Let the Block run when the green flag is clicked:
+                        </p>
+                        <img src="../img/011/create-trees.png"/>
+                        <p>
+                            This script will create 10 clones all at the centre, but we want them to have different, random positions. Set each clone's
+                            <span class="variable rounded">offset x</span> and <span class="variable rounded">offset y</span> to a random number between -500 and 500.
+                            Also, set the size to a random percentage between 50 and 150:
+                        </p>
+                        <img src="../img/011/random-offsets.png"/>
+                        <p>Click the green flag and try to move around. Do you notice anything odd?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">The trees turn red</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>The trees pile up against the edges of the stage</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            You might remember from Module 7 that the Scratch website, wanting to be helpful, stops you moving sprites off screen. 
+                            But we <em>want</em> sprites to disappear off screen when we walk far enough away from them; we don't want them piling up against the edges.
+                            Good news &mdash; there's a trick for that.
+                        </p>
+                        <p>
+                            If a sprite has a large costume, you can move it further from the centre before it disappears off screen.
+                            So, the trick is to:
+                            <ul>
+                                <li>switch to a very big costume</li>
+                                <li>position the sprite where we want it</li>
+                                <li>switch back to the normal costume</li>
+                            </ul>
+                        </p>
+                        <p>Therefore, paint a new costume in the Tree sprite, naming it 'big'. Zoom out and draw a Rectangle that fills the drawing area:</p>
+                        <img src="../img/011/big.png"/>
+                        <p>
+                            In the Code tab, inside the forever loop that positions the Tree clones, switch to this big costume, then switch back (i.e. to 'costume1') after we've positioned it.
+                            Also make sure that the sprite starts with costume1, otherwise the block that sets the random size won't work (because, again, the Scratch website won't let you
+                            set a sprite's size bigger than the stage).
+                        </p>
+                        <img src="../img/011/switch-costume.png"/>
+                        <p>Click the green flag and try to move around. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02" data-correct>The Hedgehog can walk through a forest of trees much bigger than the size of the stage!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Great. Time for some flowers.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Flowers <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flowers 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Flowers</h2>
+                        <p>
+                            Duplicate the Tree sprite, naming it 'Flower'. In the Costumes tab, select costume1, press Ctrl + A to select everything, then hit delete
+                            &mdash; we need a clean drawing area for our flower.
+                        </p>
+                        <p>
+                            Zoom in nice and close because the flower should be small &mdash; about two by two chequered squares.
+                            Draw a yellow circle in the middle, and six white circles for petals around it (using copy-and-paste to ensure they're identical):
+                        </p>
+                        <img src="../img/011/flower.png"/>
+                        <p>
+                            Finally, add a drop shadow by drawing a new circle, about the size of the whole flower. Its Fill colour should be a radial gradient of 
+                            black going to transparent at the edge. Send it to the back.
+                        </p>
+                        <img src="../img/011/flower-shadow.png"/>
+                        <p>Does your sprite look like a flower seen from above?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>In the Code tab, notice that all the scripts that created trees and positioned them correctly have been duplicated. This saves us some work.</p>
+                        <p>
+                            However, the 'Create trees' block is misnamed, because it now creates flowers. In the 'My Blocks' section, right-click on 'Create trees' and
+                            click 'Edit'. Rename it to 'Create flowers'.
+                        </p>
+                        <p>Let's make <em>lots</em> of flowers. Set the loop to repeat 100 times:</p>
+                        <img src="../img/011/create-flowers.png"/>
+                        <p>Click the green flag and move around. Do you notice anything odd?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">The flowers turn red</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>The flowers float over the top of the Hedgehog</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            When the <em>trees</em> floated over the top of the Hedgehog, it looked fine because trees are tall
+                            (in fact, I found it fun to move my Hedgehog into the shade of a tree). But flowers are short, so the Hedgehog should walk over them.
+                        </p>
+                        <p>Add a <span class="looks">go to <span>back</span> layer</span> just before the <span class="my-blocks">Create flowers</span>:</p>
+                        <img src="../img/011/go-to-back.png"/>
+                        <p>Click the green flag and move around. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>The Hedgehog can walk through a forest of trees and flowers!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Hedgehogs like to eat slugs. Let's turn this into a game.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Slugs <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slugs 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Slugs</h2>
+                        <p>Duplicate the Flower sprite, naming it 'Slug'. In the Costumes tab, select costume1, press Ctrl + A to select everything, then hit delete.</p>
+                        <p>
+                            Draw a long thin ellipse, about 8 chequered squares long, filled with a red-brown colour. Snap it to the centre. Use the Reshape tool to make the 
+                            right end (the head) a bit fatter &mdash; you do this by selecting the right point and stretching out the point's 'handles':
+                        </p>
+                        <img src="../img/011/slug1.png"/>
+                        <p>Draw a smaller, orange-coloured ellipse for the 'mantle' &mdash; the bulging bit behind the head:</p>
+                        <img src="../img/011/slug2.png"/>
+                        <p>Finally, use the Line tool to draw some tentacles &mdash; two long, two short. They will look more natural if they're not quite symmetric:</p>
+                        <img src="../img/011/slug3.png"/>
+                        <p>Does your sprite look like a slug seen from above?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>In the Code tab, rename 'Create flowers' to 'Create slugs'. Change the loop to repeat 30 times:</p>
+                        <img src="../img/011/slugs-30.png"/>
+                        <p>Let's make our slugs slither off in random directions. First, point them in a random direction:</p>
+                        <img src="../img/011/point-random.png"/>
+                        <p>
+                            Next, we need our slugs to change their <span class="variable rounded">offset x</span> and <span class="variable rounded">offset y</span>
+                            values so that they slither. How much should a slug's x position change if it moves 1 step in a random direction? Older kids will know that we need to use
+                            something called trigonometry; younger kids, just use the mysterious <span class="operators rounded"><span>sin</span> of <var>&nbsp;</var></span>
+                            and <span class="operators rounded"><span>cos</span> of <var>&nbsp;</var></span> blocks (grab the <span class="operators rounded"><span>abs</span> of <var>&nbsp;</var></span>
+                            block and click the dropdown) for now &mdash; you'll understand them better later:
+                        </p>
+                        <img src="../img/011/change-offsets.png"/>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> What do <span class="operators rounded"><span>sin</span> of <var>&nbsp;</var></span>
+                            and <span class="operators rounded"><span>cos</span> of <var>&nbsp;</var></span> do? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>If I travel 1 metre along some angle, the <em>sin</em> of that angle (short for <em>sine</em> and pronounced 'sine') tells me how far I moved
+                                in the x direction, and the <em>cos</em> of that angle (short for <em>cosine</em> and pronounced 'coz') tells me how far I moved in the y direction:</p>
+                                <img src="../img/011/sin-cos.png"/>
+                            </div>
+                        </div>
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01" data-correct>Slugs are slithering all over the place!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>When the Hedgehog touches a Slug, it will eat it, so the Slug clone should be deleted:</p>
+                        <img src="../img/011/touch-delete.png"/>
+                        <p>Click the full screen button, click the green flag, and see how many slugs you can eat.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#04-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#06-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 06 -->
+
+                    <div class="question" data-hash="#06">
+                        <h2>Next steps</h2>
+                        <p>Save your game. See if you can make it better.</p>
+                        <p>Could you keep track of the number of slugs eaten?</p>
+                        <p>Could you make the Hedgehog point diagnonally if a horizontal and a vertical arrow key were pressed at the same time?</p>
+                        <p>Could you make the slugs change direction randomly?</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules2.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '011';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

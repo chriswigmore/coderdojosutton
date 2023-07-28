@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=4" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 9 &mdash; Echolocation</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Bat</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Echo</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Doppler effect</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Hunting</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>Bats hunt their prey using 'echolocation'. They call out, listen to the echoes of those calls, and use those echoes to locate their prey.</p>
+                        <p>Let's see how hard it is to escape a bat, hunting us with echolocation.</p>
+                        <div class="img-wrapper">
+                            <img src="../img/009/echolocation.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Bat <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bat 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Bat</h2>
+                        <p>Start from an empty Scratch project (<a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a> &mdash; remember to delete the cat sprite).</p>
+                        <p>Paint a black backdrop.</p>
+                        <p>Add the Bat sprite. Change its size to 50.</p>
+                        <p>
+                            Notice how its direction is 90, so it should be pointing to the right, but it's actually pointing straight up. 
+                            Click on the costume tab, click Ctrl + A to select everything, then use the 'turning handle' (at the bottom of the selection) to turn the Bat so it's pointing right.</p>
+                        <p><strong>Tip:</strong> Hold down the shift key while you rotate, to snap the rotation to the nearest 45 degrees.</p>
+                        <img src="../img/009/bat-black.png"/>
+                        <p>Our Bat is going to call out every half second, which will create soundwaves that spread out like the ripples on the surface of a pond. How could we visualize an expanding soundwave circle in Scratch?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">It can't be done</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>Draw a small circle sprite, and repeatedly increase its size</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Paint a new sprite, naming it Soundwave. Zoom in until you can draw a circle about the size of four chequered squares.</p>
+                        <p><strong>Tip:</strong> Hold down the Shift key while you draw your circle, to ensure it's perfectly circular.</p>
+                        <p>Give it a transparent fill colour and a red outline. It needs to be very thin, even when expanded, so set its thickness to 0.1. Make sure it's centred:</p>
+                        <img src="../img/009/soundwave-costume.png"/>
+                        <p>Switch to the Code tab, and add the usual hide-template-show-clone blocks.</p>
+                        <p>Later on, the Bat will move, and the Soundwave should always come from where the Bat is, so make sure that newly created clones begin at the Bat's position.</p>
+                        <p>Does your code look like this?</p>
+                        <img src="../img/009/soundwave.png" class="pull-right" />
+                        <img src="../img/009/flag-hide-clone-go-bat-show.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Newly created soundwaves should repeatedly increase in size, but also get fainter:</p>
+                        <img src="../img/009/soundwave.png" class="pull-right" />
+                        <img src="../img/009/repeat-size-ghost.png"/>
+                        <p>What will be the value of the ghost effect by the end of this repeat-loop?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">2, because of the block that changes it by 2</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02" data-correct>100, because the block that changes it by 2 is run 50 times by the repeat-loop</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Switch to the Bat sprite's code area. When the green flag is clicked we want to position the Bat in the centre, pointing to the right, and let it create a Soundwave every 0.5 seconds:</p>
+                        <img src="../img/009/bat.png" class="pull-right" />
+                        <img src="../img/009/forever-clone-soundwave.png"/>
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03" data-correct>Soundwaves ripple out from the Bat!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Good. Time for an echo.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Echo <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Echo 02 -->
+
+                    <div class="question" data-hash="#02">
+                        <h2>Echo</h2>
+                        <p>Add the 'Butterfly 1' sprite. Change its size to 30, and drag it into some empty space on the stage:</p>
+                        <img src="../img/009/bat-butterfly.png"/>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> Do bats really eat butterflies? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>No, because they're day-flying insects, but they do eat moths (which fly at night). Sadly, Scratch doesn't (yet) have a moth sprite, so we'll use a butterfly for now.</p>
+                            </div>
+                        </div>
+                        <p>Duplicate the Soundwave sprite, naming it Echo.</p>
+                        <p>Change the outline colour of the Echo to green.</p>
+                        <p>When we duplicate a sprite, we don't just duplicate the costumes, we also duplicate the code blocks too. Do you see how the Echo sprite's code area contains the same code blocks as the Soundwave sprite's code area?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>An Echo should always come from where the <em>Butterfly</em> is, not where the <em>Bat</em> is. So, <strong>double-checking that you're in the Echo sprite's code area</strong>, ensure that newly created Echo clones begin at the Butterfly's position:</p>
+                        <img src="../img/009/echo.png" class="pull-right" />
+                        <img src="../img/009/echo-code.png"/>
+                        <p>When should Echo clones be created?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>When the soundwave touches the Butterfly</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">When the green flag is clicked</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Switch to Butterfly 1's code area. When the green flag is clicked it should forever check to see if it's touching a Soundwave and, if it is, it should create an Echo:</p>
+                        <img src="../img/009/butterfly.png" class="pull-right" />
+                        <img src="../img/009/forever-if-soundwave-echo.png"/>
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>About a dozen echo waves come bouncing off the Butterfly!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>We want a single soundwave to create a single echo wave &mdash; why are we getting so many echo waves for each soundwave?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03" data-correct>It takes about a dozen frames for the sound wave to move from touching the near edge of the Butterfly to touching the far edge, and we create an echo wave for each frame where it's touching</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03">The Echo sprite's repeat-loop is creating extra clones</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            To create a single echo wave, we will use a variable to track when a soundwave <em>starts</em> touching the Butterfly, and when it <em>stops</em> touching the Butterfly.
+                            We will only create an echo <em>when it starts</em> touching the Butterfly, not <em>on every frame</em> when it's touching the Butterfly.
+                        </p>
+                        <p>Select the Butterfly 1 sprite. Create a variable called <span class="variable">touching</span> (for this sprite only).</p>
+                        <p>When the green flag is clicked, set touching to 'false'.</p>
+                        <p>Replace the 'if block' with an 'if-else block'. If we're touching Soundwave, set <span class="variable">touching</span> to 'true', else to 'false'.</p>
+                        <p>
+                            Just before we set <span class="variable">touching</span> to 'true', if it's false, we know the Soundwave has just hit the Butterfly.
+                            Add an <span class="control">if <span class="slot"><span class="operators hex"><var><span class="variable rounded">touching</span></var> = <var>false</var></span></span></span> here,
+                            and nest the <span class="control">create clone of <span>Echo</span></span> inside:
+                        </p>
+                        <img src="../img/009/butterfly.png" class="pull-right" />
+                        <img src="../img/009/first-touch.png"/>
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04" data-correct>A single echo wave is created for each single soundwave</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Let's make our Butterfly fly.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Doppler effect <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Doppler effect 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Doppler effect</h2>
+                        <p>Add some code to move your Butterfly right, left, up and down, in response to those arrow keys being pressed:</p>
+                        <img src="../img/009/butterfly.png" class="pull-right" />
+                        <img src="../img/009/move-butterfly.png"/>
+                        <p>If you fly away from the Bat, you should notice that the echo waves are further apart, and if you fly towards it, you should notice that they are closer together. This is called the 'Doppler effect'.</p>
+                        <p>When sound waves are close together, they make a...</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>... high-pitched sound</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">... low-pitched sound</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>When something noisy moves quickly towards you, the sound waves get 'squished' closer together, and the noise seems high-pitched; when it moves away from you, they get 'spread out' and the noise seems low-pitched.</p>
+                        <p>Next time a fast car drives past you, listen to the pitch of its engine &mdash; it should seem high while it's travelling towards you, then low while it's travelling away.</p>
+                        <p>Now, time for the Bat to hunt us.</p>
+                        <p></p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Hunting <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hunting 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Hunting</h2>
+                        <p>When our Bat hears the Echo coming back from the Butterfly, it will move towards the source of that Echo.</p>
+                        <p>It would be nice to use a <span class="motion">point towards <span>Echo</span></span>, but remember &mdash; that would make the Bat point towards the <em>template</em>... we want it to point towards the <em>clone</em>.</p>
+                        <p>Instead:
+                            <ul>
+                                <li>Select the Echo sprite and, inside the repeat-loop, add an <span class="control">if <span class="slot"><span class="sensing hex">touching <span>Bat</span> ?</span></span> then</span> block.</li>
+                                <li>Create an <span class="variable">X</span> and a <span class="variable">Y</span> variable (for all sprites) to hold the x and y position of the clone.</li>
+                                <li>Inside the if-block, set <span class="variable">X</span> and <span class="variable">Y</span> to the clone's x and y position, then <span class="events">broadcast</span> a message called 'Heard echo'.</li>
+                            </ul>
+                        </p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How do I broadcast 'Heard echo'? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Grab a <span class="events">broadcast <span class="rounded">message1</span></span> from the 'Events' section.</p>
+                                <p>Click on 'message1' then click 'New message':</p>
+                                <img src="../img/009/new-message.png"/>
+                                <p>Enter 'Heard echo' and click 'OK':</p>
+                                <img src="../img/009/heard-echo.png"/>
+                            </div>
+                        </div>
+                        <p>
+                            In Scratch, when a message is broadcast, every sprite &mdash; and every clone of every sprite &mdash; receives that message.
+                            This is how one sprite can affect another sprite: the first sprite can broadcast a message, the second sprite can run some code when
+                            it receives that message.
+                        </p>
+                        <p>Does your code look like this?</p>
+                        <img src="../img/009/echo.png" class="pull-right" />
+                        <img src="../img/009/touching-bat-x-y-broadcast.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>It would be nice if we could just add a block to the Bat sprite such that, when it received 'Heard echo', it would point towards the <span class="variable">X</span> and <span class="variable">Y</span> positions we have stored in our variables. Sadly Scratch doesn't (yet) support that.</p>
+                        <p>
+                            We could use something called 'trigonometry', which older kids will know about, to work out the direction to point in. But there's an easier way &mdash;
+                            create an invisible sprite, position it using <span class="variable">X</span> and <span class="variable">Y</span>, then point towards that invisible sprite.
+                        </p>
+                        <p>So, paint a new sprite, naming it 'Source'. There's no need to draw any costume for it, since we want it to be invisible!</p>
+                        <p>Inside Source's code area, add some code that positions the sprite at the source of the echo, then broadcasts an event called 'Source positioned':</p>
+                        <img src="../img/009/position-source.png"/>
+                        <p>Now select the Bat sprite, and and some code that points the Bat towards the Source:</p>
+                        <img src="../img/009/bat.png" class="pull-right" />
+                        <img src="../img/009/point-to-source.png"/>
+                        <p>Click the green flag, and move the Butterfly around the Bat. Does the Bat turn to face it?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">No</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>Kind of &mdash; it turns to face <em>just behind</em> the Butterfly, i.e. where the Butterfly was when the echo was created</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Good. Now, add some code so that the Bat flies forwards, let's say 1 step at a time. Also, if it touches the Butterfly, stop all scripts &mdash; it's game over:</p>
+                        <img src="../img/009/bat.png" class="pull-right" />
+                        <img src="../img/009/forever-move.png"/>
+                        <p>Click the full screen button, click the green flag, and see how long you can escape the Bat.</p>
+                        <p>Remember: the Bat can't see you &mdash; it is hunting you purely by turning towards the echoes you reflect back to it.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Next steps</h2>
+                        <p>Save your game. See if you can make it better.</p>
+                        <p>Can you survive even if the Bat is faster than you?</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '009';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

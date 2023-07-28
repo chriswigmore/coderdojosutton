@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=4" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 17 &mdash; Asteroid defence V: Shop</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Trolley</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Shop</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Turret</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Placement</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Polish</a></li>
+                    <li><a href="#06-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>
+                            In this module we will create a shop to buy turrets.
+                        </p>
+                        <div class="img-wrapper">
+                            <img src="../img/017/animation.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Trolley <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trolley 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Trolley</h2>
+                        <p>
+                            Load up the project you saved at the end of the last module.
+                        </p>
+                        <p>
+                            Paint a new sprite named 'Trolley'. This will act as a button to let you open the shop.
+                        </p>
+                        <p>
+                            In the drawing area, draw an icon for a shopping trolley. It should be about 30 &times; 30 pixels in size (about 6 &times; 6 chequered squares).
+                            Mine looks like this:
+                        </p>
+                        <img src="../img/017/trolley-icon.png"/>
+                        <p>Drag the sprite to the right of the Cash display:</p>
+                        <img src="../img/017/trolley-position.png"/>
+                        <p>
+                            It's nice if buttons change in some way when your mouse is over them &mdash; it lets you know that they're clickable.
+                            Let's make our trolley icon brighter on 'mouse over'.
+                        </p>
+                        <p>
+                            Switch to the Code tab. When the green flag is clicked, let the icon forever check if it's touching the mouse pointer. If so, increase the brightness;
+                            if not, return to normal brightness:
+                        </p>
+                        <img src="../img/017/trolley.png" class="pull-right"/>
+                        <img src="../img/017/trolley-mouse-over.png"/>
+                        <p>
+                            Click the green flag. What happens as you move your mouse over the trolley?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>It lights up when the mouse is over it</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            When the trolley icon is clicked, we want to broadcast 'Opening shop'. We know it's been clicked if:
+                            <ul>
+                                <li>it's touching the mouse pointer, and</li>
+                                <li>the mouse button is down.</li>
+                            </ul>
+                            By nesting one if-block inside another, we can make sure that we only broadcast if <em>both</em> conditions are true:
+                        </p>
+                        <img src="../img/017/trolley.png" class="pull-right"/>
+                        <img src="../img/017/trolley-click.png"/>
+                        <p>
+                            There's a problem with this code. Can you spot it?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">We will never broadcast 'Opening shop'</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>We might broadcast 'Opening shop' many times with just one click</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            Right &mdash; that forever loop runs forever, so if someone clicks and holds down the mouse button, both if-conditions will be true,
+                            so we'll keep broadcasting over and over again.
+                        </p>
+                        <p>We can fix that by waiting until the mouse button has been released before broadcasting:</p>
+                        <img src="../img/017/trolley.png" class="pull-right"/>
+                        <img src="../img/017/trolley-click2.png"/>
+                        <p>
+                            Now we need to make a Shop sprite that will listen out for any 'Opening shop' messages. Before we do, however, we need to stop this icon
+                            from lighting up when the game is over. Add a script that does that:
+                        </p>
+                        <img src="../img/017/trolley.png" class="pull-right"/>
+                        <img src="../img/017/stop-other.png"/>
+                        <p>
+                            Good. Shop time.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Shop <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shop 02 -->
+                    <div class="question" data-hash="#02">
+                        <h2>Shop</h2>
+                        <p>
+                            Paint a new sprite named 'Shop'. Make sure that its x and y are both zero:
+                        </p>
+                        <img src="../img/017/shop-position.png"/>
+                        <p>
+                            Draw a rectangle that tucks underneath the Cash display. I've given mine a slight gradient:
+                        </p>
+                        <img src="../img/017/shop-costume.png"/>
+                        <p>
+                            We want this shop sprite to be off-screen when the game starts, then to glide into view when it receives 'Opening shop'.
+                            My costume is 150 pixels wide (<img src="../img/017/150-width.png"/>) so, when the green flag is clicked, I need to go to (-150, 0). If your costume has a different width, you'll need to
+                            adjust the starting position.
+                        </p>
+                        <img src="../img/017/shop.png" class="pull-right"/>
+                        <img src="../img/017/go-to-150.png"/>
+                        <p>
+                            Click the green flag. Does the shop start fully off-screen?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Remember that the Scratch website, wanting to be helpful, doesn't let you move sprites off-screen.
+                            We solved this problem before &mdash; do you remember how?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>We switched to a big costume, moved the sprite, then switched to the costume we really wanted</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">We pressed the 'fix my problem' button</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            There's another way we can fix it &mdash; paint a transparent rectangle in the centre of the costume:
+                        </p>
+                        <img src="../img/017/shop2.png"/>
+                        <p>
+                            Click the green flag. Does the shop now start fully off-screen?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">No</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>
+                                Kind of. The visible part is off-screen, but I guess the transparent rectangle is still on-screen, we just can't see it?
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Correct. Now, when the Shop receives 'Opening shop', it should glide into view:
+                        </p>
+                        <img src="../img/017/shop.png" class="pull-right"/>
+                        <img src="../img/017/glide.png"/>
+                        <p>
+                            Click the green flag, then click the trolley icon. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03" data-correct>The shop glides into view</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            It looks better if the shop is slightly transparent. Set the ghost effect to 25 when the green flag is clicked:
+                        </p>
+                        <img src="../img/017/shop.png" class="pull-right"/>
+                        <img src="../img/017/shop-ghost.png"/>
+                        <p>
+                            Click the green flag &mdash; is the shop slightly see-through?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Once the shop has glided into view, we need to broadcast 'Opened shop' &mdash; that's the moment when we're ready to show items in the shop:
+                        </p>
+                        <img src="../img/017/shop.png" class="pull-right"/>
+                        <img src="../img/017/opening-opened.png"/>
+                        <p>
+                            At some point we'll also want to close the shop. Add some code to glide out of view on receiving 'Closing shop':
+                        </p>
+                        <img src="../img/017/shop.png" class="pull-right"/>
+                        <img src="../img/017/closing-shop.png"/>
+                        <p>
+                            Good. Time to put a turret in our shop.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Turret <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Turret 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Turret</h2>
+                        <p>
+                            Paint a new sprite named 'Turret icon'. Copy and paste the first costume in the <em>Turret</em> sprite into the <em>Turret icon</em> sprite
+                            (Ctrl + A to select all, Ctrl + C to copy, Ctrl + V to paste). Add a drop shadow:
+                        </p>
+                        <img src="../img/017/drop-shadow.png"/>
+                        <p>
+                            Add some code to hide the sprite when the green flag is clicked, to show it on receiving 'Opened shop' and to hide it on receiving 'Closing shop':
+                        </p>
+                        <img src="../img/017/turret-icon.png" class="pull-right"/>
+                        <img src="../img/017/turret-icon-hide-show.png"/>
+                        <p>
+                            Click the green flag and click the trolley icon. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>The shop glides into view and a new turret appears in the middle of the stage</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            We want the turret icon in the shop, not in the middle of the stage. Drag it into position:
+                        </p>
+                        <img src="../img/017/position-turret-icon.png"/>
+                        <p>
+                            Let's close the shop if the user moves their mouse out.
+                        </p>
+                        <p>
+                            <strong>Switch back to the Shop sprite.</strong>
+                            If your shop is 150 pixels wide, your mouse will be out of the shop if it has 
+                            an x position greater than -90 (because -240 + 150 = -90)... add some code to broadcast 'Closing shop' if that happens:
+                        </p>
+                        <img src="../img/017/shop.png" class="pull-right"/>
+                        <img src="../img/017/closing-shop2.png"/>
+                        <p>
+                            Click the green flag, click the trolley icon, and move your mouse around the stage. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>The shop opens when I click the trolley icon and closes when I move the mouse away</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Good. Now we want users to be able to click that turret icon and place a new turret on the stage.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Placement <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Placement 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Placement</h2>
+                        <p>
+                            Firstly, <strong>switch back to the turret icon</strong>, and let's make it light up on mouse-over, just like we did for the trolley icon:
+                        </p>
+                        <img src="../img/017/turret-icon.png" class="pull-right"/>
+                        <img src="../img/017/turret-icon2.png"/>
+                        <p>Test your code. Does the turret icon light up on mouse-over?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Add some code such that, when the icon is clicked, it creates a clone of the Turret sprite
+                            (use the wait-until-not-mouse-down trick again to ensure the mouse button has been released before we start cloning):
+                        </p>
+                        <img src="../img/017/turret-icon.png" class="pull-right"/>
+                        <img src="../img/017/click-clone.png"/>
+                        <p>
+                            Click the green flag, open the shop, and click the turret icon. Is a new turret clone created?
+                            (Hint &mdash; remember that clones are created exactly where their template is, so you might
+                            need to drag the template to one side and 'look underneath it'.)
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Good. <strong>Switch to the Turret sprite</strong>. The code currently here assumes we have a single Turret, but we're about to have lots of clones.
+                        </p>
+                        <p>
+                            Unsnap the forever-loop from the <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span>:
+                        </p>
+                        <img src="../img/017/turret.png" class="pull-right"/>
+                        <img src="../img/017/unsnap.png"/>
+                        <p>
+                            The <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span> now needs to <span class="looks">hide</span> the template, and
+                            we need a <span class="control">when I start as a clone</span> to <span class="looks">show</span> the clones, and to run the forever-loop that we just unsnapped:
+                        </p>
+                        <img src="../img/017/turret.png" class="pull-right"/>
+                        <img src="../img/017/rejig.png"/>
+                        <p>
+                            Click the green flag, open the shop and click the turret icon. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>A new turret is created in the middle of the stage, and it shoots at asteroids as they fly past</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            We want to be able to place the turret where we want it. So, just before the forever-loop, add some code that repeatedly moves the clone to the
+                            mouse-pointer, until the mouse button is pressed:
+                        </p>
+                        <img src="../img/017/turret.png" class="pull-right"/>
+                        <img src="../img/017/to-mouse-pointer.png"/>
+                        <p>
+                            Click the green flag, open the shop and click the turret icon. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-03">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="#04-03" data-correct>
+                                The turret clone follows my mouse-pointer, until I click to place it
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Good. Time for some polish.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Polish <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Polish 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Polish</h2>
+                        <p>
+                            1. Make sure that, when new turret clones are created, they point in the same direction as the turret <em>icon</em>, i.e. direction 90:
+                        </p>
+                        <img src="../img/017/turret.png" class="pull-right"/>
+                        <img src="../img/017/point-90.png"/>
+                        <p>
+                            2. It's helpful to know the range of a turret when placing it. So, let's use the <em>range</em> costume while we're placing each turret clone:
+                        </p>
+                        <img src="../img/017/turret.png" class="pull-right"/>
+                        <img src="../img/017/range.png"/>
+                        <p>
+                            3. It looks better if the turret is partly see-through while we place it &mdash; set a ghost effect of 50, and remember to set it back to 0 after we've
+                            placed it:
+                        </p>
+                        <img src="../img/017/turret.png" class="pull-right"/>
+                        <img src="../img/017/ghost.png"/>
+                        <p>
+                            Test your code changes. Did they work as expected?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>
+                            Let's add a smoke trail behind the missiles. The code will be similar to Module 6 &mdash; Particles...
+                        </p>
+                        <p>Firstly, paint a new sprite named 'Smoke':</p>
+                        <img src="../img/017/smoke-drawn.png"/>
+                        <p>Switch to the Code tab, create a list (for all sprites) named <span class="list">SMOKE INFO</span> and add the following scripts:</p>
+                        <img src="../img/017/smoke.png" class="pull-right"/>
+                        <img src="../img/017/smoke-code.png"/>
+                        <p>
+                            Then, in the <strong>Missile</strong> sprite's code editor, add the below code blocks:
+                        </p>
+                        <img src="../img/017/missile.png" class="pull-right"/>
+                        <img src="../img/017/smoke-clone.png"/>
+                        <p>
+                            Click the full screen button, click the green flag, place some turrets on the stage and watch them destroy the asteroids.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#04-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#06-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 06 -->
+
+                    <div class="question" data-hash="#06">
+                        <h2>Next steps</h2>
+                        <p>Save your project.</p>
+                        <p>In the next module we will:</p>
+                        <ul>
+                            <li>create different kinds of turrets</li>
+                        </ul>
+                        <p>Feel free to try that out beforehand, or to try a different idea of your own instead.</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules2.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '017';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

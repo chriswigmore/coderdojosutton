@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=4" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 12 &mdash; Word unscrambler</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Word list</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Matching length</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Strings and lists</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Bubble sort</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Matches</a></li>
+                    <li><a href="#06-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>Unscrambling a scrambled word, that is, shuffling the letters around until you discover the real word, is a fun challenge.</p>
+                        <p>We're going to build a word unscrambler in Scratch.</p>
+                        <p>
+                            Remember how computers are crazy fast? With this unscrambler, you will be able to unscramble much faster than the average human brain.
+                            (Maybe you could race some friends?)
+                        </p>
+                        <div class="img-wrapper">
+                            <img src="../img/012/unscrambler.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Word list <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Word list 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Word list</h2>
+                        <p>
+                            Computers don't really speak English. When our project starts shuffling letters around, it won't know if it's found a real word, 
+                            unless we give it a list of real words to compare against.
+                        </p>
+                        <p>
+                            Start from an empty Scratch project (<a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a> &mdash; remember to delete the cat sprite).
+                            This will be another Sprite-less project.
+                        </p>
+                        <p>Make a list called <span class="list rounded">WORDS</span>. We now need to fill that list with <em>every word</em> in the English language.</p>
+                        <p>Guess how many words there are in English?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">Fewer than 1,000</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">Between 1,000 and 10,000</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>More than 10,000</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            It's hard to say exactly how many words there are in English, but there are definitely more than 10,000. There's a list of English words
+                            (that's free for us to use) which contains almost 70,000. Click the below link to open the list of words in a new tab, right-click somewhere
+                            on the web page, and click 'Save as'. Save the file to your laptop, noting where you save it (e.g. Desktop, Downloads, etc). Here's the link:
+                            <a href="https://www-personal.umich.edu/~jlawler/wordlist" target="_blank">https://www-personal.umich.edu/~jlawler/wordlist</a>
+                            <!-- see https://www-personal.umich.edu/~jlawler/wordlist.html, in particular 
+                                'The link below references an alphabetized list of English words produced from a number of texts available free on the net' -->
+                        </p>
+                        <p>
+                            Right click on the (empty) WORDS list on the stage. Click 'import'...
+                        </p>
+                        <img src="../img/012/import.png"/>
+                        <p>
+                            ... and select the 'wordlist' file you just downloaded. Does your stage look like this?
+                        </p>
+                        <img src="../img/012/imported.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            I recognise some of the words in the list, like 'a' and 'aardvark', but there's a few in there I didn't know, like 'a-horizon', which is apparently a
+                            layer of soil.
+                        </p>
+                        <p>Let's keep going.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Matching length <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Matching length 02 -->
+                    <div class="question" data-hash="#02">
+                        <h2>Matching length</h2>
+                        <p>
+                            We need a human to type in a scrambled word, so add a <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span>
+                            and snap an <span class="sensing">ask <var>Please enter a scrambled word</var> and wait</span> underneath.
+                        </p>
+                        <img src="../img/012/flag-ask.png"/>
+                        <p>Where is the scrambled word stored?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00"><span class="variable rounded">my variable</span></label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct><span class="sensing rounded">answer</span></label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            We need to loop through the list of all words, checking each to see if we could rearrange the letters in <span class="sensing rounded">answer</span>
+                            to match it. But we want our unscrambler to be fast, and there's a trick to speed things up. Can you guess it?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">Press the 'go faster' button on the computer</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>Ignore words that are a different length from <span class="sensing rounded">answer</span></label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Whenever we shuffle letters in a word around, we don't change the <em>number</em> of letters in that word,
+                            so we can make our unscrambler faster if we just ignore words with the wrong length.
+                        </p>
+                        <p>Make a second list called <span class="list rounded">WORDS WITH MATCHING LENGTH</span>.</p>
+                        <p>
+                            We want to loop over the list of all words, looking for those that match the length of <span class="sensing rounded">answer</span>. 
+                            What problem do you foresee?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>Repeat-loops refresh the screen each time around, so looping over 70,000 items will be super slow</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">You can't add items to a list while looping over items in a different list</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>How could we avoid this problem?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03">It can't be avoided</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03" data-correct>Run the repeat loop in a Block with 'Run without screen refresh' checked</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Make a Block called <span class="my-blocks">Get words with matching length</span> (without screen refresh).</p>
+                        <p>Create a variable <span class="variable rounded">i</span> (and uncheck it &mdash; we don't need to see it).</p>
+                        <p>Here comes a very common pattern (not just in Scratch but in many other programming languages):</p>
+                        <ul>
+                            <li>set <span class="variable rounded">i</span> to 1</li>
+                            <li>
+                                add a repeat loop (in our particular case, the number of times we repeat is the number of items in <span class="list rounded">WORDS</span></span>,
+                                i.e. <span class="list rounded">length of <span>WORDS</span></span>)
+                            </li>
+                            <li>change <span class="variable rounded">i</span> by 1 (also called 'incrementing <span class="variable rounded">i</span>')</li>
+                        </ul>
+                        <img src="../img/012/for-loop.png"/>
+                        <p>Does this look at all familiar?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04">No, never seen anything like it</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-04" data-correct>It's a bit like the code in module 8, the timed quiz, where we looped over a variable called 'first digit', incrementing it as we went</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Add some code to copy from <span class="list rounded">WORDS</span> to <span class="list rounded">WORDS WITH MATCHING LENGTH</span>:</p>
+                        <img src="../img/012/copy-list.png"/>
+                        <p>What will this code do?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-05">It's impossible to predict</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-05" data-correct>
+                                The variable <span class="variable rounded">i</span> starts at 1 so, first time round the loop, the block we just inserted will add
+                                <span class="list rounded">item <var>1</var> of <span>WORDS</span></span> (that is, 'a') to <span class="list rounded">WORDS WITH MATCHING LENGTH</span>.
+                                Then, <span class="variable rounded">i</span> will be incremented to 2, and we'll go round the loop again, this time copying across item 2,
+                                i.e. 'a-horizon'. And so on, 70 thousand times, until we've copied the whole list across.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Run that Block (by clicking on <span class="my-blocks">Get words with matching length</span>). What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-06" data-correct>The whole of <span class="list rounded">WORDS</span> is copied across to <span class="list rounded">WORDS WITH MATCHING LENGTH</span></label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-06">Nothing happens</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Remember, we don't want to copy <em>all</em> the words, only the ones with the same length as <span class="sensing rounded">answer</span>.
+                            So add a <span class="list">delete all of <span>WORDS WITH MATCHING LENGTH</span></span> at the start of the Block (so we always start from a clean slate)
+                            and add an appropriate if-then block inside the loop:
+                        </p>
+                        <img src="../img/012/copy-list-if.png"/>
+                        <p>Snap a <span class="my-blocks">Get words matching length</span> under the <span class="sensing">ask <var>Please enter a scrambled word</var> and wait</span>.</p>
+                        <img src="../img/012/flag-ask-length.png"/>
+                        <p>Click the green flag and enter a scrambled word (maybe 'taplop'?) &mdash; what happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-07">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-07" data-correct>Only words of the same length as the scrambled word are copied into <span class="list rounded">WORDS WITH MATCHING LENGTH</span></label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Good. Now for the tricky part.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Strings and lists <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Strings and lists 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Strings and lists</h2>
+                        <p>
+                            We need to work through each word-with-matching-length, seeing if its letters could be rearranged to match <span class="sensing rounded">answer</span>.
+                            Here's how &mdash; we'll alphabetically sort all the letters in <span class="sensing rounded">answer</span>, and alphabetically sort all the letters in each 
+                            word-with-matching-length. If those two strings of letters (or 'strings', for short) are the same, then we've just unscrambled 
+                            <span class="sensing rounded">answer</span>.
+                        </p>
+                        <p>
+                            An example might help. If we pass in the scrambled word <em>taplop</em>, we'll sort that to make the string <em>aloppt</em>
+                            (<em>a</em> comes before <em>l</em> in the alphabet, which comes before <em>o</em>,
+                            and so on). Then we'll start working through the list of six-letter-long words:
+                        </p>
+                        <ul>
+                            <li>
+                                First up is <em>adagio</em>, which we sort to make <em>aadgio</em>; that's different from <em>aloppt</em>, so we haven't unscrambled our word yet.
+                            </li>
+                            <li>
+                                The next six letter word is <em>adalia</em>, which we sort to make <em>aaadil</em>; that's also different from <em>aloppt</em> so we still
+                                haven't unscrambled our word.
+                            </li>
+                            <li>
+                                Most words won't match but eventually we'll get to the word <em>laptop</em>, which we'll sort to make <em>aloppt</em>; that's a match, so we
+                                know that <em>taplop</em> can be unscrambled to make <em>laptop</em>. (Can you spot how?)
+                            </li>
+                        </ul>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>Swap the first and fourth letters</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">Swap the second and third letters</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Scratch lets you do some things to a string, e.g. <span class="operators rounded">length of <var>apple</var></span> tells you the length and
+                            <span class="operators rounded">letter <var>1</var> of <var>apple</var></span> gets you the letter at a certain index, but it won't let you shuffle
+                            around the letters in a string.
+                        </p>
+                        <p>But what if we turned our string of letters into a <em>list</em> of letters called <span class="list rounded">LETTERS</span>?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">That wouldn't help</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>
+                                Then we could use <span class="list">replace item <var>1</var> of <span>LETTERS</span> with <var>thing</var></span>, repeatedly, to do our
+                                alphabetical sorting
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Make a new block called <span class="my-blocks">String to list</span>, adding an input (number or text) named 'string' and running without screen refresh:</p>
+                        <img src="../img/012/string-to-list.png"/>
+                        <p>
+                            Make a list called <span class="list rounded">LETTERS</span> and delete all its items at the start of the <span class="my-blocks">String to list</span> definition
+                            (clean slates are good):
+                        </p>
+                        <img src="../img/012/string-to-list2.png"/>
+                        <p>
+                            Loop over each letter in <span class="my-blocks rounded">string</span>, adding it to <span class="list rounded">LETTERS</span>, using the
+                            variable <span class="variable rounded">i</span> like before:
+                        </p>
+                        <img src="../img/012/string-to-list3.png"/>
+                        <p>
+                            Let's test &mdash; type the word <em>life</em> into the <span class="my-blocks">String to list</span> 'slot' and click the Block to run it:
+                        </p>
+                        <img src="../img/012/call-block.png"/>
+                        <p>What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02" data-correct>
+                                <img src="../img/012/l-i-f-e.png" class="pull-right"/>
+                                The letters <em>l</em>, <em>i</em>, <em>f</em> and <em>e</em> show up as items in the LETTERS list!
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>How did the Block know which letters to put in <span class="list rounded">LETTERS</span>?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03">By magic</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03" data-correct>
+                                We passed in the string 'life' as an <em>input</em> to the Block. Inside the Block, it called this input <span class="my-blocks rounded">string</span>
+                                and looped over its letters.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>We're going to alphabetically sort these letters in just a moment but, after they've been sorted, we'll want to turn them back from a list to a string.</p>
+                        <p>
+                            Let's make a Block to do that now &mdash; call it <span class="my-blocks">List to string</span> and run it without screen refresh
+                            (we won't pass it an input; it will always use the <span class="list rounded">LETTERS</span> list).
+                        </p>
+                        <p>Create a variable <span class="variable rounded">value</span> and set it to 'empty' at the start of the block:</p>
+                        <img src="../img/012/list-to-string.png"/>
+                        <p>
+                            Loop over every item in <span class="list rounded">LETTERS</span>, building our string letter by letter:
+                        </p>
+                        <img src="../img/012/list-to-string2.png"/>
+                        <p>Click <span class="my-blocks">List to string</span> to run the code under its definition. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04" data-correct><span class="variable rounded">value</span> contains the string 'life'!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>How does this work?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-05">By magic</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-05" data-correct>
+                                The first time round the loop, <span class="variable rounded">i</span> is 1 and <span class="variable rounded">value</span> is empty, so we join
+                                nothing to the first letter, <em>l</em> (giving us just <em>l</em>) and we store that in <span class="variable rounded">value</span>. 
+                                The second time around,
+                                <span class="variable rounded">i</span> is 2 and <span class="variable rounded">value</span> is still <em>l</em>, so we join <em>l</em> to the
+                                second letter, <em>i</em>,
+                                giving us <em>li</em>, and we store that in <span class="variable rounded">value</span>. And so on, until we get <em>life</em>.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Good. We can now turn any string into a list, which will let us alphabetically sort its letters, and we can turn that list back into a string when we're done.</p>
+                        <p>Bubble time.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Bubble sort <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bubble sort 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Bubble sort</h2>
+                        <p>
+                            You might think that alphabetically sorting a list of letters would be simple, but there are actually dozens of 'sorting algorithms' (that is, lists of
+                            instructions for how to sort) all with their advantages and disadvantages.
+                        </p>
+                        <p>
+                             We're going to use (our version of) the 'Bubble sort' algorithm because it's easy to understand (although it's not the
+                            fastest). It works by comparing the first pair of letters, swapping them if they're not in alphabetical order, then moving on to the next pair,
+                            and so on until we've compared all pairs:
+                        </p>
+                        <div class="video" style="height:164px">
+                             <svg width="700" height="160">
+                                <g id="play-button-1">
+                                    <rect width="100%" height="100%" fill="black" opacity="0.9"/>
+                                    <polygon points="320,40 320,120 380,80" fill="white"/>
+                                    <circle cx="340" cy="80" r="70" stroke="white" stroke-width="3" fill="transparent" />
+                                </g>
+                                <text x="10" y="85" id="caption-1"></text>
+                                <circle cx="475" cy="80" r="50" stroke="#FF661A" stroke-width="3" fill="transparent" id="bubble-1" opacity="0"/>
+                                <text x="450" y="100" font-size="60" text-anchor="middle" id="letter-l-1">l</text>
+                                <text x="500" y="100" font-size="60" text-anchor="middle" id="letter-i-1">i</text>
+                                <text x="550" y="100" font-size="60" text-anchor="middle" id="letter-f-1">f</text>
+                                <text x="600" y="100" font-size="60" text-anchor="middle" id="letter-e-1">e</text>
+                             </svg>
+                        </div>
+                        <p>After this first pass, are all the letters &mdash; <em>i, f, e, l</em> &mdash; in alphabetical order?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Correct &mdash; for example <em>i</em> should come after <em>f</em>, since it comes after <em>f</em> in the alphabet. 
+                            We need to go back to the beginning and make another pass:
+                        </p>
+                        <div class="video" style="height:164px">
+                            <svg width="700" height="160">
+                               <g id="play-button-2">
+                                   <rect width="100%" height="100%" fill="black" opacity="0.9"/>
+                                   <polygon points="320,40 320,120 380,80" fill="white"/>
+                                   <circle cx="340" cy="80" r="70" stroke="white" stroke-width="3" fill="transparent" />
+                               </g>
+                               <text x="10" y="85" id="caption-2"></text>
+                               <circle cx="475" cy="80" r="50" stroke="#FF661A" stroke-width="3" fill="transparent" id="bubble-2" opacity="0"/>
+                               <text x="450" y="100" font-size="60" text-anchor="middle" id="letter-i-2">i</text>
+                               <text x="500" y="100" font-size="60" text-anchor="middle" id="letter-f-2">f</text>
+                               <text x="550" y="100" font-size="60" text-anchor="middle" id="letter-e-2">e</text>
+                               <text x="600" y="100" font-size="60" text-anchor="middle" id="letter-l-2">l</text>
+                            </svg>
+                       </div>
+                        <p>
+                            The letters are still not in alphabetical order. We actually need to go back to the beginning and make <em>three</em> passes if there are four letters,
+                            <em>four</em> passes if there are five letters, and so on:
+                        </p>
+                        <div class="video" style="height:164px">
+                            <svg width="700" height="160">
+                               <g id="play-button-3">
+                                   <rect width="100%" height="100%" fill="black" opacity="0.9"/>
+                                   <polygon points="320,40 320,120 380,80" fill="white"/>
+                                   <circle cx="340" cy="80" r="70" stroke="white" stroke-width="3" fill="transparent" />
+                               </g>
+                               <text x="10" y="85" id="caption-3"></text>
+                               <circle cx="475" cy="80" r="50" stroke="#FF661A" stroke-width="3" fill="transparent" id="bubble-3" opacity="0"/>
+                               <text x="450" y="100" font-size="60" text-anchor="middle" id="letter-f-3">f</text>
+                               <text x="500" y="100" font-size="60" text-anchor="middle" id="letter-e-3">e</text>
+                               <text x="550" y="100" font-size="60" text-anchor="middle" id="letter-i-3">i</text>
+                               <text x="600" y="100" font-size="60" text-anchor="middle" id="letter-l-3">l</text>
+                            </svg>
+                       </div>
+                       <p>The letters &mdash; <em>e, f, i, l</em> &mdash; are now all in alphabetical order.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> I can spot a way to make this faster! <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>There are a few ways to make this algorithm slightly faster and, if you spotted any, well done. For example:</p>
+                                <ul>
+                                    <li>
+                                        The first pass needs to compare all pairs, but the second pass can skip the last pair, the third pass can skip the last two pairs,
+                                        and so on, because the bubbles 'carry' the latest letters in the alphabet to the end.
+                                    </li>
+                                    <li>
+                                        If any pass swaps <em>no</em> letters, we don't need any more passes &mdash; if a string is already sorted, the first pass will swap
+                                        nothing and we can quit at that point.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p>
+                            Let's make this in Scratch. We'll need to do some swaps so create a Block for that &mdash; call it <span class="my-blocks">Swap</span>,
+                            run it without screen refresh, and add two inputs (number or text) named <span class="my-blocks rounded">i1</span> and 
+                            <span class="my-blocks rounded">i2</span> which will be the indexes of the items we want to swap.
+                        </p>
+                        <p>
+                            It would be nice to replace the item at <span class="my-blocks rounded">i1</span> with the item at <span class="my-blocks rounded">i2</span>,
+                            and then replace the item at <span class="my-blocks rounded">i2</span> with the item at <span class="my-blocks rounded">i1</span>, but would that work?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            After we replace the item at <span class="my-blocks rounded">i1</span>, its old value is overwritten! So, to swap, we need to store its value temporarily.
+                        </p>
+                        <p>Make a variable called <span class="variable rounded">temp</span> (and uncheck it).</p>
+                        <p>
+                            Store the item at <span class="my-blocks rounded">i1</span> in <span class="variable rounded">temp</span>, then replace it with the item at
+                            <span class="my-blocks rounded">i2</span>, then replace the item at <span class="my-blocks rounded">i2</span> with 
+                            <span class="variable rounded">temp</span>:
+                        </p>
+                        <img src="../img/012/swap.png"/>
+
+                        <p>Call <span class="my-blocks">Swap <var>1</var> <var>3</var></span>. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-02" data-correct>The first and third items in LETTERS are swapped!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Make a Block called <span class="my-blocks">Sort - single pass</span> (without screen refresh).</p>
+                        <p>
+                            In its definition, loop over all pairs of letters (noting that the number of pairs is <em>one less</em> than the number of letters)
+                            and swapping them if the first in the pair comes after the second in the pair:
+                        </p>
+                        <img src="../img/012/sort-single-pass.png"/>
+                        <p>Now make a Block called <span class="my-blocks">Sort - all passes</span> (without screen refresh).</p>
+                        <p>
+                            In its definition, repeatedly run <span class="my-blocks">Sort - single pass</span>. Remember you need to run <em>one less</em> times than
+                            the number of letters:
+                        </p>
+                        <img src="../img/012/sort-all-passes.png"/>
+                        <p>Run <span class="my-blocks">Sort - all passes</span>. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-03">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-03" data-correct>
+                                All the items in LETTERS are alphabetically sorted, that is <em>e</em>, <em>f</em>, <em>i</em>, <em>l</em>!
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Good. We just made the Bubble sort algorithm in Scratch. Let's bundle everything together &mdash; make a Block called 
+                            <span class="my-blocks">Sort string</span>, without screen refresh, adding an input (number or text) named 'string'.
+                        </p>
+                        <p>
+                            Its definition should turn <span class="my-blocks rounded">string</span> into a list, sort the items in that list, then turn the list back into a string:
+                        </p>
+                        <img src="../img/012/sort-string.png"/>
+                        <p>
+                            Let's test &mdash; call <span class="my-blocks">Sort string</span>, passing in a word, and confirm that <span class="variable rounded">value</span>
+                            ends up containing the alphabetically sorted letters in that word.
+                        </p>
+                        <p>Snap <span class="my-blocks">Sort string <var><span class="sensing rounded">answer</span></var></span> underneath <span class="my-blocks">Get words with matching length</span>.</p>
+                        <img src="../img/012/flag-ask-length-sort.png"/>
+                        <p>Now we just need to match our alphabetically sorted string with alphabetically sorted real words.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Matches <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Matches 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Matches</h2>
+                        <p>
+                            The alphabetically sorted letters in <span class="sensing rounded">answer</span> are stored in <span class="variable rounded">value</span>.
+                            We're about to overwrite that, so make a new variable called <span class="variable rounded">sorted answer</span> (uncheck it) and copy 
+                            <span class="variable rounded">value</span> across:
+                        </p>
+                        <img src="../img/012/flag-ask-length-sort-set.png"/>
+                        <p>
+                            Make a new Block named <span class="my-blocks">Get matches</span> (without screen refresh). Make a new list (to store any matches we find) named
+                            <span class="list rounded">MATCHES</span>, and delete all its items at the start of <span class="my-blocks">Get matches</span>'s definition.
+                        </p>
+                        <img src="../img/012/get-matches.png"/>
+                        <p>
+                            We're about to loop over <span class="list rounded">WORDS WITH MATCHING LENGTH</span> but we mustn't use <span class="variable rounded">i</span>
+                            to store the index because <em>inside the loop</em> we're going to use <span class="variable rounded">i</span> for sorting the string.
+                            So, make a new variable <span class="variable rounded">j</span> (uncheck it) and use it to loop over 
+                            <span class="list rounded">WORDS WITH MATCHING LENGTH</span>:
+                        </p>
+                        <img src="../img/012/get-matches-loop.png"/>
+                        <p>
+                            Now, inside the loop, we need to sort the letters in each word. We worked hard to sort the letters in <span class="sensing rounded">answer</span>...
+                            do we need to do all that work again?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00" data-correct>No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>
+                            Correct. Add a call to <span class="my-blocks">Sort string</span>, passing it 
+                            <span class="list rounded">item <var><span class="variable rounded">j</span></var> of <span>WORDS WITH MATCHING LENGTH</span></span>.
+                        </p>
+                        <img src="../img/012/get-matches-sort.png"/>
+                        <p>
+                            Reuse is a beautiful thing. Not only does it save work but, if we find a bug in a Block, we can fix the bug in one place, and everywhere 
+                            that calls that Block gets that fix too.
+                        </p>
+                        <p>
+                            Now we simply need to compare the string we just sorted (which will be stored in <span class="variable rounded">value</span>) with
+                            <span class="variable rounded">sorted answer</span> and, if they match, copy the word to <span class="list rounded">MATCHES</span>:
+                        </p>
+                        <img src="../img/012/get-matches-match.png"/>
+                        <p>Run <span class="my-blocks">Get matches</span>. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-01" data-correct>
+                                MATCHES is filled with the real words that you get from unscrambling <span class="sensing rounded">answer</span>!
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>
+                            Put everything together &mdash; snap <span class="my-blocks">Get matches</span> underneath 
+                            <span class="variable">set <span>sorted answer</span> to <var><span class="variable rounded">value</var></span>:
+                        </p>
+                        <img src="../img/012/flag-ask-length-sort-set-match.png"/>
+                        <p>
+                            Uncheck all the lists and variables except for <span class="list rounded">MATCHES</span>. 
+                            Click the full screen button, click the green flag, and see how quickly the computer can unscramble the words you give it.
+                        </p>
+                        <p>(Here's a challenge, try and unscramble 'poreumct' faster than your Scratch project.)</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#04-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#06-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 06 -->
+
+                    <div class="question" data-hash="#06">
+                        <h2>Next steps</h2>
+                        <p>Save your project. What else could you do?</p>
+                        <p>Could you search for the word with the most anagrams?</p>
+                        <p>Could you search for words whose letters are already alphabetically sorted?</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules2.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+
+        function fadeOut($element, dt) {
+            $element.attr('opacity', 0.9 - (dt * 0.1));
+        }
+        function fadeIn($element, dt) {
+            $element.attr('opacity', 0.1 + (dt * 0.1));
+        }
+        function updateCaption($caption, newText, dt) {
+            if (dt < 10) {
+                fadeOut($caption, dt);
+            } else if (dt < 20) {
+                var dt2 = dt - 10;
+                $caption[0].textContent = newText;
+                fadeIn($caption, dt2);
+            }
+        }
+
+        var $caption1 = $('#caption-1');
+        var $bubble1 = $('#bubble-1');
+        var $l1 = $('#letter-l-1');
+        var $i1 = $('#letter-i-1');
+        var $f1 = $('#letter-f-1');
+        var $e1 = $('#letter-e-1');
+        var intervalId1 = 0;
+        var keyframes1 = [
+                  20 // pause
+                , 30 // bubble shown
+                , 70 // 'l after i' shown
+                , 80 // l-i swapped
+                , 110 // 'compare next'
+                , 120 // bubble moved to l-f
+                , 160 // 'l after f' shown
+                , 170 // l-f swapped
+                , 200 // 'compare next'
+                , 210 // bubble moved to l-e
+                , 250 // 'l after e' shown
+                , 260 // l-e swapped
+                , 290 // 'finished'
+                , 300 // bubble faded
+            ];
+        function reset1() {
+            $caption1[0].textContent = 'Compare the first two letters:';
+            $bubble1.attr('transform', 'translate(0)');
+            $l1.attr('transform', 'translate(0)');
+            $i1.attr('transform', 'translate(0)');
+            $f1.attr('transform', 'translate(0)');
+            $e1.attr('transform', 'translate(0)');
+        }
+        function animate1(t) {
+            var keyframe = keyframes1.findIndex(function(cutoff) { return cutoff > t; });
+            var dt = t - (keyframe === 0 ? 0 : keyframes1[keyframe - 1]); // time since start of keyframe
+            if (keyframe === 0) {
+                // pause
+            } else if (keyframe === 1) {
+                fadeIn($bubble1, dt);
+            } else if (keyframe === 2) {
+                updateCaption($caption1, "'l' comes after 'i' (in the alphabet). So swap them:", dt);
+            } else if (keyframe === 3) {
+                 $l1.attr('transform', 'translate(' + (5 * dt) + ')');
+                 $i1.attr('transform', 'translate(' + (-5 * dt) + ')');
+            } else if (keyframe === 4) {
+                updateCaption($caption1, "Compare the next pair of letters:", dt);
+            } else if (keyframe === 5) {
+                $bubble1.attr('transform', 'translate(' + (5 * dt) + ')');
+            } else if (keyframe === 6) {
+                updateCaption($caption1, "'l' comes after 'f'... swap:", dt);
+            } else if (keyframe === 7) {
+                $l1.attr('transform', 'translate(' + ((5 * dt) + 50) + ')');
+                $f1.attr('transform', 'translate(' + (-5 * dt) + ')');
+            } else if (keyframe === 8) {
+                updateCaption($caption1, "Compare the next pair of letters:", dt);
+            } else if (keyframe === 9) {
+                $bubble1.attr('transform', 'translate(' + ((5 * dt) + 50) + ')');
+            } else if (keyframe === 10) {
+                updateCaption($caption1, "'l' comes after 'e'... swap...", dt);
+            } else if (keyframe === 11) {
+                $l1.attr('transform', 'translate(' + ((5 * dt) + 100) + ')');
+                $e1.attr('transform', 'translate(' + (-5 * dt) + ')');
+            } else if (keyframe === 12) {
+                updateCaption($caption1, "... finish 'first pass'.", dt);
+            } else if (keyframe === 13) {
+                fadeOut($bubble1, dt);
+            } else {
+                clearInterval(intervalId1);
+                $('#play-button-1').fadeIn('slow', function() {
+                    reset1();
+                });
+            }
+        }
+        $('#play-button-1').on('click', function() {
+            reset1();
+            $('#play-button-1').fadeOut('slow', function() {
+                var t = 0;
+                intervalId1 = setInterval(function() { animate1(t++); }, 100);
+            });
+        });
+
+        var $caption2 = $('#caption-2');
+        var $bubble2 = $('#bubble-2');
+        var $l2 = $('#letter-l-2');
+        var $i2 = $('#letter-i-2');
+        var $f2 = $('#letter-f-2');
+        var $e2 = $('#letter-e-2');
+        var intervalId2 = 0;
+        var keyframes2 = [
+                  20 // pause
+                , 30 // bubble shown
+                , 70 // 'i after f' shown
+                , 80 // i-f swapped
+                , 110 // 'compare next'
+                , 120 // bubble moved to i-e
+                , 160 // 'i after e' shown
+                , 170 // i-e swapped
+                , 200 // 'compare next'
+                , 210 // bubble moved to i-l
+                , 250 // 'i before l' shown
+                , 270 // don't swap
+                , 290 // 'finished'
+                , 300 // bubble faded
+            ];
+        function reset2() {
+            $caption2[0].textContent = 'Compare the first two letters:';
+            $bubble2.attr('transform', 'translate(0)');
+            $l2.attr('transform', 'translate(0)');
+            $i2.attr('transform', 'translate(0)');
+            $f2.attr('transform', 'translate(0)');
+            $e2.attr('transform', 'translate(0)');
+        }
+        function animate2(t) {
+            var keyframe = keyframes2.findIndex(function(cutoff) { return cutoff > t; });
+            var dt = t - (keyframe === 0 ? 0 : keyframes2[keyframe - 1]); // time since start of keyframe
+            if (keyframe === 0) {
+                // pause
+            } else if (keyframe === 1) {
+                fadeIn($bubble2, dt);
+            } else if (keyframe === 2) {
+                updateCaption($caption2, "'i' comes after 'f' (in the alphabet). So swap them:", dt);
+            } else if (keyframe === 3) {
+                 $i2.attr('transform', 'translate(' + (5 * dt) + ')');
+                 $f2.attr('transform', 'translate(' + (-5 * dt) + ')');
+            } else if (keyframe === 4) {
+                updateCaption($caption2, "Compare the next pair of letters:", dt);
+            } else if (keyframe === 5) {
+                $bubble2.attr('transform', 'translate(' + (5 * dt) + ')');
+            } else if (keyframe === 6) {
+                updateCaption($caption2, "'i' comes after 'e'... swap:", dt);
+            } else if (keyframe === 7) {
+                $i2.attr('transform', 'translate(' + ((5 * dt) + 50) + ')');
+                $e2.attr('transform', 'translate(' + (-5 * dt) + ')');
+            } else if (keyframe === 8) {
+                updateCaption($caption2, "Compare the next pair of letters:", dt);
+            } else if (keyframe === 9) {
+                $bubble2.attr('transform', 'translate(' + ((5 * dt) + 50) + ')');
+            } else if (keyframe === 10) {
+                updateCaption($caption2, "'i' comes before 'l'... ", dt);
+            } else if (keyframe === 11) {
+                updateCaption($caption2, "... so don't swap...", dt);
+            } else if (keyframe === 12) {
+                updateCaption($caption2, "... finish second pass.", dt);
+            } else if (keyframe === 13) {
+                fadeOut($bubble2, dt);
+            } else {
+                clearInterval(intervalId2);
+                $('#play-button-2').fadeIn('slow', function() {
+                    reset2();
+                });
+            }
+        }
+        $('#play-button-2').on('click', function() {
+            reset2();
+            $('#play-button-2').fadeOut('slow', function() {
+                var t = 0;
+                intervalId2 = setInterval(function() { animate2(t++); }, 100);
+            });
+        });
+
+        var $caption3 = $('#caption-3');
+        var $bubble3 = $('#bubble-3');
+        var $l3 = $('#letter-l-3');
+        var $i3 = $('#letter-i-3');
+        var $f3 = $('#letter-f-3');
+        var $e3 = $('#letter-e-3');
+        var intervalId3 = 0;
+        var keyframes3 = [ // feil
+                  20 // pause
+                , 30 // bubble shown
+                , 70 // 'f after e' shown
+                , 80 // f-e swapped
+                , 110 // 'compare next'
+                , 120 // bubble moved to i-e
+                , 160 // 'f before i' shown
+                , 180 // don't swap
+                , 200 // 'compare next'
+                , 210 // bubble moved to i-l
+                , 250 // 'i before l' shown
+                , 270 // don't swap
+                , 290 // 'finished'
+                , 300 // bubble faded
+            ];
+        function reset3() {
+            $caption3[0].textContent = 'Compare the first two letters:';
+            $bubble3.attr('transform', 'translate(0)');
+            $l3.attr('transform', 'translate(0)');
+            $i3.attr('transform', 'translate(0)');
+            $f3.attr('transform', 'translate(0)');
+            $e3.attr('transform', 'translate(0)');
+        }
+        function animate3(t) {
+            var keyframe = keyframes3.findIndex(function(cutoff) { return cutoff > t; });
+            var dt = t - (keyframe === 0 ? 0 : keyframes3[keyframe - 1]); // time since start of keyframe
+            if (keyframe === 0) {
+                // pause
+            } else if (keyframe === 1) {
+                fadeIn($bubble3, dt);
+            } else if (keyframe === 2) {
+                updateCaption($caption3, "'f' comes after 'e' (in the alphabet). So swap them:", dt);
+            } else if (keyframe === 3) {
+                 $f3.attr('transform', 'translate(' + (5 * dt) + ')');
+                 $e3.attr('transform', 'translate(' + (-5 * dt) + ')');
+            } else if (keyframe === 4) {
+                updateCaption($caption3, "Compare the next pair of letters:", dt);
+            } else if (keyframe === 5) {
+                $bubble3.attr('transform', 'translate(' + (5 * dt) + ')');
+            } else if (keyframe === 6) {
+                updateCaption($caption3, "'f' comes before 'i'...", dt);
+            } else if (keyframe === 7) {
+                updateCaption($caption3, "... so don't swap...", dt);
+            } else if (keyframe === 8) {
+                updateCaption($caption3, "Compare the next pair of letters:", dt);
+            } else if (keyframe === 9) {
+                $bubble3.attr('transform', 'translate(' + ((5 * dt) + 50) + ')');
+            } else if (keyframe === 10) {
+                updateCaption($caption3, "'i' comes before 'l'... ", dt);
+            } else if (keyframe === 11) {
+                updateCaption($caption3, "... so don't swap...", dt);
+            } else if (keyframe === 12) {
+                updateCaption($caption3, "... finish last pass.", dt);
+            } else if (keyframe === 13) {
+                fadeOut($bubble3, dt);
+            } else {
+                clearInterval(intervalId3);
+                $('#play-button-3').fadeIn('slow', function() {
+                    reset3();
+                });
+            }
+        }
+        $('#play-button-3').on('click', function() {
+            reset3();
+            $('#play-button-3').fadeOut('slow', function() {
+                var t = 0;
+                intervalId3 = setInterval(function() { animate3(t++); }, 100);
+            });
+        });
+    </script>
+    
+    <script>
+        'use strict';
+        var page = '012';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

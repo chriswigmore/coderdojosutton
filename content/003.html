@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=3" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 3 &mdash; Space dog</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Colour</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Variables</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Fisheye</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Whirl</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Barking</a></li>
+                    <li><a href="#06-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>Give your pet a makeover. With a black hole.</p>
+                        <div class="img-wrapper">
+                            <img src="../img/003/space-dog.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Colour <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Colour 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Colour</h2>
+                        <p>Start from an empty Scratch project (<a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a> &mdash; remember to delete the cat sprite).</p>
+                        <p>Add the sprite called 'Dot' (the space dog) and one of the space backdrops. Make sure Dot is in the middle.</p>
+                        <img src="../img/003/dot-in-space.png"/>
+                        <p>Before we bring in the black hole, a good makeover often has a change of colour. Add the <span class="looks">set <span>color</span> effect to <var>0</var></span>, and click it. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">Dot changes colour</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>Nothing</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Change the 0 to 10, i.e. <span class="looks">set <span>color</span> effect to <var>10</var></span>, and click it. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>Dot turns yellow</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">Nothing happens</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Change the 10 back to 0 and click the block. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02" data-correct>Dot turns back to orange</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">Dot stays yellow</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Change the 0 to 30 and click the block. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03" data-correct>Dot turns green</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-03">Nothing happens</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Try a few different numbers. See how Dot changes colour, but also notice how her backpack and antenna change colour too. Is there a number that makes Dot orange again (hint &mdash; try 100, 200, etc)?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04">Yes, 100</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04" data-correct>Yes, 200</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-04">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>When you set the colour effect, you are spinning the sprite's colours around the 'colour wheel'.</p>
+                        <img src="../img/003/color-wheel.png"/>
+                        <p>When you set the colour effect to 200, you spin the colours all the way around the colour wheel, so it looks like nothing has changed.</p>
+                        <p>Notice that the white inside the helmet doesn't change. (If you have sharp eyes you might notice it changes very slightly.) This is because white is at the centre of the colour wheel, and the centre of a wheel doesn't move when the wheel spins.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> Where is black on the colour wheel? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Black is also at the centre of the colour wheel. How can white and black both be at the centre? Because the colour wheel is a simple way of understanding colours, but they're actually more complicated. White and black, and every shade of grey in between, are on an 'axis' through the centre of the colour wheel.</p>
+                                <img src="../img/003/color-wheel-tilted.png"/>
+                                <p>Even this is still too simple, for example where is brown? Where is pink? We might learn more about colours in a later module.</p>
+                            </div>
+                        </div>
+                        <p>It's hard work typing new numbers and clicking blocks. Let's see how using 'variables' makes things easier.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Variables <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Variables 02 -->
+
+                    <div class="question" data-hash="#02">
+                        <h2>Variables</h2>
+                        <p>Nest your <span class="looks">set <span>color</span> effect to <var>...</var></span> inside a <span class="control">forever</span> loop, snapped under a <span class="events">when <img src="../img/001/green-flag.png"/> clicked</span>. What happens if you click the green flag and type in different color effect numbers?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>Dot's colour changes immediately</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">Nothing happens</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Click 'Make a Variable' (the button in the 'Variables' section). A variable is like a box that you can put things such as numbers and words into.</p>
+                        <p>Different boxes have different names. Enter 'color' as the new variable name and click OK (leave 'For all sprites' checked).</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> Why <em>color</em> not <em>colour</em> with a 'u'? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Lots of code (including the Scratch website) is written by Americans, and they spell colour without the 'u', so let's do the same to be consistent.</p>
+                            </div>
+                        </div>
+                        <p>You should see a new <span class="variable rounded">color</span> block has appeared in the code blocks area. Drag one into the code area, and drop it into the slot of the <span class="looks">set <span>color</span> effect to <var>...</var></span>.</p>
+                        <img src="../img/003/when-forever-set-color.png"/>
+                        <p>Right-click on the color 'readout' on the stage.</p>
+                        <img src="../img/003/color-readout.png"/>
+                        <p>Click 'slider'. Click the green flag and drag the slider left and right. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>Dot changes colour as I move the slider</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">Nothing happens</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Right-click on the color readout again, and this time click 'change slider range'. What's wrong with the maximum value?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">You can't set a color effect as high as 100</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>A color effect of 200 spins the colour wheel all the way round. A maximum of 100 means we can only spin the colour wheel halfway round.</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Change the maximum value to 200 and click OK. Can you spin Dot's colours all the way until you get back to orange?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-03">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Pick a nice colour for Dot, and let's see how else we can change her look.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Fisheye <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fisheye 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Fisheye</h2>
+                        <p>There is an effect called 'fisheye' which distorts a sprite so that it looks to us the way it would look to a fish.</p>
+                        <p>Add a <span class="looks">set <span>color</span> effect to <var>0</var></span> and change it to  <span class="looks">set <span>fisheye</span> effect to <var>0</var></span>.</p>
+                        <p>Nest the new block inside the forever loop, underneath the <span class="looks">set <span>color</span> effect to <var><span class="variable rounded">color</span></var></span>.</p>
+                        <p>Make a new variable called 'fisheye' and drag it into the new block's slot.</p>
+                        <img src="../img/003/when-forever-set-color-fisheye.png"/>
+                        <p>Turn the fisheye readout into a slider.</p>
+                        <div class="help">
+                            <span><span class="glyphicon glyphicon-info-sign"></span> How do I do that? <span class="glyphicon glyphicon-chevron-down pull-right"></span></span>
+                            <div>
+                                <p>Just like you did for the color readout &mdash; right-click on it, and click 'slider'.</p>
+                            </div>
+                        </div>
+                        <p>Drag the slider to the right. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">Dot disappears</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>Dot looks like she's about to pop</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Change the slider range's minimum value to -100 and drag the slider left. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>Dot looks like she's being sucked into a black hole</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">Nothing happens</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Pick a nice amount of fisheye for Dot, and let's look at one more effect.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Whirl <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Whirl 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Whirl</h2>
+                        <p>Add a <span class="looks">set <span>color</span> effect to <var>0</var></span> and change it to  <span class="looks">set <span>whirl</span> effect to <var>0</var></span>.</p>
+                        <p>Nest the new block inside the forever loop, underneath the <span class="looks">set <span>fisheye</span> effect to <var><span class="variable rounded">fisheye</span></var></span>.</p>
+                        <p>Make a new variable called 'whirl' and drag it into the new block's slot.</p>
+                        <img src="../img/003/when-forever-set-color-fisheye-whirl.png"/>
+                        <p>Turn the whirl readout into a slider.</p>
+                        <p>Change the slider range's maximum value to 1000 and drag the slider right. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>Dot looks like she's being whirled around a black hole</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">The background disappears</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Drag the slider all the way to the left.</p>
+                        <p>Dogs like to warn their owners of danger by barking. Let's make Dot bark if things get too whirly.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Barking <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Barking 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Barking</h2>
+                        <p>Drag an if-then-else onto the code area (note the 'else' &mdash; up until now we've only used the if-then blocks).</p>
+                        <p>Grab a <span class="operators hex"><var></var> &gt; <var>50</var></span> (from the 'Operators' section) and drop it into the if-then-else's slot. Change the 50 to 500.</p>
+                        <p>Drag a <span class="variable rounded">whirl</span> block into the <span class="operators hex"><var></var> &gt; <var>500</var></span>'s slot.</p>
+                        <img src="../img/003/if-whirl.png" />
+                        <p>If <span class="variable rounded">whirl</span> is greater than 500, we want Dot to bark, else we want her to stop barking. Drag two <span class="looks">say <var>Hello!</var></span> blocks onto the code area.</p>
+                        <p>Change one to say 'Woof!' and delete all the text out of the other. Nest them in the if-then-else block like this:</p>
+                        <img src="../img/003/if-whirl-say-woof.png" />
+                        <p>If helps to read your code to check it makes sense... if whirl is greater than 500 then say 'Woof!', else say nothing.</p>
+                        <p>Nest this script inside the forever block, underneath the <span class="looks">set <span>whirl</span> effect to <var><span class="variable rounded">whirl</span></var></span>.</p>
+                        <p>Does your code look like this:</p>
+                        <img src="../img/003/when-forever-set-color-fisheye-whirl-if-whirl-say-woof.png" />
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#05-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#05">
+                        <p>Good. Click the full screen button, click the green flag, and drag the whirl slider. Check that Dot barks when things get really twisty. See how she looks when you combine different effects together.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#04-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#06-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 06 -->
+
+                    <div class="question" data-hash="#06">
+                        <h2>Next steps</h2>
+                        <p>Exit full screen, and save your game.</p>
+                        <p>See if you can make it better.</p>
+                        <p>What other effects could you can try?</p>
+                        <p>What other things could Dot do if effects get too extreme?</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '003';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

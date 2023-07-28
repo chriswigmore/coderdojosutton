@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=4" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 15 &mdash; Asteroid defence III: Juice</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Explosions</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Stars</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Health bar</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Game over</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>
+                            At the end of the last module, if you clicked on an asteroid it would just disappear. That's not very 'juicy'.
+                        </p>
+                        <p>
+                            The more a game reacts to your clicks and key presses, the more satisfying it is to play &mdash; the more <em>juicy</em> it is.
+                            In this module we will add juice by adding explosion effects.
+                        </p>
+                        <div class="img-wrapper">
+                            <img src="../img/015/explosion.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Explosions <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Explosions 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Explosions</h2>
+                        <p>
+                            Load up the project you saved at the end of the last module.
+                        </p>
+                        <p>
+                            Explosions need to know where they should be positioned on the stage. We'll use the same trick we used in the Particles module &mdash; add
+                            the x and y positions into a list and create a clone, then let the clone pull the x and y positions out of the list when it starts up.
+                        </p>
+                        <p>
+                            Create a new List named <span class="list rounded">EXPLOSION INFO</span> (for all sprites).
+                        </p>
+                        <p>
+                            Select the Asteroid sprite and add its <span class="motion rounded">x position</span> and <span class="motion rounded">y position</span>
+                            into this List when the sprite is clicked:
+                        </p>
+                        <img src="../img/015/asteroid.png" class="pull-right"/>
+                        <img src="../img/015/explosion-info.png"/>
+                        <p>
+                            Be sure to clear out the list when the green flag is clicked:
+                        </p>
+                        <img src="../img/015/asteroid.png" class="pull-right"/>
+                        <img src="../img/015/delete-explosion-info.png"/>
+                        <p>
+                            Paint a new sprite called 'Explosion'.
+                        </p>
+                        <p>
+                            Select the Circle tool, choose the Fill to be a radial gradient going from transparent at the centre to white at the edge and set the Outline
+                            thickness to 0. Draw a circle about 20 &times; 20 pixels and snap it to the centre:
+                        </p>
+                        <img src="../img/015/explosion.png"/>
+                        <p>
+                            Switch to the Explosion sprite's Code tab, add the usual hide-template-show-clone blocks,
+                            and let the clone set its position from the <span class="list rounded">EXPLOSION INFO</span>
+                            (remembering to delete the two items from the list after using them):
+                        </p>
+                        <img src="../img/015/explosion-icon.png" class="pull-right"/>
+                        <img src="../img/015/set-explosion.png"/>
+                        <p>
+                            Switch to the Asteroid sprite and, when an asteroid is clicked, create an Explosion clone:
+                        </p>
+                        <img src="../img/015/asteroid.png" class="pull-right"/>
+                        <img src="../img/015/clone-explosion.png"/>
+                        <p>
+                            Click the green flag and click some asteroids. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct>A white ring shows up where I click and stays there</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>
+                            How could we make the white ring expand outwards like an explosion?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">It can't be done</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>Repeatedly increase the size</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Correct &mdash; this is the trick we used in the Echolocation module.</p>
+                        <p>Switch to the Explosion sprite and add some code to do that. Also fade the ring out as it expands, and delete it once it's finished:</p>
+                        <img src="../img/015/explosion-icon.png" class="pull-right"/>
+                        <img src="../img/015/fade-explosion.png"/>
+                        <p>
+                            Click the green flag and click some asteroids. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-02" data-correct>The explosions explode!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Good. Now let's make the game look even more beautiful by adding some stars.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Stars <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stars 02 -->
+                    <div class="question" data-hash="#02">
+                        <h2>Stars</h2>
+                        <p>
+                            Paint a new sprite named 'Stars'. Switch straight to the Code tab &mdash; we don't need any costumes for this.
+                        </p>
+                        <p>
+                            At the bottom left of the screen, click on the 'Add Extension button':
+                        </p>
+                        <img src="../img/015/add-extension.png"/>
+                        <p>
+                            Select the Pen extension:
+                        </p>
+                        <img src="../img/015/pen.png"/>
+                        <p>
+                            The Pen extension is a powerful tool. It lets you draw using code, which means it will very quickly draw something that would take you hours.
+                        </p>
+                        <p>
+                            When the green flag is clicked we want to <em>erase all</em>, so we start from a clean slate.
+                            Then we want to set the pen colour to white, and the pen size to 1:
+                        </p>
+                        <img src="../img/015/stars-init.png"/>
+                        <p>
+                            We're going to paint lots of stars, in a repeat-loop, which could be very slow. How could we make it faster?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">Use the 'go faster' block</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>Run in a Block <em>without screen refresh</em></label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Make a Block, named 'Paint stars', and add an input (number or text) named <em>num stars</em> and another input (number or text) named
+                            <em>brightness</em>:
+                        </p>
+                        <img src="../img/015/paint-stars.png"/>
+                        <p>
+                            In its definition, repeatedly move the pen to a random position and make a dot there, by touching the pen down then lifting the pen up:
+                        </p>
+                        <img src="../img/015/paint-stars-1.png"/>
+                        <p>
+                            (Note: if we moved while the pen was down, we would draw a line. We might explore that in a later module.)
+                        </p>
+                        <p>
+                            Call that Block after setting up the pen colour and size, passing in 100 for <span class="my-blocks rounded">num stars</span>
+                            and 100 for <span class="my-blocks rounded">brightness</span>:
+                        </p>
+                        <img src="../img/015/paint-stars-100.png"/>
+
+                        <p>Click the green flag. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>I see 100 stars shining in the darkness!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            Next time you go star-gazing, look closely at the night sky and you will see that there are a few very bright stars, more medium-bright stars,
+                            and lots of very faint ones.
+                        </p>
+                        <p>
+                            Let's make our starry background more realistic. Firstly, we created a <span class="my-blocks rounded">brightness</span> input in our Block
+                            but then ignored it &mdash; let's fix that:
+                        </p>
+                        <img src="../img/015/pen-brightness.png"/>
+                        <p>
+                            A brightness of 100 means 'full brightness'. Add code to paint 300 stars with half brightness (that is, 50) and 1,000 stars with a quarter brightness
+                            (that is, 25):
+                        </p>
+                        <img src="../img/015/paint-all.png"/>
+                        <p>Click the green flag. Does the starry background look more realistic?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>
+                            It would have taken you ages to draw that many stars by hand.
+                        </p>
+                        <p>
+                            There are lots more beautiful images you can create using the Pen extension. Now that you've seen some things it can do, feel free to explore
+                            it further in your own projects.
+                        </p>
+                        <p>
+                            We need to move on to the health bar.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Health bar <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health bar 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Health bar</h2>
+                        <p>
+                            Many games would be frustrating if they ended the first time you were hit, so the 'health bar' was invented. You start with full health,
+                            you're allowed to be hit a few times, each time you 'take some damage' and the bar shows how much health you have left
+                            &mdash; often turning from green to yellow to red as you run out.
+                        </p>
+                        <p>
+                            Paint a new sprite named 'Health'. Select the Rectangle tool, a black Fill colour, and a grey Outline colour with a thickness of 2.
+                        </p>
+                        <p>
+                            Zoom in and draw a rectangle 10 chequered squares wide by 2 chequered squares tall, snapped to the centre:
+                        </p>
+                        <img src="../img/015/health-1.png"/>
+                        <p>
+                            Duplicate this costume until there are 11 of them.
+                        </p>
+                        <p>
+                            Do your costumes run from <em>costume1</em> to <em>costume11</em>?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Leave the last costume, costume11, as it is &mdash; an empty health bar.
+                        </p>
+                        <p>
+                            Select the one above it, costume10, and paint a red rectangle, one chequered square wide, starting at the left:
+                        </p>
+                        <img src="../img/015/health-2.png"/>
+                        <p>
+                            Copy and paste that red rectangle into the costume above, <em>costume9</em>, and drag its right edge until it's two chequered squares wide.
+                        </p>
+                        <p>
+                            Keep copying and pasting that rectangle from costume to costume, dragging it so that it's three chequered squares wide in 
+                            costume8, four in costume7, and so on, until you have a full health bar in costume1.
+                        </p>
+                        <p>
+                            Now we need to fix up the colours. Go down to costume10, select the red rectangle and ensure that the Fill colour is 0. 
+                        </p>
+                        <img src="../img/015/color-0.png"/>
+                        <p>
+                            Select the red rectangle in costume9, and change its Fill colour to 3 (a slightly orangey-red):
+                        </p>
+                        <img src="../img/015/color-1.png"/>
+                        <br class="clearfix"/>
+                        <img src="../img/015/health-3.png" class="pull-right"/>
+                        <p>
+                            In costume8...
+                        </p>
+                        <p>
+                            ...change it to 6...
+                        </p>
+                        <p>
+                            ... in costume7...
+                        </p>
+                        <p>
+                            ... change it to 9...
+                        </p>
+                        <p>
+                            ... and so on...
+                        </p>
+                        <p>
+                            ... increasing the colour by 3 as you work up the list of costumes.
+                        </p>
+                        <p>
+                            You should end up...
+                        </p>
+                        <p>
+                            ... with the first costume...
+                        </p>
+                        <p>
+                            ... the 'full health' costume...
+                        </p>
+                        <p>
+                            ...having the colour 27...
+                        </p>
+                        <p>
+                            ... a nice vibrant green...
+                        </p>
+                        <p>
+                            ... see the image on the right:
+                        </p>
+                        <br class="clearfix"/>
+                        <p>
+                            Do your health bar costumes blend smoothly from green to red?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Switch to the Code tab. When the green flag is clicked, set the costume to <em>costume1</em>, that is, full health:
+                        </p>
+                        <img src="../img/015/health.png" class="pull-right"/>
+                        <img src="../img/015/costume-10.png"/>
+                        <p>
+                            When the Earth is hit, we want to switch to the next costume. Add some code for that:
+                        </p>
+                        <img src="../img/015/health.png" class="pull-right"/>
+                        <img src="../img/015/next-costume.png"/>
+
+
+                        <p>
+                            Which sprite knows when to broadcast the 'Earth hit' message?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">Earth</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">Path</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02" data-correct>Asteroid</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">Explosion</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            The Asteroid sprite has a script that repeatedly moves its clones until they touch Earth. When that repeat loop ends, an asteroid has hit Earth.
+                            Broadcast the 'Earth hit' message at that point:
+                        </p>
+                        <img src="../img/015/asteroid.png" class="pull-right"/>
+                        <img src="../img/015/earth-hit.png"/>
+                        <p>
+                            Position the health bar just underneath Earth:
+                        </p>
+                        <img src="../img/015/earth-health.png"/>
+                        <p>
+                            Click the green flag. When the first few asteroids hit Earth, what happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03" data-correct>Health is lost each time</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            What happens when the health bar is empty, and then an asteroid hits Earth?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04" data-correct>The health bar becomes full again</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04">The Earth explodes</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Costumes 'wrap around'. If you're on the last costume, and you say <span class="looks">next costume</span>, you'll get the <em>first</em> costume again.
+                        </p>
+                        <p>
+                            We should end the game if the Earth runs out of health. If that happens, broadcast 'Game over':
+                        </p>
+                        <img src="../img/015/health.png" class="pull-right"/>
+                        <img src="../img/015/game-over.png"/>
+                        <p>
+                            Notice that, in the above screenshot, I'm detecting when Earth has run out of health by seeing if I'm on the <em>11th costume</em>. You might find it clearer
+                            to see if you're on the costume <em>named 'costume11'</em>. There is a subtle difference &mdash; matching on costume number means this script will break
+                            if I <em>add or remove</em> any of the current costumes... matching on costume name means it will break if I <em>rename</em> the costume. You should decide
+                            which is safer.
+                        </p>
+                        <p>
+                            We need the asteroids to stop when the game is over. Add some code for that:
+                        </p>
+                        <img src="../img/015/asteroid.png" class="pull-right"/>
+                        <img src="../img/015/stop-other.png"/>
+                        <p>
+                            While we're working on the Asteroid sprite, add some code to create explosions when the Earth is hit:
+                        </p>
+                        <img src="../img/015/asteroid.png" class="pull-right"/>
+                        <img src="../img/015/explode-earth.png"/>
+                        <p>
+                            Click the green flag and let the asteroids hit Earth. What happens?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-05">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-05" data-correct>I see explosions, health being lost, and then everything stops when I run out of health</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>
+                            Let's add a finishing touching &mdash; a 'Game over' message when the game ends.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Game over <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game over 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Game over</h2>
+                        <p>
+                            Paint a new sprite, naming it 'Game over'.
+                        </p>
+                        <p>
+                            In the Costumes tab, select the Text tool, a white Fill colour, and click in the middle of the drawing area.
+                        </p>
+                        <p>
+                            Type in <em>GAME OVER</em> then select the Select tool and snap it to the centre. It might be hard to see the white text against the
+                            chequered background of the drawing area, but you can see it on the Stage, and you should drag it to a good position, maybe near the bottom:
+                        </p>
+                        <img src="../img/015/game-over-2.png"/>
+                        <p>
+                            Switch to the Code tab, and add some code that:
+                            <ul>
+                                <li>sets the ghost effect to 100 when the green flag is clicked</li>
+                                <li>repeatedly decreases the ghost effect when the game is over</li>
+                            </ul>
+                        </p>
+                        <img src="../img/015/asteroid.png" class="pull-right"/>
+                        <img src="../img/015/game-over-fade.png"/>
+                        <p>What will the above code do?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">No one can predict that</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>
+                                When the green flag is clicked, the Game over sprite will be set to completely transparent and we won't see it.
+                                Then, when Game over is received, it will gradually become less transparent, until it's fully opaque and we can see it clearly.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            This is called a 'fade in'.
+                        </p>
+                        <p>
+                            Click the green flag and let the asteroids hit Earth. Does the Game over text fade into view?
+                        </p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>
+                            Great. Click the full screen button, click the green flag, and see how much cash you can earn before the game ends.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Next steps</h2>
+                        <p>Save your project.</p>
+                        <p>In the next few modules we will:</p>
+                        <ul>
+                            <li>make a 'turret' to automatically shoot asteroids</li>
+                            <li>create a shop for buying extra turrets</li>
+                        </ul>
+                        <p>Feel free to try out any of those ideas beforehand, or to try a different idea of your own instead.</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules2.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '015';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

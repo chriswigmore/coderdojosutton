@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Sutton</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/site.css?v=3" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">CoderDojo Sutton</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li-home"><a href="../index.html">Home</a></li>
+                    <li id="li-modules" class="active"><a href="modules.html">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="main">
+            <div class="main module-banner">
+                <h1>Module 6 &mdash; Particles</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="module-navbar" class="col-md-4">
+                <ul class="module-navbar list-unstyled">
+                    <li><a href="#00-00"><span class="circle"></span>Introduction</a></li>
+                    <li><a href="#01-00"><span class="circle"></span>Spaceship</a></li>
+                    <li><a href="#02-00"><span class="circle"></span>Lasers</a></li>
+                    <li><a href="#03-00"><span class="circle"></span>Particles</a></li>
+                    <li><a href="#04-00"><span class="circle"></span>Drift</a></li>
+                    <li><a href="#05-00"><span class="circle"></span>Next steps</a></li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div id="question">
+                    <!-- Intro 00 -->
+
+                    <div class="question" data-hash="#00">
+                        <h2>Introduction</h2>
+                        <p>Learn how to use particles to make a laser beam 'blaze a trail' through space.</p>
+                        <div class="img-wrapper">
+                            <img src="../img/006/particles.gif"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#01-00" class="btn btn-next btn-lg">Spaceship <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Spaceship 01 -->
+
+                    <div class="question" data-hash="#01">
+                        <h2>Spaceship</h2>
+                        <p>Start from an empty Scratch project (<a href="https://rpf.io/scratch-new" target="_blank">rpf.io/scratch-new</a> &mdash; remember to delete the cat sprite).</p>
+                        <p>Paint a new sprite, naming it 'Spaceship':</p>
+                        <img src="../img/002/paint-sprite.png"/>
+                        <p>Zoom in until the chequered background becomes large, then select the Line tool, change the Outline colour to a bright blue, and draw a triangle facing to the right. Click the Select tool, select the triangle, and give it a bright blue Fill color:</p>
+                        <img src="../img/006/blue-triangle.png"/>
+                        <p>Copy and paste that triangle, give the new triangle a white Fill colour, shrink it a little bit and position it so it overhangs the back of the first triangle:</p>
+                        <img src="../img/006/blue-white-triangles.png"/>
+                        <p>Paint a black backdrop.</p>
+                        <p>What code should we add so that the spaceship always points towards the mouse-pointer?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00"><img src="../img/006/flag-point-mouse.png"/></label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-00" data-correct><img src="../img/006/flag-forever-point-mouse.png"/></label>
+                        </div>
+                    </div>
+
+
+                    <div class="question" data-hash="#01">
+                        <p>Add that code, click the green flag, and move your mouse-pointer around the stage. Does the spaceship turn to face your mouse-pointer?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#01-01">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#01">
+                        <p>Time to arm our spaceship with a laser.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#00-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#02-00" class="btn btn-next btn-lg">Laser <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Laser 02 -->
+
+                    <div class="question" data-hash="#02">
+                        <h2>Laser</h2>
+                        <p>Paint a second sprite, naming it 'Laser'.</p>
+                        <p>Zoom in, select the Line tool, pick a bright blue Outline colour, then click the 'horizontal gradient' button:</p>
+                        <img src="../img/006/gradient.png"/>
+                        <p>By default you'll see a green colour on the right &mdash; change this to 'transparent' by clicking the transparent button:<p>
+                        <img src="../img/006/gradient-transparent.png"/>
+                        <p>Click the 'Swap' button, so that our line changes from transparent on the left to blue on the right:</p>
+                        <img src="../img/006/gradient-swap.png"/>
+                        <p>Set the thickness to 6 and draw a horizontal line, about 6 chequered squares wide. Does your laser beam look like this?</p>
+                        <img src="../img/006/draw-laser.png"/>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00" data-correct>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-00">No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Click the Spaceship sprite, then the Code tab. Add code to create a clone of Laser whenever the space key is pressed, with a <span class="control">wait <var>0.1</var> seconds</span> 'cool down' afterwards.</p>
+                        <img src="../img/006/spaceship.png" class="pull-right" />
+                        <img src="../img/006/flag-forever-if-space-clone-wait.png"/>
+                        <p>Since our spaceship can turn in any direction, what do we need to remember when we create Laser clones?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01">We must set their brightness</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-01" data-correct>We must point them in the same direction as the Spaceship</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Click the Laser sprite, add the usual hide-template-show-clone code. Also add a <span class="motion">go to <span>Spaceship</span></span> and a <span class="motion">point towards <span>mouse-pointer</span></span>:</p>
+                        <img src="../img/006/laser.png" class="pull-right" />
+                        <img src="../img/006/start-go-point-show.png"/>
+                        <p>Click the green flag and smash that space bar while moving the mouse around. What do you see?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#02-02" data-correct>Laser beams are created, pointing in the right direction, but not moving</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#02">
+                        <p>Add code to make the laser beam fly across the stage, and test it out.</p>
+                        <img src="../img/006/laser.png" class="pull-right" />
+                        <img src="../img/006/repeat-move-delete.png"/>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#01-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#03-00" class="btn btn-next btn-lg">Particles <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Particles 03 -->
+
+                    <div class="question" data-hash="#03">
+                        <h2>Particles</h2>
+                        <p>Paint a third sprite, naming it 'Particle'.</p>
+                        <p>Zoom in, select the Circle tool, pick a bright blue Fill colour and set the Outline thickness to 0. Draw a circle about a quarter the size of a chequered square:</p>
+                        <img src="../img/006/draw-particle.png"/>
+                        <p>In the Code tab, add the usual hide-template-show-clone blocks.<p>
+                        <p>When a laser beam flies through space, we want it to create a particle at each point along the path. So, in the Laser sprite's repeat-loop, add a <span class="control">create clone of <span>Particle</span></span>.<p>
+                        <img src="../img/006/laser.png" class="pull-right" />
+                        <img src="../img/006/create-clone-particle.png"/>
+                        <p>Now the Particle clone needs to know where it should be placed. Could we use a <span class="motion">go to <span>Laser</span></span>?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-00" data-correct>No, because that will place the Particle where the Laser <em>template</em> is, not where the Laser <em>clone</em> is</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>We need to use a 'list' to store positions. A list is just a number of variables in order &mdash; you can ask for, say, the 1st item in the list, or the 4th, etc, and you can add items to a list, or remove items from it.</p>
+                        <p>Click 'Make a List' (the button in the 'Variables' section). Name the list 'particle positions' (for all sprites).</p>
+                        <p>Just before we <span class="control">create clone of <span>Particle</span></span>, add the Laser's x and y position to this list.</p>
+                        <img src="../img/006/laser.png" class="pull-right" />
+                        <img src="../img/006/add-x-add-y.png"/>
+                        <p>Click the green flag and then hit the space bar. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01" data-correct>The particle positions list fills up with numbers</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-01">Nothing happens</label>
+                        </div>
+                    </div>
+                    
+                    <div class="question" data-hash="#03">
+                        <p>That's right. Why?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02">Lists are mysterious, no one understands them</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-02" data-correct>As the laser beam flies across the stage, it adds its x and y positions to the list</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>The first item in the list will be the first x position that the Laser was at, and we can read it using <span class="list rounded">item <var>1</var> of <span>particle positions</span></span>. Drag this block onto the code area (anywhere is fine... this is just 'test code') and click it &mdash; what happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03" data-correct>Something pops up saying a number</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-03">Nothing happens</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>We can delete the first item in the list using the <span class="list">delete <var>1</var> of <span>particle positions</span></span> block. Click it, and watch what happens to the list. Is the first item now blank?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-04" data-correct>No</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>When we delete the first item in the list, the second item becomes the new first item! Check this yourself &mdash; look at the second and third items in the list, delete the first again, and see that the items 'move up'.</p>
+                        <p>Add a <span class="list">delete all of <span>particle positions</span></span> and click it. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-05" data-correct>All the particle positions are deleted</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-05">Nothing happens</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Snap that <span class="list">delete all of <span>particle positions</span></span> under the green flag clicked, so that we always start from a clean slate, then click on the Particle sprite.</p>
+                        <p>Here we want to set the Particle clone's x and y position from the items in the list. Since we add x <em>then</em> y, we must set x <em>then</em> y. Remember to delete each item after using it.</p>
+                        <img src="../img/006/particle.png" class="pull-right" />
+                        <img src="../img/006/set-delete.png"/>
+                        <p>Click the green flag then hit space bar. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-06">Nothing happens</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#03-06" data-correct>The laser beam leaves a trail of particles behind it!</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#03">
+                        <p>Do you also see how numbers are added to the list and immediately deleted from it, very quickly? That's because, as soon as the Laser adds its x and y position, a Particle is created which 'eats' them.</p>
+                        <p>Now that we understand how the list works, it can be hidden &mdash; uncheck the checkbox.</p>
+                        <img src="../img/006/uncheck-list.png"/>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#02-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#04-00" class="btn btn-next btn-lg">Drift <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Drift 04 -->
+
+                    <div class="question" data-hash="#04">
+                        <h2>Drift</h2>
+                        <p>Particles look better if they drift randomly. After a particle clone has started, point it in a random direction, repeatedly move it 2 steps (10 times), then delete it.</p>
+                        <img src="../img/006/particle.png" class="pull-right" />
+                        <img src="../img/006/point-repeat-move-delete.png"/>
+                        <p>Click the green flag then hit the space bar. What happens?</p>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00" data-correct>The laser beam is followed by a trail of drifting particles!</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="#04-00">Nothing happens</label>
+                        </div>
+                    </div>
+
+                    <div class="question" data-hash="#04">
+                        <p>Good. Now for some final polish. Drag the spaceship into a corner so our laser beam can fly across a nice long diagonal.</p>
+                        <p>Click back to the Particle sprite and change the loop to repeat 30 times. Inside the loop, change the ghost effect by 3 so the particles gradually fade out.</p>
+                        <img src="../img/006/particle.png" class="pull-right" />
+                        <img src="../img/006/repeat-30-ghost.png"/>
+                        <p>Click the full screen button, click the green flag and hit the space bar. Watch how single shots look, and watch how things look when you fire a volley of laser beams.</p>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a href="#03-00" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-menu-left"></span></a>
+                            </div>
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="#05-00" class="btn btn-next btn-lg">Next steps <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next steps 05 -->
+
+                    <div class="question" data-hash="#05">
+                        <h2>Next steps</h2>
+                        <p>Exit full screen, and save your game.</p>
+                        <p>See if you can make it better.</p>
+                        <p>Could you make an 'Asteroids' game where you have to shoot and destroy asteroids before they collide with your ship?</p>
+                        <p>What ideas can you come up with?</p>
+                        <hr/>
+                        <div class="rating clearfix">
+                            <p>What did you think of this module?</p>
+                            <div data-rating="-1">
+                                <p>I didn't like it<p>
+                                <img src="../img/sad.png"/>
+                            </div>
+                            <div data-rating="0">
+                                <p>It was OK<p>
+                                <img src="../img/ok.png"/>
+                            </div>
+                            <div data-rating="1">
+                                <p>I loved it<p>
+                                <img src="../img/happy.png"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-offset-7 col-md-5">
+                                <a href="modules.html" class="btn btn-next btn-lg">Back to the list of modules <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        'use strict';
+        var page = '006';
+    </script>
+    <script src="../js/site.js"></script>
+</body>
+</html>
